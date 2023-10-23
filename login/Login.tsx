@@ -24,7 +24,7 @@ export const LoginForm: React.FC = ({setIsLoggedIn}) => {
     return(
 
         <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
             style={styles.container}
         >
             <Image style={styles.formImage} source={require('../assets/OrionLogo.png')}/>

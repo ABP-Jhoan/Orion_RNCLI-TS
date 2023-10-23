@@ -6,6 +6,7 @@ export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Bienvenido</Text>
             <Text style={styles.commonText} onPress={() => navigation.navigate('Products')}>Lista de productos</Text>
+            <Text style={styles.commonText} onPress={() => navigation.navigate('Configurar licencia')}>Vista de pestañas</Text>
             <Text style={styles.logOut} onPress={() => setIsLoggedIn(false)}>Cerrar sesión</Text>
         </View>
     )

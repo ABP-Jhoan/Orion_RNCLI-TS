@@ -6,6 +6,7 @@ export type RootStackParamList = {
   LoginForm: undefined;
   Home: undefined;
   Products: undefined;
+  TabViewer: undefined;
 };
 
 // Importaciones propias de React Native y librerías.
@@ -17,6 +18,7 @@ import { RootStackParamList } from './types';
 import {LoginForm} from '../login/Login';
 import {Home} from '../menu/Home';
 import {DataList} from '../listadoProductos/ProductsView';
+import {TabContainer} from '../tabNav/TabContainer'
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator<RootStackParamList>();
@@ -25,8 +27,12 @@ export const MainStack: React.FC = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return(
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
-                {/*<Stack.Screen name="Home" component={LoginForm}/>*/}
+            <Stack.Navigator
+                //? Ternaria para activar o desactivar las opciones de retorno.
+                screenOptions = {({route}) => ({
+                    headerShown: route.name !== 'Login' ? true : false
+                })}
+            >
                 {/*
                     //? Ternaria para evaluar si la sesión está iniciada o cerrada.
                     //? Caso 1. La sesión está iniciada y la página principal será el home.
@@ -43,6 +49,7 @@ export const MainStack: React.FC = () => {
                 )}
                 {/*//? Otras rutas.*/}
                 <Stack.Screen name="Products" component={DataList}/>
+                <Stack.Screen name="Configurar licencia" component={TabContainer}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
