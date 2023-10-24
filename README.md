@@ -8,35 +8,35 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 
 ### DEPENDENCIAS USANDAS ACTUALMENTE
 
-lodash ❌ 🔄Usando Typescript
-native-base ❌ 🔄Cambiar. La documentación sugiere usar ✔️gluestack-ui
-prop-types ❌ 🔄Nativo de Typescript
-react-moment ✔️
-react-native-charts-wrapper ❌ 🔄Cambiar por chart.js
-react-native-display ❌
-react-native-floating-action ❌ 🔄Cambiar por react-native-reanimated
-react-native-gesture-handler ✔️
-react-native-image-picker ✔️
-react-native-indicators ❌ 🔄Cambiar por react-native-loader-kit
-react-native-modal-datetime-picker ✔️
-react-native-modalbox ❌ 🔄Cambiar por @whitespectre/rn-modal-presenter
-react-native-orientation-locker ❓
-react-native-pure-jwt ✔️
-react-native-reanimated ✔️
-react-native-safe-area-view ❌Deprecado 🔄Cambiar por react-native-safe-area-context
-react-native-slider ❌ 🔄Cambiar por @react-native-community/slider
-react-native-swipeout ❌ 🔄Cambiar por rn-swipe-action-button
-react-native-vector-icons ✔️
-react-native-walkthrough-tooltip ✔️
-react-native-webview ✔️
-react-navigation ❌Deprecado 🔄Cambiar por @react-navigation/native
-react-navigation-drawer ❌Deprecado 🔄Cambiar por @react-navigation/drawer
-react-navigation-stack ❌Deprecado 🔄Cambiar por @react-navigation/stack
-react-redux ✔️
-redux ✔️
-redux-persist ❌ 🔄Cambiar por una base de datos local
-redux-thunk ✔️
-rn-fetch-blob ❌ 🔄Cambiar por react-native-blob-util ó react-native-fs
+- lodash ❌ 🔄Usando Typescript
+- native-base ❌ 🔄Cambiar. La documentación sugiere usar ✔️gluestack-ui
+- prop-types ❌ 🔄Nativo de Typescript
+- react-moment ✔️
+- react-native-charts-wrapper ❌ 🔄Cambiar por chart.js
+- react-native-display ❌
+- react-native-floating-action ❌ 🔄Cambiar por react-native-reanimated
+- react-native-gesture-handler ✔️
+- react-native-image-picker ✔️
+- react-native-indicators ❌ 🔄Cambiar por react-native-loader-kit
+- react-native-modal-datetime-picker ✔️
+- react-native-modalbox ❌ 🔄Cambiar por @whitespectre/rn-modal-presenter
+- react-native-orientation-locker ❓
+- react-native-pure-jwt ✔️
+- react-native-reanimated ✔️
+- react-native-safe-area-view ❌Deprecado 🔄Cambiar por react-native-safe-area-context
+- react-native-slider ❌ 🔄Cambiar por @react-native-community/slider
+- react-native-swipeout ❌ 🔄Cambiar por rn-swipe-action-button
+- react-native-vector-icons ✔️
+- react-native-walkthrough-tooltip ✔️
+- react-native-webview ✔️
+- react-navigation ❌Deprecado 🔄Cambiar por @react-navigation/native
+- react-navigation-drawer ❌Deprecado 🔄Cambiar por @react-navigation/drawer
+- react-navigation-stack ❌Deprecado 🔄Cambiar por @react-navigation/stack
+- react-redux ✔️
+- redux ✔️
+- redux-persist ❌ 🔄Cambiar por una base de datos local
+- redux-thunk ✔️
+- rn-fetch-blob ❌ 🔄Cambiar por react-native-blob-util ó react-native-fs
 
 ### DEPENDENCIAS NUEVAS
 react-native-alert-notification 🆕Nueva dependecia para mostrar alertas.
