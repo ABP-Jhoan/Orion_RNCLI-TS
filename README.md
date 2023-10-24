@@ -1,79 +1,50 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Documento informativo provisional de Orión
+La aplicación de Orión no había recibido actualizaciones desde hace un tiempo (3 años aproximadamente), por esa razón se decidió hacer una "actualización" de la misma creandola desde cero con las tecnologías, librerías y metodologías actuales.
 
-# Getting Started
+A continuación se relacionan las librerías que continúan y que NO continúan con base al archivo "package.json", así como las alternativas:
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+✔️ La librería continúa porque se le ha seguido dando soporte o su última actualización tiene un tiempo < 12 meses
+❌ La libreía NO continúa porque está deprecada o su última actualización tiene un tiempo > 12 meses
 
-## Step 1: Start the Metro Server
+### DEPENDENCIAS USANDAS ACTUALMENTE
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+lodash ❌ 🔄Usando Typescript
+native-base ❌ 🔄Cambiar. La documentación sugiere usar ✔️gluestack-ui
+prop-types ❌ 🔄Nativo de Typescript
+react-moment ✔️
+react-native-charts-wrapper ❌ 🔄Cambiar por chart.js
+react-native-display ❌
+react-native-floating-action ❌ 🔄Cambiar por react-native-reanimated
+react-native-gesture-handler ✔️
+react-native-image-picker ✔️
+react-native-indicators ❌ 🔄Cambiar por react-native-loader-kit
+react-native-modal-datetime-picker ✔️
+react-native-modalbox ❌ 🔄Cambiar por @whitespectre/rn-modal-presenter
+react-native-orientation-locker ❓
+react-native-pure-jwt ✔️
+react-native-reanimated ✔️
+react-native-safe-area-view ❌Deprecado 🔄Cambiar por react-native-safe-area-context
+react-native-slider ❌ 🔄Cambiar por @react-native-community/slider
+react-native-swipeout ❌ 🔄Cambiar por rn-swipe-action-button
+react-native-vector-icons ✔️
+react-native-walkthrough-tooltip ✔️
+react-native-webview ✔️
+react-navigation ❌Deprecado 🔄Cambiar por @react-navigation/native
+react-navigation-drawer ❌Deprecado 🔄Cambiar por @react-navigation/drawer
+react-navigation-stack ❌Deprecado 🔄Cambiar por @react-navigation/stack
+react-redux ✔️
+redux ✔️
+redux-persist ❌ 🔄Cambiar por una base de datos local
+redux-thunk ✔️
+rn-fetch-blob ❌ 🔄Cambiar por react-native-blob-util ó react-native-fs
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### DEPENDENCIAS NUEVAS
+react-native-alert-notification 🆕Nueva dependecia para mostrar alertas.
+@react-native/material-top-tabs Y react-native-tab-view 🆕Nuevas dependecias para la navegación basada en pestañas.
 
-```bash
-# using npm
-npm start
+## ASPECTOS QUE SUFRIERON CAMBIOS
 
-# OR using Yarn
-yarn start
-```
+### **Routing**
+**V1.0.2**: En versiones anteriores del proyecto, la navegación y las rutas se resolvían desde un solo archivo donde convergían todos los tipos de navegación (basada en botones dentro de cada vista, basada en pestañas y basada en botones desde una sidebar).
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**V2.0.0**: En esta versión se separarán los tipos de navegación por componente e importandolos en el componente `NavigationContainer` en el documento `NavigationStack`, esto con el objetivo de hacerlo más claro y segmentado.

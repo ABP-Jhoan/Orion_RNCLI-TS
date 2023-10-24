@@ -1,19 +1,7 @@
-/*
-    Verifica los nombres y parámetros de cada ruta, como no se están recibiendo parámetros, se setea en "undefined"
-    Aquí se pondría como parámetro el id del usuario si se tuviera un backend.
-*/
-export type RootStackParamList = {
-  LoginForm: undefined;
-  Home: undefined;
-  Products: undefined;
-  TabViewer: undefined;
-};
-
 // Importaciones propias de React Native y librerías.
 import React, {useState} from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { RootStackParamList } from './types';
 // Componentes para crear las rutas (Solo las vistas, no los componentes dentro de ellas).
 import {LoginForm} from '../login/Login';
 import {Home} from '../menu/Home';
@@ -21,16 +9,18 @@ import {DataList} from '../listadoProductos/ProductsView';
 import {TabContainer} from '../tabNav/TabContainer'
 
 //? Creando la pila de direcciones.
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator();
 
-export const MainStack: React.FC = () => {
+export function MainStack(){
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return(
         <NavigationContainer>
             <Stack.Navigator
-                //? Ternaria para activar o desactivar las opciones de retorno.
+                //? Ternaria para activar o desactivar las opciones de retorno y otras opciones de estilo.
                 screenOptions = {({route}) => ({
-                    headerShown: route.name !== 'Login' ? true : false
+                    headerShown: route.name !== 'Login' ? true : false,
+                    headerTintColor: '#fff',
+                    headerStyle: {backgroundColor: '#0074e0', height: 70}
                 })}
             >
                 {/*

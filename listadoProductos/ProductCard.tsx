@@ -2,17 +2,17 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
 // Interface para definir el tipo de dato que serán las props, esto es por TypeScript.
-interface props{
+interface properties{
     name: string;
     desc: string;
 }
 // Componente "card" en el que se presenta la información de cada "producto".
-export const Product: React.FC = ({name, desc}) => {
+export function Product(props:properties){
     return(
         <View style={styles.card}>
-            <Text style={styles.titulo}>{name}</Text>
+            <Text style={styles.titulo}>{props.name}</Text>
             <Text style={styles.descriptionTitle}>Descripción:</Text>
-            <Text style={styles.description}>{desc}</Text>
+            <Text>{props.desc}</Text>
         </View>
     )
 }

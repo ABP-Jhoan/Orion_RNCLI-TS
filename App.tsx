@@ -1,7 +1,5 @@
 import React from 'react';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import type {PropsWithChildren} from 'react';
-import {View} from 'react-native';
+import 'react-native-gesture-handler';
 import {MainStack} from './navigation/MainStack'
 
 function App(): JSX.Element {
