@@ -50,13 +50,13 @@ react-native-alert-notification 🆕Nueva dependecia para mostrar alertas.
 **V2.0.0**: En esta versión se separarán los tipos de navegación por componente e importandolos en el componente `NavigationContainer` en el documento `routes.tsx`, esto con el objetivo de hacerlo más claro y segmentado.
 La estructura es la siguiente:
 
-- src
-- |
-- |--config
--      |
--      |--routing
--          |
--           |--tabNavigation
--           |--drawerNavigation
--           |--basicNavigation
--           |--router.tsx
+> src
+> |
+> |--config
+>      |
+>      |--routing
+>           |
+>           |--tabNavigation
+>           |--drawerNavigation
+>           |--basicNavigation
+>           |--router.tsx
