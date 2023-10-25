@@ -52,8 +52,10 @@ La estructura es la siguiente:
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    src-->config;
+    config-->routing;
+    routing-->tabNavigation;
+    routing-->drawerNavigation;
+    routing-->basicNavigation;
+    routing-->routes.tsx;
 ```
