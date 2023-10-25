@@ -15,7 +15,6 @@ export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
 const styles = StyleSheet.create({
     container:{
         height: 865,
-        paddingTop: 100,
         padding: 20
     },
     pageTitle:{

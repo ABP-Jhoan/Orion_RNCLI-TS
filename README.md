@@ -4,9 +4,9 @@ La aplicación de Orión no había recibido actualizaciones desde hace un tiempo
 A continuación se relacionan las librerías que continúan y que NO continúan con base al archivo "package.json", así como las alternativas:
 
 - ✔️ La librería continúa porque se le ha seguido dando soporte o su última actualización tiene un tiempo < 12 meses.
-- ❌ La libreía NO continúa porque está deprecada o su última actualización tiene un tiempo > 12 meses.
+- ❌ La librería NO continúa porque está deprecada o su última actualización tiene un tiempo > 12 meses.
 
-### DEPENDENCIAS USANDAS ACTUALMENTE Y SUS ALTERNATIVAS
+### DEPENDENCIAS USANDAS Y SUS ALTERNATIVAS ACTUALES
 
 - lodash ❌ 🔄Usando Typescript
 - native-base ❌ 🔄Cambiar. La documentación sugiere usar ✔️gluestack-ui
@@ -47,4 +47,16 @@ react-native-alert-notification 🆕Nueva dependecia para mostrar alertas.
 ### **Routing**
 **V1.0.2**: En versiones anteriores del proyecto, la navegación y las rutas se resolvían desde un solo archivo donde convergían todos los tipos de navegación (basada en botones dentro de cada vista, basada en pestañas y basada en botones desde una sidebar).
 
-**V2.0.0**: En esta versión se separarán los tipos de navegación por componente e importandolos en el componente `NavigationContainer` en el documento `NavigationStack`, esto con el objetivo de hacerlo más claro y segmentado.
+**V2.0.0**: En esta versión se separarán los tipos de navegación por componente e importandolos en el componente `NavigationContainer` en el documento `routes.tsx`, esto con el objetivo de hacerlo más claro y segmentado.
+La estructura es la siguiente:
+
+src
+ |
+ |--config
+      |
+      |--routing
+           |
+           |--tabNavigation
+           |--drawerNavigation
+           |--basicNavigation
+           |--router.tsx

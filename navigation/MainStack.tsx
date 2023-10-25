@@ -5,8 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 // Componentes para crear las rutas (Solo las vistas, no los componentes dentro de ellas).
 import {LoginForm} from '../login/Login';
 import {Home} from '../menu/Home';
-import {DataList} from '../listadoProductos/ProductsView';
-import {TabContainer} from '../tabNav/TabContainer'
+import {BasicNavigation} from './MainNavigation'
+import {TabContainer} from './TabContainer'
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -38,7 +38,7 @@ export function MainStack(){
                     </Stack.Screen>
                 )}
                 {/*//? Otras rutas.*/}
-                <Stack.Screen name="Products" component={DataList}/>
+                <Stack.Screen name="Products" component={BasicNavigation}/>
                 <Stack.Screen name="Configurar licencia" component={TabContainer}/>
             </Stack.Navigator>
         </NavigationContainer>

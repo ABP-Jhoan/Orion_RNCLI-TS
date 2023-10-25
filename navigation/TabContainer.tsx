@@ -1,6 +1,6 @@
 // Imports propios de React Native y librerías.
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import React from 'react';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 // Imports para crear las pastañas (solo vistas, no componentes dentro de ellas).
 import {TabUno} from '../tabNav/tabUno/TabUno';
 import {TabDos} from '../tabNav/tabDos/TabDos';

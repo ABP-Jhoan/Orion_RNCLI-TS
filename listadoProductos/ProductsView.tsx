@@ -21,7 +21,6 @@ export const DataList: React.FC = () => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 100,
         padding: 20,
     },
     title:{
