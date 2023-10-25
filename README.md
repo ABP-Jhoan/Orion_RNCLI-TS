@@ -26,7 +26,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - react-native-safe-area-view ❌Deprecado 🔄Cambiar por react-native-safe-area-context
 - react-native-slider ❌ 🔄Cambiar por @react-native-community/slider
 - react-native-swipeout ❌ 🔄Cambiar por rn-swipe-action-button
-- react-native-vector-icons ✔️
+- react-native-vector-icons ❌ Error en la configuración.
 - react-native-walkthrough-tooltip ✔️
 - react-native-webview ✔️
 - react-navigation ❌Deprecado 🔄Cambiar por @react-navigation/native
@@ -39,8 +39,9 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - rn-fetch-blob ❌ 🔄Cambiar por react-native-blob-util ó react-native-fs
 
 ### DEPENDENCIAS NUEVAS
-react-native-alert-notification 🆕Nueva dependecia para mostrar alertas.
-@react-native/material-top-tabs Y react-native-tab-view 🆕Nuevas dependecias para la navegación basada en pestañas.
+- react-native-alert-notification 🆕Nueva dependecia para mostrar alertas.
+- @react-native/material-top-tabs Y react-native-tab-view 🆕Nuevas dependecias para la navegación basada en pestañas.
+- lucide-react-native 🆕Nueva dependencia para el uso de iconos.
 
 ## ASPECTOS QUE SUFRIERON CAMBIOS
 

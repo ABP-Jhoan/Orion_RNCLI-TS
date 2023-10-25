@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+import {InputIcon} from '../components/InputIcon'
+
 export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
     return(
         <View style={styles.container}>
@@ -8,6 +10,7 @@ export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
             <Text style={styles.commonText} onPress={() => navigation.navigate('Products')}>Lista de productos</Text>
             <Text style={styles.commonText} onPress={() => navigation.navigate('Configurar licencia')}>Vista de pestañas</Text>
             <Text style={styles.logOut} onPress={() => setIsLoggedIn(false)}>Cerrar sesión</Text>
+            <InputIcon/>
         </View>
     )
 }

@@ -1,5 +1,6 @@
-import { Button,TextInput,Text,TouchableOpacity,Image,StyleSheet, View, KeyboardAvoidingView } from 'react-native';
+import { Button, TextInput, Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
+
 
 export const LoginForm: React.FC = ({setIsLoggedIn}) => {
     // Constantes con estado por defecto vacío, aquí se guardarán los datos ingresados.
@@ -22,7 +23,6 @@ export const LoginForm: React.FC = ({setIsLoggedIn}) => {
         }
     }
     return(
-
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
             style={styles.container}
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         height: 885,
         paddingTop: 100,
         padding: 20,
-        backgroundColor: '#0061c9',
+        backgroundColor: '#41587d',
         flex: 1,
         justifyContent: 'center',
     },
