@@ -1,41 +1,69 @@
 //? Imports propios de React y librerías.
-import React from 'react';
-import {View, StyleSheet, TextInput} from 'react-native'
-import {User} from 'lucide-react-native'
+import React, { useState } from 'react';
+import {View, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
+import {Eye, EyeOff} from "lucide-react-native";
+import {iconMap} from '../assets/icons/Icons'
 
 //? Definición de propiedades y tipos que recibirá el componente.
 interface InputProps{
-    iconName: String,
-    placeHolder: String,
-    secureTextEntry: boolean,
-    value: String,
-
+    iconName: keyof typeof iconMap
+    iconEye?: boolean
+    iconSize?: number
+    placeHolder?:string
+    secureTextEntry: boolean
+    textValue?: string
+    changeFunc?:(text: string) => void
 }
+export const InputIcon : React.FC<InputProps> = ({iconName = 'User', iconSize = 30, placeHolder, secureTextEntry, textValue, iconEye, changeFunc}) => {
+    //? Constante para importar iconos predeterminados de manera sancilla.
+    const Icon = iconMap[iconName]
+    const [text, setText] = useState(secureTextEntry)
+    //? Constante para cambiar el icono en el campo de la contraseña (importo solo los iconos necesarios).
+    const EyeIcon = text ? Eye : EyeOff
 
-export const InputIcon : React.FC = () => {
+    function showPss() {
+        if (iconEye) {
+            setText(true)
+            iconEye = false
+        }else{
+            setText(false)
+            iconEye = true
+        }
+    }
     return(
         <View style={styles.container}>
-            <User color='#fff' size={40} style={styles.icon}/>
-            <TextInput style={styles.textArea}/>
+            <Icon style={styles.icon} size={iconSize}/>
+            <TextInput style={styles.textArea}
+                placeholder={placeHolder}
+                secureTextEntry={text}
+                value={textValue}
+                onChangeText={changeFunc}
+            />
+            {iconEye ? 
+                <TouchableOpacity onPress={showPss}>
+                    <EyeIcon style={styles.icon} size={iconSize}/>
+                </TouchableOpacity>
+                : null}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
-        marginTop: 20,
+        marginBottom: 20,
         width: '100%',
-        backgroundColor: '#0074e0',
+        backgroundColor: '#a7bbc6',
         borderColor: '#000',
         flexDirection: 'row',
         alignItems: 'center',
         borderRadius: 10
     },
     icon:{
-        width: 30
+        color: '#fff',
+        margin: 10
     },
     textArea:{
-        color: '#fff',
-        width: '80%',
+        color: '#215877',
+        width: '70%',
     }
 })

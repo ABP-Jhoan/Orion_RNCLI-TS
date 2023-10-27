@@ -13,7 +13,7 @@ export const BasicNavigation : React.FC = () => {
             <BasicStack.Navigator
                 screenOptions={{headerShown: false}}
             >
-                <BasicStack.Screen name="Products" component={DataList}/>
+                <BasicStack.Screen name="ProductList" component={DataList}/>
             </BasicStack.Navigator>
         </>
     )

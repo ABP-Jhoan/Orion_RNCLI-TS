@@ -1,24 +1,26 @@
 import { Button, TextInput, Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
+import { InputIcon } from "../components/InputIcon";
 
 
 export const LoginForm: React.FC = ({setIsLoggedIn}) => {
     // Constantes con estado por defecto vacío, aquí se guardarán los datos ingresados.
-    const [usuario, setUsuario] = useState('');
-    const [contrasena, setContrasena] = useState('');
+    const [usuario, setUsuario] = useState({InputIcon:''});
+    const [contrasena, setContrasena] = useState({InputIcon:''});
     const handleUsuarioChange = (text: string) => {
-       setUsuario(text);
+       setUsuario({...usuario, InputIcon:text});
     };
     const handleContrasenaChange = (text: string) => {
-       setContrasena(text);
+        setContrasena({...contrasena, InputIcon:text});
     };
     //? Función donde se realiza el procesamiento de credenciales
     const login = () => {
-        if (usuario == 'admin' && contrasena == '12345') {
+        if (usuario.InputIcon == 'admin' && contrasena.InputIcon == '12345') {
             alert('Login exitoso');
             setIsLoggedIn(true);
         }
         else{
+            alert(usuario.InputIcon)
             alert('Credenciales incorrectas');
         }
     }
@@ -30,7 +32,9 @@ export const LoginForm: React.FC = ({setIsLoggedIn}) => {
             <Image style={styles.formImage} source={require('../assets/OrionLogo.png')}/>
             <Text style={{ color: '#fff' }}>Usuario: admin</Text>
             <Text style={{ color: '#fff' }}>Contraseña: 12345</Text>
-            <TextInput
+            <InputIcon iconName="User" iconEye={false} secureTextEntry={false} textValue={usuario.InputIcon} changeFunc={handleUsuarioChange}/>
+            <InputIcon iconName="Password" iconEye={true} secureTextEntry={true} textValue={contrasena.InputIcon} changeFunc={handleContrasenaChange}/>
+            {/* <TextInput
                 style={styles.textInpu}
                 placeholder="User"
                 value={usuario}
@@ -42,7 +46,7 @@ export const LoginForm: React.FC = ({setIsLoggedIn}) => {
                 secureTextEntry={true}
                 value={contrasena}
                 onChangeText={handleContrasenaChange}
-            />
+            /> */}
             <Button style={styles.loginButton} title='Iniciar sesión' onPress={login}/>
             <View style={styles.legend}>
                 <Text style={{ color: 'white' }}>Problemas al iniciar sesión?, </Text>

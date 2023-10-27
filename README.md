@@ -60,3 +60,19 @@ graph TD;
     routing-->basicNavigation;
     routing-->routes.tsx;
 ```
+
+### **Iconos**
+**V1.0.2**: Se utilizaba la librería `react-native-vector-icons`, la cual resulta tediosa de configurar y usar según lo visto en la documentación de la librería.
+
+**V2.0.0**: Se utilizará `lucide-react-native` que trabaja en conjunto con la nueva librería `gluestack-ui` que reemplazó a `react-base`, junto con otras de sus dependencias como `react-native-svg` que es la que permite el uso de iconos vectoriales.
+Adiciona a lo anterior, se creó un archivo donde se importan todos los iconos de la librería y se agregan SOLO LOS QUE SE USARÁN en la app, esto con el objetivo de hacer más facil la busqueda de icono requerido y por efectos prácticos, su uso es el siguiente:
+
+```
+import {iconMap} from '../../config/icons/Icons'
+
+DENTRO del componente donde será usado
+const Icon = iconMap[iconName]
+
+Uso
+<Icon style={styles.icon} size={iconSize}/>
+```
