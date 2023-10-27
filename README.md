@@ -1,7 +1,7 @@
 # Documento informativo provisional de Orión
 La aplicación de Orión no había recibido actualizaciones desde hace un tiempo (3 años aproximadamente), por esa razón se decidió hacer una "actualización" de la misma creandola desde cero con las tecnologías, librerías y metodologías actuales.
 
-A continuación se relacionan las librerías que continúan y que NO continúan con base al archivo "package.json", así como las alternativas:
+A continuación se relacionan las librerías que continúan y que NO continúan con base al archivo `package.json`, así como las alternativas:
 
 - ✔️ La librería continúa porque se le ha seguido dando soporte o su última actualización tiene un tiempo < 12 meses.
 - ❌ La librería NO continúa porque está deprecada o su última actualización tiene un tiempo > 12 meses.
@@ -76,3 +76,4 @@ const Icon = iconMap[iconName]
 Uso
 <Icon style={styles.icon} size={iconSize}/>
 ```
+

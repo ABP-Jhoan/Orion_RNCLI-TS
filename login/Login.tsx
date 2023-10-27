@@ -1,6 +1,6 @@
 import { Button, TextInput, Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
-import { InputIcon } from "../components/InputIcon";
+import { InputIcon } from "../components/inputs/InputIcon";
 
 
 export const LoginForm: React.FC = ({setIsLoggedIn}) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
-import {InputIcon} from '../components/InputIcon'
+import {InputIcon} from '../components/inputs/InputIcon'
 
 export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
     const [user, setUser] = useState({InputIcon: ''})

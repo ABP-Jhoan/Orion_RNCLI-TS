@@ -13,7 +13,7 @@ export const TabContainer : React.FC = () => {
         <Tab.Navigator 
             //? Propiedades que ayudan a definir cual será la pestaña por defecto y el estilo del indicador.
             initialRouteName="TabOne"
-            screenOptions={{tabBarIndicatorStyle:{backgroundColor: '#0074e0', height: 10}}}
+            screenOptions={{tabBarIndicatorStyle:{backgroundColor: '#0074e0', height: 5}}}
         >
             <Tab.Screen name="TabOne" component={TabUno} options={{ tabBarLabel: 'Registro' }}/>
             <Tab.Screen name="TabTwo" component={TabDos} options={{ tabBarLabel: 'Inicio' }}/>

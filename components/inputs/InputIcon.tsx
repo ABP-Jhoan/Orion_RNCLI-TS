@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import {View, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
 import {Eye, EyeOff} from "lucide-react-native";
-import {iconMap} from '../assets/icons/Icons'
+import {iconMap} from '../../assets/icons/Icons'
 
 //? Definición de propiedades y tipos que recibirá el componente.
 interface InputProps{
