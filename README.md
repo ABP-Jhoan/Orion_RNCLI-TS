@@ -77,3 +77,12 @@ Uso
 <Icon style={styles.icon} size={iconSize}/>
 ```
 
+### Esquema de colores
+## Colores principales
+Colores que se usan a lo largo de toda la app:
+- Color principal: #fff
+- Color secundario (azul) = #215877
+- Color de enlaces: #5294ff
+## Otros colores
+Colores que se usan en la app, pero en componentes más pequeños o con menos frecuencia:
+- #5eb85f

@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
         padding: 20
     },
     text:{
-        marginBottom: 20
+        marginLeft: 0,
+        width: '100%',
+        fontSize: 15,
+        marginBottom: 20,
+        color: '#000'
     }
 })

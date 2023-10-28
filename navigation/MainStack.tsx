@@ -20,7 +20,7 @@ export function MainStack(){
                 screenOptions = {({route}) => ({
                     headerShown: route.name !== 'Login' ? true : false,
                     headerTintColor: '#fff',
-                    headerStyle: {backgroundColor: '#0074e0', height: 70}
+                    headerStyle: {backgroundColor: '#215877', height: 70}
                 })}
             >
                 {/*
