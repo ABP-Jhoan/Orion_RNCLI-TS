@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import {StyleSheet, View} from 'react-native'
 import { Box, Text, Button, ButtonText, Select, SelectTrigger, SelectInput, SelectPortal, SelectBackdrop, SelectContent, SelectDragIndicatorWrapper, SelectDragIndicator, SelectItem, SelectIcon, Icon, ChevronDownIcon } from '@gluestack-ui/themed';
-//import {ConfCard} from './Display'
+import {DefCard, DemoCard} from './Display'
 
 export const BoxComp : React.FC = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState();
+  const [tipoLicencia, setTipoLicencia] = useState('');
   function saludar() {
     alert('Hola')
+  }
+  function cambiarLicencia(value : string) {
+    setTipoLicencia(value)
   }
   return(
     <View>
       <Box bg="$primary500" p="$5" backgroundColor='#fff' style={styles.boxContainer}>
         <Text color="#8f8f8f8f">LICENCIA ACTUAL</Text>
         <View>
-           <Select style={styles.selector}>
+           <Select style={styles.selector} onValueChange={cambiarLicencia}>
               <SelectTrigger style={styles.trigger}>
                 <SelectInput placeholder="Select option" />
                 <SelectIcon mr="$3">
@@ -26,15 +29,14 @@ export const BoxComp : React.FC = () => {
                   <SelectDragIndicatorWrapper>
                     <SelectDragIndicator />
                   </SelectDragIndicatorWrapper>
-                  <SelectItem label="Red" value="red" />
-                  <SelectItem label="Blue" value="blue" />
-                  <SelectItem label="Black" value="black" />
-                  <SelectItem label="Pink" value="pink" isDisabled={true} />
-                  <SelectItem label="Green" value="green" />
+                  <SelectItem label="DEMO" value="DEMO" />
+                  <SelectItem label="0001" value="0001" />
+                  <SelectItem label="2024" value="2024" />
                 </SelectContent>
               </SelectPortal>
             </Select>
         </View>
+        {tipoLicencia == 'DEMO' ? <DemoCard/> : <DefCard/>}
       </Box>
       <Button
             style={styles.boton}

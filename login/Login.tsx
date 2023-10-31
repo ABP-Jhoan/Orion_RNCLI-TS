@@ -1,6 +1,7 @@
 import { Button, TextInput, Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
 import { InputIcon } from "../components/inputs/InputIcon";
+import { ConfButton } from "../components/buttons/configButton";
 
 
 export const LoginForm: React.FC = ({setIsLoggedIn}) => {
@@ -30,26 +31,14 @@ export const LoginForm: React.FC = ({setIsLoggedIn}) => {
             style={styles.container}
         >
             <Image style={styles.formImage} source={require('../assets/OrionLogo.png')}/>
-            <Text style={{ color: '#fff' }}>Usuario: admin</Text>
-            <Text style={{ color: '#fff' }}>Contraseña: 12345</Text>
+            <Text style={{ color: '#000' }}>Usuario: admin</Text>
+            <Text style={{ color: '#000' }}>Contraseña: 12345</Text>
             <InputIcon iconName="User" iconEye={false} secureTextEntry={false} textValue={usuario.InputIcon} changeFunc={handleUsuarioChange}/>
             <InputIcon iconName="Password" iconEye={true} secureTextEntry={true} textValue={contrasena.InputIcon} changeFunc={handleContrasenaChange}/>
-            {/* <TextInput
-                style={styles.textInpu}
-                placeholder="User"
-                value={usuario}
-                onChangeText={handleUsuarioChange}
-            />
-            <TextInput
-                style={styles.textInpu}
-                placeholder="Password"
-                secureTextEntry={true}
-                value={contrasena}
-                onChangeText={handleContrasenaChange}
-            /> */}
-            <Button style={styles.loginButton} title='Iniciar sesión' onPress={login}/>
+            
+            <ConfButton btnText='Iniciar sesión' btnClass='Pricipal' btnFunc={login}/>
             <View style={styles.legend}>
-                <Text style={{ color: 'white' }}>Problemas al iniciar sesión?, </Text>
+                <Text style={{ color: '#000' }}>Problemas al iniciar sesión?, </Text>
                 <TouchableOpacity>
                     <Text style={{ color: '#000' }} onpress={() => Linking.openURL('https://www.example.com')}>
                         contactenos.
@@ -64,7 +53,6 @@ const styles = StyleSheet.create({
         height: 885,
         paddingTop: 100,
         padding: 20,
-        backgroundColor: '#41587d',
         flex: 1,
         justifyContent: 'center',
     },

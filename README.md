@@ -77,12 +77,19 @@ Uso
 <Icon style={styles.icon} size={iconSize}/>
 ```
 
-### Esquema de colores
-## Colores principales
+## Esquema de colores 🌈
+### Colores principales
 Colores que se usan a lo largo de toda la app:
-- Color principal: #fff
-- Color secundario (azul) = #215877
-- Color de enlaces: #5294ff
-## Otros colores
+- Color principal: `#fff`
+- Color secundario (azul) : '#215877'
+- Color de enlaces: '#5294ff'
+### Otros colores
 Colores que se usan en la app, pero en componentes más pequeños o con menos frecuencia:
-- #5eb85f
+- '#5EB85F'
+- '#6FB9C3'
+
+### Botones
+Observando el esquema de colores que usan los botones a lo largo de la aplicación podemos inferir 3 tipos y el color que usan:
+1. Configuración: `#5EB85F`
+2. Visualización: `#5FB2F9`
+3. Acciones: `#215877`(principal y swap buttons), `#5FB85F`(add y confirm buttons) y `#D85350`(cancel buttons).

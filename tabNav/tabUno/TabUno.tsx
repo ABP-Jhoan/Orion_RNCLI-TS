@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { BoxComp } from '../../components/cards/Card';
 
-export const TabUno : React.FC = ({navigation}) => {
+export const TabUno : React.FC = () => {
     return(
         <View style={styles.container}>
             <Text style={styles.text}>Para cambiar de licencia, seleccione el código deseado en el selector y oprima INICIAR</Text>

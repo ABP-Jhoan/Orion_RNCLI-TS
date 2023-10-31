@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-
-import {InputIcon} from '../components/inputs/InputIcon'
+import {ConfButton} from '../components/buttons/configButton'
 
 export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
-    const [user, setUser] = useState({InputIcon: ''})
-    function getUserValue(text : string) {
-        setUser({...user, InputIcon:text})
-    }
-    function showCred() {
-        alert(user.InputIcon)
+    function sayHello() {
+        alert('Hola chato')
     }
     return(
         <View style={styles.container}>
@@ -17,11 +12,7 @@ export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
             <Text style={styles.commonText} onPress={() => navigation.navigate('Products')}>Lista de productos</Text>
             <Text style={styles.commonText} onPress={() => navigation.navigate('Configurar licencia')}>Vista de pestañas</Text>
             <Text style={styles.logOut} onPress={() => setIsLoggedIn(false)}>Cerrar sesión</Text>
-            <View style={styles.miniContainer}>
-                <InputIcon iconName="User" iconEye={false} secureTextEntry={false} textValue={user.InputIcon} changeFunc={getUserValue}/>
-                <InputIcon iconName="Password" iconEye={true} secureTextEntry={true}/>
-                <Button title='Mostrar credenciales' onPress={showCred}/>
-            </View>
+            <ConfButton btnText="Botoncito" btnClass="Config" btnFunc={sayHello}/>
         </View>
     )
 }
