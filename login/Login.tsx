@@ -1,4 +1,4 @@
-import { Button, TextInput, Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
+import { Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView, ToastAndroid } from 'react-native';
 import React, { useState } from 'react';
 import { InputIcon } from "../components/inputs/InputIcon";
 import { ConfButton } from "../components/buttons/configButton";
@@ -15,14 +15,16 @@ export const LoginForm: React.FC = ({setIsLoggedIn}) => {
         setContrasena({...contrasena, InputIcon:text});
     };
     //? Función donde se realiza el procesamiento de credenciales
+    const showToast = (message : string) => {
+        ToastAndroid.show(message, ToastAndroid.SHORT)
+    }
     const login = () => {
         if (usuario.InputIcon == 'admin' && contrasena.InputIcon == '12345') {
-            alert('Login exitoso');
+            showToast('Login exitoso')
             setIsLoggedIn(true);
         }
         else{
-            alert(usuario.InputIcon)
-            alert('Credenciales incorrectas');
+            showToast('Credenciales incorrectas')
         }
     }
     return(
@@ -40,7 +42,7 @@ export const LoginForm: React.FC = ({setIsLoggedIn}) => {
             <View style={styles.legend}>
                 <Text style={{ color: '#000' }}>Problemas al iniciar sesión?, </Text>
                 <TouchableOpacity>
-                    <Text style={{ color: '#000' }} onpress={() => Linking.openURL('https://www.example.com')}>
+                    <Text style={{ color: '#000' }} onPress={() => Linking.openURL('https://www.example.com')}>
                         contactenos.
                     </Text>
                 </TouchableOpacity>

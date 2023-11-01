@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     defStyles:{
         justifyContent: 'center',
         height: 50,
-        borderRadius: 10,
+        borderRadius: 5,
         marginBottom: 5,
         marginTop: 5,
     },

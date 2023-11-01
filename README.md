@@ -81,12 +81,12 @@ Uso
 ### Colores principales
 Colores que se usan a lo largo de toda la app:
 - Color principal: `#fff`
-- Color secundario (azul) : '#215877'
-- Color de enlaces: '#5294ff'
+- Color secundario (azul) : `#215877`
+- Color de enlaces: `#5294ff`
 ### Otros colores
 Colores que se usan en la app, pero en componentes más pequeños o con menos frecuencia:
-- '#5EB85F'
-- '#6FB9C3'
+- `#5EB85F`
+- `#6FB9C3`
 
 ### Botones
 Observando el esquema de colores que usan los botones a lo largo de la aplicación podemos inferir 3 tipos y el color que usan:
