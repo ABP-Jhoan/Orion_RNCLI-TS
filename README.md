@@ -1,7 +1,7 @@
-# Documento informativo provisional de Orión
+# Documentación provisional para la app de Orión 📱
 La aplicación de Orión no había recibido actualizaciones desde hace un tiempo (3 años aproximadamente), por esa razón se decidió hacer una "actualización" de la misma creandola desde cero con las tecnologías, librerías y metodologías actuales.
 
-## Dependencias
+## Dependencias ⏬
 
 A continuación se relacionan las librerías que continúan y que NO continúan con base al archivo "package.json", así como las alternativas:
 
@@ -45,7 +45,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - @react-native/material-top-tabs Y react-native-tab-view 🆕Nuevas dependecias para la navegación basada en pestañas.
 - lucide-react-native 🆕Nueva dependencia para el uso de iconos.
 
-## ASPECTOS QUE SUFRIERON CAMBIOS
+## ASPECTOS QUE SUFRIERON CAMBIOS 🔄
 
 ### Administrador del estado global de la app
 **V1.0.2**: Se usaba `Redux` y otro conjunto de dependencias por separado para manejar el estado global de la aplicación.
@@ -55,7 +55,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 > [!NOTE]
 > Se consideró usar `Zustand`, pero según las comparativas, este es mejor para proyectos pequeños; siendo la app de Orión un proyecto mayor, se considera optar por `Redux Toolkit`.
 
-### Routing
+### Routing 🔀
 **V1.0.2**: En versiones anteriores del proyecto, la navegación y las rutas se resolvían desde un solo archivo donde convergían todos los tipos de navegación (basada en botones dentro de cada vista, basada en pestañas y basada en botones desde una sidebar).
 
 **V2.0.0**: En esta versión se separarán los tipos de navegación por componente e importandolos en el componente `NavigationContainer` en el documento `routes.tsx`, esto con el objetivo de hacerlo más claro y segmentado.
@@ -71,19 +71,18 @@ graph TD;
     routing-->routes.tsx;
 ```
 
-### Iconos
+### Iconos 🚸
 **V1.0.2**: Se utilizaba la librería `react-native-vector-icons`, la cual resulta tediosa de configurar y usar según lo visto en la documentación de la librería.
 
 **V2.0.0**: Se utilizará `lucide-react-native` que trabaja en conjunto con la nueva librería `gluestack-ui` que reemplazó a `react-base`, junto con otras de sus dependencias como `react-native-svg` que es la que permite el uso de iconos vectoriales.
-Adiciona a lo anterior, se creó un archivo donde se importan todos los iconos de la librería y se agregan SOLO LOS QUE SE USARÁN en la app, esto con el objetivo de hacer más facil la busqueda de icono requerido y por efectos prácticos, su uso es el siguiente:
+* Adicional a lo anterior, se creó un archivo donde se importan todos los iconos de la librería y se agregan SOLO LOS QUE SE USARÁN en la app, esto con el objetivo de hacer más facil la busqueda del icono requerido y por efectos prácticos, su uso es el siguiente:
 
 ```
 import {iconMap} from '../../config/icons/Icons'
 
 DENTRO del componente donde será usado
-const Icon = iconMap[iconName]
+const Icon = iconMap[iconName] //"iconName" es el nombre de la prop.
 
-Uso
 <Icon style={styles.icon} size={iconSize}/>
 ```
 
@@ -113,10 +112,10 @@ Observando el esquema de colores que usan los botones a lo largo de la aplicaci�
 2. Visualización: `#5fb2f9`
 3. Acciones: `#215877`(principal y swap buttons), `#5fb85f`(add y confirm buttons) y `#d85350`(cancel buttons).
 
-## Prácticas seguidas o recomendaciones
+## Prácticas seguidas o recomendaciones 👍
+A continuación algunas prácticas que se pueden tener en cuenta a la hora de escribir código y componentes en la aplicación:
 ### **Al crear un componente**
-**Definiendo las props:**
-Cuando se crea un componente en TSX deben definirse los tipos de datos de cada prop, teniendo esto en cuenta se define un nombre para la interface que va a contenerlas de la siguiente forma:
+**Definiendo las props:** Cuando se crea un componente en TSX deben definirse los tipos de datos de cada prop, teniendo esto en cuenta se define un nombre para la interface que va a contenerlas de la siguiente forma:
 
 ```
 interface <ComponentName>Props{
@@ -124,8 +123,7 @@ interface <ComponentName>Props{
 }
 ```
 
-**Creando el componente y sus métodos:**
-Para diferenciar el componente de los métodos, se propone diferenciarlos por sintaxis así:
+**Creando el componente y sus métodos:** Para diferenciar el componente de los métodos, se propone diferenciarlos por sintaxis así:
 Para el componente:
 ```
 const ComponentName : React.FC<ComponentProps> = ({props}) => {}
