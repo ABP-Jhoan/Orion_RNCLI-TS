@@ -97,20 +97,23 @@ El diseño solo cambió en el "borderRadius" de los componentes, esto con el obj
 ## Esquema de colores 🌈
 ### Colores principales
 Colores que se usan a lo largo de toda la app:
-- Color principal: ![#fff](https://placehold.co/15x15/fff/fff.png)`#fff`
-- Color secundario (azul) : ![#215877](https://placehold.co/15x15/215877/215877.png)`#215877`
-- Color de enlaces: `#5294ff`
+- Color principal: ![#fff](https://placehold.co/10x10/fff/fff.png)`#fff`
+- Color secundario (azul) : ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`
+- Color de enlaces: ![#5294ff](https://placehold.co/10x10/5294ff/5294ff.png)`#5294ff`
 
 ### Otros colores
 Colores que se usan en la app, pero en componentes más pequeños o con menos frecuencia:
-- `#5eb85f`
-- `#6fb9c3`
+- ![#5eb85f](https://placehold.co/10x10/5eb85f/5eb85f.png)`#5eb85f`
+- ![#6fb9c3](https://placehold.co/10x10/6fb9c3/6fb9c3.png)`#6fb9c3`
 
 ### Botones
 Observando el esquema de colores que usan los botones a lo largo de la aplicación podemos inferir 3 tipos y el color que usan:
-1. Configuración: `#5eb85f`
-2. Visualización: `#5fb2f9`
-3. Acciones: `#215877`(principal y swap buttons), `#5fb85f`(add y confirm buttons) y `#d85350`(cancel buttons).
+1. Configuración: ![#5eb85f](https://placehold.co/10x10/5eb85f/5eb85f.png)`#5eb85f`
+2. Visualización: ![#5fb2f9](https://placehold.co/10x10/5fb2f9/5fb2f9.png)`#5fb2f9`
+3. Acciones: 
+* ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`(principal y swap buttons)
+* ![#5fb85f](https://placehold.co/10x10/5fb85f/5fb85f.png)`#5fb85f`(add y confirm buttons)
+* ![#d85350](https://placehold.co/10x10/d85350/d85350.png)`#d85350`(cancel buttons).
 
 ## Prácticas seguidas o recomendaciones 👍
 A continuación algunas prácticas que se pueden tener en cuenta a la hora de escribir código y componentes en la aplicación:
