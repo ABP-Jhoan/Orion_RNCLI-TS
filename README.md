@@ -3,7 +3,7 @@ La aplicación de Orión no había recibido actualizaciones desde hace un tiempo
 
 ## Dependencias ⏬
 
-A continuación se relacionan las librerías que continúan y que NO continúan con base al archivo "package.json", así como las alternativas:
+A continuación se relacionan las librerías que continúan y que NO continúan con base al archivo `package.json`, así como las alternativas:
 
 - ✔️ La librería continúa porque se le ha seguido dando soporte o su última actualización tiene un tiempo < 12 meses.
 - ❌ La librería NO continúa porque está deprecada o su última actualización tiene un tiempo > 12 meses.
@@ -52,7 +52,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 
 **V2.0.0**: Se usará `Redux Toolkit`, esta solución hace que trabajar con Redux sea más facil, eficiente y se reduzca el código necesario.
 
-> [!NOTE]
+> [!NOTA]
 > Se consideró usar `Zustand`, pero según las comparativas, este es mejor para proyectos pequeños; siendo la app de Orión un proyecto mayor, se considera optar por `Redux Toolkit`.
 
 ### Routing 🔀
@@ -85,8 +85,8 @@ const Icon = iconMap[iconName] //"iconName" es el nombre de la prop.
 
 <Icon style={styles.icon} size={iconSize}/>
 ```
-
-Para usar iconos muy puntuales de un componente como un SELECTOR, se importa directamente desde la librería `@gluestack-ui/themed`.
+> [!NOTA]
+>Para usar iconos muy puntuales de un componente como un SELECTOR, se importa directamente desde la librería `@gluestack-ui/themed`.
 
 
 ### Diseño
