@@ -52,7 +52,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 
 **V2.0.0**: Se usará `Redux Toolkit`, esta solución hace que trabajar con Redux sea más facil, eficiente y se reduzca el código necesario.
 
-> [!NOTA]
+> [!NOTE]
 > Se consideró usar `Zustand`, pero según las comparativas, este es mejor para proyectos pequeños; siendo la app de Orión un proyecto mayor, se considera optar por `Redux Toolkit`.
 
 ### Routing 🔀
@@ -85,7 +85,7 @@ const Icon = iconMap[iconName] //"iconName" es el nombre de la prop.
 
 <Icon style={styles.icon} size={iconSize}/>
 ```
-> [!NOTA]
+> [!NOTE]
 >Para usar iconos muy puntuales de un componente como un SELECTOR, se importa directamente desde la librería `@gluestack-ui/themed`.
 
 
