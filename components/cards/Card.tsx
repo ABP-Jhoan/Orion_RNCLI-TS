@@ -5,6 +5,7 @@ import {DefCard, DemoCard} from './Display'
 import {Selector} from '../selectors/Selector'
 
 export const BoxComp : React.FC = () => {
+  const licences = ["DEMO", "0001", "0002"]
   const [tipoLicencia, setTipoLicencia] = useState('');
   function saludar() {
     alert(tipoLicencia)
@@ -17,7 +18,7 @@ export const BoxComp : React.FC = () => {
       <Box bg="$primary500" p="$5" backgroundColor='#fff' style={styles.boxContainer}>
         <Text color="#8f8f8f8f">LICENCIA ACTUAL</Text>
         <View>
-            <Selector onSelect={cambiarLicencia}/>
+            <Selector data={licences} onSelect={cambiarLicencia}/>
         </View>
         {tipoLicencia == 'DEMO' ? <DemoCard/> : <DefCard/>}
       </Box>

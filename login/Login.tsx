@@ -1,10 +1,13 @@
-import { Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView, ToastAndroid } from 'react-native';
+import { Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView, ToastAndroid, Linking, Platform } from 'react-native';
 import React, { useState } from 'react';
 import { InputIcon } from "../components/inputs/InputIcon";
 import { ConfButton } from "../components/buttons/configButton";
 
+interface LoginProps{
+    setIsLoggedIn : (logged : boolean) => void
+}
 
-export const LoginForm: React.FC = ({setIsLoggedIn}) => {
+export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
     // Constantes con estado por defecto vacío, aquí se guardarán los datos ingresados.
     const [usuario, setUsuario] = useState({InputIcon:''});
     const [contrasena, setContrasena] = useState({InputIcon:''});

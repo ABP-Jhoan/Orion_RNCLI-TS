@@ -2,10 +2,11 @@ import {StyleSheet, View} from 'react-native'
 import { Select, SelectTrigger, SelectInput, SelectPortal, SelectBackdrop, SelectContent, SelectDragIndicatorWrapper, SelectDragIndicator, SelectItem, SelectIcon, Icon, ChevronDownIcon } from '@gluestack-ui/themed';
 
 interface selectorProps{
+    data : string[]
     onSelect : (text: string) => void
 }
 
-export const Selector : React.FC<selectorProps> = ({onSelect}) => {
+export const Selector : React.FC<selectorProps> = ({data, onSelect}) => {
     return(
         <Select style={styles.selector} onValueChange={onSelect}>
             <SelectTrigger style={styles.trigger}>
@@ -20,9 +21,9 @@ export const Selector : React.FC<selectorProps> = ({onSelect}) => {
                 <SelectDragIndicatorWrapper>
                 <SelectDragIndicator />
                 </SelectDragIndicatorWrapper>
-                <SelectItem label="DEMO" value="DEMO" />
-                <SelectItem label="0001" value="0001" />
-                <SelectItem label="2024" value="2024" />
+                {data.map((licencia, index) => (
+                    <SelectItem key={index} label={licencia} value={licencia} />
+                ))}
             </SelectContent>
             </SelectPortal>
         </Select>

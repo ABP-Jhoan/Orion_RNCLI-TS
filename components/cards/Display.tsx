@@ -4,7 +4,7 @@ import { Box, Text } from '@gluestack-ui/themed';
 
 export const DefCard : React.FC = () => {
     return(        
-        <Box style={styles.container}>
+        <Box style={styles.cardContainer}>
             <Text color="black" textAlign="justify">
                 Puede registrar multiples licencias de Orión en la app movil. si desea hacerlo, presione <Text color="#5294ff">AQUÍ</Text>
             </Text>
@@ -14,7 +14,7 @@ export const DefCard : React.FC = () => {
 
 export const DemoCard : React.FC = () => {
     return(
-        <Box style={styles.container}>
+        <Box style={styles.cardContainer}>
             <Text style={styles.DEMOInfoText}>
                 Al elegir la LICENCIA DEMO el sistema le asignará un Usuario y Clave automáticos al momento de iniciar sesión. Si desea cambiar a DEMO por favor presione el botón INICIAR.
             </Text>
@@ -23,7 +23,7 @@ export const DemoCard : React.FC = () => {
 }
 
 const styles = StyleSheet.create({
-    container:{
+    cardContainer:{
         width: '100%'
     },
     DEMOInfoText:{

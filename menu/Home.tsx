@@ -1,18 +1,20 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import {ConfButton} from '../components/buttons/configButton'
 
-export const Home: React.FC = ({navigation, setIsLoggedIn}) => {
-    function sayHello() {
-        alert('Hola chato')
-    }
+interface HomeProps{
+    navigation : NavigationProp<ParamListBase>;
+    setIsLoggedIn : (logged : boolean) => void
+}
+
+export const Home: React.FC<HomeProps> = ({navigation, setIsLoggedIn}) => {
     return(
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Bienvenido</Text>
             <Text style={styles.commonText} onPress={() => navigation.navigate('Products')}>Lista de productos</Text>
             <Text style={styles.commonText} onPress={() => navigation.navigate('Configurar licencia')}>Vista de pestañas</Text>
             <Text style={styles.logOut} onPress={() => setIsLoggedIn(false)}>Cerrar sesión</Text>
-            <ConfButton btnText="Botoncito" btnClass="Config" btnFunc={sayHello}/>
         </View>
     )
 }
@@ -48,3 +50,7 @@ const styles = StyleSheet.create({
         borderRadius: 10
     }
 })
+
+function alert(arg0: string) {
+    throw new Error("Function not implemented.");
+}
