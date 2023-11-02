@@ -1,4 +1,4 @@
-# Documentación provisional para la app de Orión 📱
+# Documentación provisional para la app de Orión 📱![Orion logo](./android/app/src/main/res/mipmap-mdpi/ic_launcher.png)
 La aplicación de Orión no había recibido actualizaciones desde hace un tiempo (3 años aproximadamente), por esa razón se decidió hacer una "actualización" de la misma creandola desde cero con las tecnologías, librerías y metodologías actuales.
 
 ## Dependencias ⏬
