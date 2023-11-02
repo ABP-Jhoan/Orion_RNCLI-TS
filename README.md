@@ -97,8 +97,8 @@ El diseño solo cambió en el "borderRadius" de los componentes, esto con el obj
 ## Esquema de colores 🌈
 ### Colores principales
 Colores que se usan a lo largo de toda la app:
-- Color principal: `#fff`
-- Color secundario (azul) : `#215877`
+- Color principal: ![#fff](https://placehold.co/15x15/fff/fff.png)`#fff`
+- Color secundario (azul) : ![#215877](https://placehold.co/15x15/215877/215877.png)`#215877`
 - Color de enlaces: `#5294ff`
 
 ### Otros colores
