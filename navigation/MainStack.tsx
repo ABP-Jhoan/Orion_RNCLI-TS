@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // Componentes para crear las rutas (Solo las vistas, no los componentes dentro de ellas).
 import {LoginForm} from '../login/Login';
-import {Home} from '../menu/Home';
-import {BasicNavigation} from './MainNavigation'
-import {TabContainer} from './TabContainer'
+import { DrawNavigation } from "./DrawerNavigation";
+import { TestPage } from "../listadoProductos/VistaProducto";
+import { TestPageTwo } from "../listadoProductos/TestTwo";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -18,7 +18,7 @@ export function MainStack(){
             <Stack.Navigator
                 //? Ternaria para activar o desactivar las opciones de retorno y otras opciones de estilo.
                 screenOptions = {({route}) => ({
-                    headerShown: route.name !== 'Login' ? true : false,
+                    headerShown: route.name == 'Login' || route.name == 'Something' ? false : true,
                     headerTintColor: '#fff',
                     headerStyle: {backgroundColor: '#215877', height: 70}
                 })}
@@ -29,17 +29,20 @@ export function MainStack(){
                     //? Caso 2. La sesión está cerrada y mostrará el formulario de login.
                 */}
                 {isLoggedIn ? (
-                    <Stack.Screen name="Home">
-                        {props => <Home {...props} setIsLoggedIn={setIsLoggedIn} />}
+                    // <Stack.Screen name="Home">
+                    //     {props => <Home {...props} setIsLoggedIn={setIsLoggedIn} />}
+                    // </Stack.Screen>
+                    <Stack.Screen name="Something">
+                        {props => <DrawNavigation {...props} setIsLoggedIn={setIsLoggedIn}/>}
                     </Stack.Screen>
-                    ) : (
+                ) : (
                     <Stack.Screen name="Login">
                         {props => <LoginForm {...props} setIsLoggedIn={setIsLoggedIn} />}
                     </Stack.Screen>
                 )}
-                {/*//? Otras rutas.*/}
-                <Stack.Screen name="Products" component={BasicNavigation}/>
-                <Stack.Screen name="Configurar licencia" component={TabContainer}/>
+                {/*//? Rutas de la navegación principal.*/}
+                <Stack.Screen name="TestTwo" component={TestPageTwo}/>
+                <Stack.Screen name="TestPage" component={TestPage}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

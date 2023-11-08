@@ -1,20 +1,20 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import {ConfButton} from '../components/buttons/configButton'
 
 interface HomeProps{
-    navigation : NavigationProp<ParamListBase>;
-    setIsLoggedIn : (logged : boolean) => void
+    navigation : NavigationProp<ParamListBase>
+    //setIsLoggedIn : (logged : boolean) => void
 }
 
-export const Home: React.FC<HomeProps> = ({navigation, setIsLoggedIn}) => {
+export const Home: React.FC<HomeProps> = ({navigation}) => {
     return(
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Bienvenido</Text>
-            <Text style={styles.commonText} onPress={() => navigation.navigate('Products')}>Lista de productos</Text>
-            <Text style={styles.commonText} onPress={() => navigation.navigate('Configurar licencia')}>Vista de pestañas</Text>
-            <Text style={styles.logOut} onPress={() => setIsLoggedIn(false)}>Cerrar sesión</Text>
+            {/* <Text style={styles.commonText} onPress={() => navigation.navigate('Products')}>Lista de productos</Text> */}
+            <Text style={styles.commonText} onPress={() => navigation.navigate('TestPage')}>Página de pruebas</Text>
+            <Text style={styles.commonText} onPress={() => navigation.navigate('TestTwo')}>Página de pruebas 2</Text>
+            {/* <Text style={styles.logOut} onPress={() => setIsLoggedIn(false)}>Cerrar sesión</Text> */}
         </View>
     )
 }
@@ -50,7 +50,3 @@ const styles = StyleSheet.create({
         borderRadius: 10
     }
 })
-
-function alert(arg0: string) {
-    throw new Error("Function not implemented.");
-}
