@@ -61,14 +61,18 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 **V2.0.0**: En esta versión se separarán los tipos de navegación por componente e importandolos en el componente `NavigationContainer` en el documento `routes.tsx`, esto con el objetivo de hacerlo más claro y segmentado.
 La estructura es la siguiente:
 
-```mermaid
-graph TD;
-    src-->config;
-    config-->routing;
-    drawerNavigation-->routes.tsx;
-    routing-->routes.tsx;
-    tabNavigation-->routes.tsx;
+```text
+src
+└── config
+    └── routing
+        ├── drawerNavigation
+        |   └── DrawerNavigation.tsx
+        ├── tabNavigation
+        |   └── TabNavigation.tsx
+        └── routes.tsx
 ```
+> [!NOTE]
+> La navegación básica se quedará en un solo archivo donde serán importadas las navegaciones especiales (por pestañas y sidebar).
 
 ### Iconos 🚸
 **V1.0.2**: Se utilizaba la librería `react-native-vector-icons`, la cual resulta tediosa de configurar y usar según lo visto en la documentación de la librería.
