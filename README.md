@@ -65,8 +65,8 @@ La estructura es la siguiente:
 graph TD;
     src-->config;
     config-->routing;
-    routing-->routes.tsx;
     drawerNavigation-->routes.tsx;
+    routing-->routes.tsx;
     tabNavigation-->routes.tsx;
 ```
 
