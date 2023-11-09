@@ -14,7 +14,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - native-base ❌ 🔄Cambiar. La documentación sugiere usar ✔️gluestack-ui
 - prop-types ❌ 🔄Nativo de Typescript
 - react-moment ✔️
-- react-native-charts-wrapper ❌ 🔄Cambiar por chart.js
+- react-native-charts-wrapper ❌ 🔄Cambiar por react-native-gifted-charts
 - react-native-display ❌
 - react-native-floating-action ❌ 🔄Cambiar por react-native-reanimated
 - react-native-gesture-handler ✔️
@@ -53,7 +53,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 **V2.0.0**: Se usará `Redux Toolkit`, esta solución hace que trabajar con Redux sea más facil, eficiente y se reduzca el código necesario.
 
 > [!NOTE]
-> Se consideró usar `Zustand`, pero según las comparativas, este es mejor para proyectos pequeños; siendo la app de Orión un proyecto mayor, se considera optar por `Redux Toolkit`.
+> Se consideró usar `Zustand`, pero según las comparativas, este es mejor para proyectos pequeños; siendo la app de Orión un proyecto mayor, se opta por `Redux Toolkit`.
 
 ### Routing 🔀
 **V1.0.2**: En versiones anteriores del proyecto, la navegación y las rutas se resolvían desde un solo archivo donde convergían todos los tipos de navegación (basada en botones dentro de cada vista, basada en pestañas y basada en botones desde una sidebar).
@@ -78,16 +78,31 @@ src
 **V1.0.2**: Se utilizaba la librería `react-native-vector-icons`, la cual resulta tediosa de configurar y usar según lo visto en la documentación de la librería.
 
 **V2.0.0**: Se utilizará `lucide-react-native` que trabaja en conjunto con la nueva librería `gluestack-ui` que reemplazó a `react-base`, junto con otras de sus dependencias como `react-native-svg` que es la que permite el uso de iconos vectoriales.
-* Adicional a lo anterior, se creó un archivo donde se importan todos los iconos de la librería y se agregan SOLO LOS QUE SE USARÁN en la app, esto con el objetivo de hacer más facil la busqueda del icono requerido y por efectos prácticos, su uso es el siguiente:
 
+Adicional a lo anterior, se creó un archivo donde se importan todos los iconos de la librería en `assets/icons/Icons.tsx` y se agregan SOLO LOS QUE SE USARÁN en la app, esto con el objetivo de hacer más facil la busqueda del icono requerido y por efectos prácticos, su uso es el siguiente:
+
+* Como una prop:
 ```
 import {iconMap} from '../../config/icons/Icons'
 
-DENTRO del componente donde será usado
+interface <componentName>Props{
+    iconName: keyof typeof iconMap
+}
+
+DENTRO del componente donde será usado.
 const Icon = iconMap[iconName] //"iconName" es el nombre de la prop.
 
 <Icon style={styles.icon} size={iconSize}/>
 ```
+* Como atributo de un objeto:
+```
+import { iconMap } from '../assets/icons/Icons'
+
+{
+    attribute: iconMap.<iconName>
+}
+```
+
 > [!NOTE]
 >Para usar iconos muy puntuales de un componente como un SELECTOR, se importa directamente desde la librería `@gluestack-ui/themed`.
 
@@ -130,12 +145,12 @@ interface <ComponentName>Props{
 ```
 
 **Creando el componente y sus métodos:** Para diferenciar el componente de los métodos, se propone diferenciarlos por sintaxis así:
-Para el componente:
+- Para el componente:
 ```
 const ComponentName : React.FC<ComponentProps> = ({props}) => {}
 ```
 
-Para los métodos dentro del componente:
+- Para los métodos dentro del componente:
 ```
 const ComponentName : React.FC<ComponentProps> = ({props}) => {
     function functionName(){}

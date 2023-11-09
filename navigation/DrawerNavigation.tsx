@@ -1,7 +1,7 @@
 //? Librerías y componentes propios de React
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { DrawerContentScrollView, DrawerItem, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer'
+import { DrawerContentScrollView, DrawerItem, createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationProp, ParamListBase } from '@react-navigation/native'
 import { LogOut, UserCircle2 } from 'lucide-react-native';
 //? Componentes propios
@@ -34,7 +34,7 @@ const routeItemsList = [
     }
 ]
 
-//? interface que define las props
+//? interfaces que define las props
 interface StackProps{
     navigation : NavigationProp<ParamListBase>
     setIsLoggedIn : (logged : boolean) => void
@@ -50,10 +50,16 @@ const Header : React.FC = () => {
     )
 }
 
-const headerContainer : React.FC<StackProps> = ({navigation, setIsLoggedIn}) => {
-    const logOut = () => {
-        alert('que pollas?')
-        //setIsLoggedIn(false)
+const HeaderContainer : React.FC<StackProps> = ({navigation, setIsLoggedIn}) => {
+    //? Bloque manejador del estado del enlace en el sidebar
+    const [isActive, setIsActive] = useState('Home')  //? Se define el estado por defecto con 'Home' porque es la "página" inicial.
+    function activateBackground(route : string) {
+        setIsActive(route)
+        navigation.navigate(route)
+    }
+    //? ---------------------------------------------------
+    function logOut(){
+        setIsLoggedIn(false)
     }
     return(
         <DrawerContentScrollView>
@@ -62,26 +68,31 @@ const headerContainer : React.FC<StackProps> = ({navigation, setIsLoggedIn}) => 
                 <DrawerItem
                     key={screen.name}
                     label={screen.name}
-                    onPress={() => navigation.navigate(screen.name)}
+                    onPress={() => activateBackground(screen.name)}
                     icon={(icono) => <screen.icon {...icono}/>}
+                    focused={isActive == screen.name}
+                    activeBackgroundColor='#215877'
+                    activeTintColor='#fff'
+                    style={styles.routeItem}
                 />
             )}
-            <DrawerItem label="Cerrar Sesión" onPress={() => logOut} icon={(icon) => <LogOut color='#000' size={20}/>}/>
+            <DrawerItem label="Cerrar Sesión" onPress={logOut} icon={(icon) => <LogOut color='#000' size={20}/>}/>
         </DrawerContentScrollView>
     )
 }
 
 const Drawer = createDrawerNavigator()
 
-export const DrawNavigation : React.FC = () => {
+export const DrawNavigation : React.FC<StackProps> = ({navigation, setIsLoggedIn}) => {
     return(
         <Drawer.Navigator
             initialRouteName='Home'
             screenOptions={() => ({
-                overlayColor:'#21587777',
+                overlayColor:'#21587777'
             })}
-            drawerContent={headerContainer}
-        >
+            drawerContent={(headerContainer) => <HeaderContainer navigation={navigation} setIsLoggedIn={setIsLoggedIn}/>}
+            
+    >
             <Drawer.Screen name={'Home'} component={Inicio}/>
             <Drawer.Screen name={'Products'} component={DataList}/>
             <Drawer.Screen name={'Configurar licencia'} component={TabContainer}/>
@@ -93,8 +104,8 @@ const styles = StyleSheet.create({
     areaView:{
       padding: 20
     },
-    texto:{color:'#000'}
-    ,badge:{
+    texto:{color:'#000'},
+    badge:{
         width: '100%',
         height: 200,
         backgroundColor: '#1b5378',
@@ -104,4 +115,8 @@ const styles = StyleSheet.create({
         position: 'relative',
         top: -10
     },
+    routeItem:{
+        borderRadius: 0,
+        width: '100%'
+    }
 });

@@ -4,17 +4,14 @@ import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 interface HomeProps{
     navigation : NavigationProp<ParamListBase>
-    //setIsLoggedIn : (logged : boolean) => void
 }
 
 export const Home: React.FC<HomeProps> = ({navigation}) => {
     return(
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Bienvenido</Text>
-            {/* <Text style={styles.commonText} onPress={() => navigation.navigate('Products')}>Lista de productos</Text> */}
             <Text style={styles.commonText} onPress={() => navigation.navigate('TestPage')}>Página de pruebas</Text>
             <Text style={styles.commonText} onPress={() => navigation.navigate('TestTwo')}>Página de pruebas 2</Text>
-            {/* <Text style={styles.logOut} onPress={() => setIsLoggedIn(false)}>Cerrar sesión</Text> */}
         </View>
     )
 }

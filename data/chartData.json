@@ -1,0 +1,65 @@
+[
+    {
+        "id":1,
+        "Nombre":"JHOAN ARANGO",
+        "Fecha":"09/NOV/2023",
+        "VLR/NETO":"10,000",
+        "SALDO":"10,000",
+        "FP":"CONTADO",
+        "USUARIO":1
+    },
+    {
+        "id":2,
+        "Nombre":"LAURA NARVAEZ",
+        "Fecha":"09/NOV/2023",
+        "VLR/NETO":"10,000",
+        "SALDO":"10,000",
+        "FP":"CONTADO",
+        "USUARIO":1
+    },
+    {
+        "id":3,
+        "Nombre":"JHOAN ARANGO",
+        "Fecha":"09/NOV/2023",
+        "VLR/NETO":"200,000",
+        "SALDO":"10,000",
+        "FP":"CONTADO",
+        "USUARIO":1
+    },
+    {
+        "id":4,
+        "Nombre":"ANGELA HERNANDEZ",
+        "Fecha":"10/NOV/2023",
+        "VLR/NETO":"200,000",
+        "SALDO":"10,000",
+        "FP":"",
+        "USUARIO":1
+    },
+    {
+        "id":5,
+        "Nombre":"LUZ MONSALVE",
+        "Fecha":"25/NOV/2023",
+        "VLR/NETO":"200,000",
+        "SALDO":"10,000",
+        "FP":"CONTADO",
+        "USUARIO":1
+    },
+    {
+        "id":6,
+        "Nombre":"LUZ MONSALVE",
+        "Fecha":"30/NOV/2023",
+        "VLR/NETO":"40,000",
+        "SALDO":"10,000",
+        "FP":"CONTADO",
+        "USUARIO":1
+    },
+    {
+        "id":7,
+        "Nombre":"CRISTIAN ORTEGA",
+        "Fecha":"30/DIC/2023",
+        "VLR/NETO":"10,000",
+        "SALDO":"0",
+        "FP":"CONTADO",
+        "USUARIO":1
+    }
+]
