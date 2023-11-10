@@ -7,6 +7,7 @@ export const iconMap={
     Home: LucideIcons.Home,
     Users: LucideIcons.Users,
     Reports: LucideIcons.Sheet,
+    Reports2: LucideIcons.FileLineChart,
     Search: LucideIcons.FileSearch,
     Log: LucideIcons.FileClock,
     Config: LucideIcons.Settings,

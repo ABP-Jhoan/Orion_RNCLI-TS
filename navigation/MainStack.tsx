@@ -7,6 +7,7 @@ import {LoginForm} from '../login/Login';
 import { DrawNavigation } from "./DrawerNavigation";
 import { TestPage } from "../listadoProductos/VistaProducto";
 import { TestPageTwo } from "../listadoProductos/TestTwo";
+import { SwapView } from "../listadoProductos/SwapButtonsView";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -41,8 +42,9 @@ export function MainStack(){
                     </Stack.Screen>
                 )}
                 {/*//? Rutas de la navegación principal.*/}
-                <Stack.Screen name="TestTwo" component={TestPageTwo}/>
-                <Stack.Screen name="TestPage" component={TestPage}/>
+                <Stack.Screen name="PieChart" component={TestPage}/>
+                <Stack.Screen name="AriaChart" component={TestPageTwo}/>
+                <Stack.Screen name="SwapButtons" component={SwapView}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

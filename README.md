@@ -27,7 +27,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - react-native-reanimated ✔️
 - react-native-safe-area-view ❌Deprecado 🔄Cambiar por react-native-safe-area-context
 - react-native-slider ❌ 🔄Cambiar por @react-native-community/slider
-- react-native-swipeout ❌ 🔄Cambiar por rn-swipe-action-button
+- react-native-swipeout ❌ ⚠️No hay alternativas a esta librería
 - react-native-vector-icons ❌ 🔄Cambiar. GlueStack provee una api de iconos
 - react-native-walkthrough-tooltip ✔️
 - react-native-webview ✔️
@@ -92,7 +92,7 @@ interface <componentName>Props{
 DENTRO del componente donde será usado.
 const Icon = iconMap[iconName] //"iconName" es el nombre de la prop.
 
-<Icon style={styles.icon} size={iconSize}/>
+<Icon style={styles.icon} size={iconSize}/> //"styles" son estilos dados en donde se utilice y "iconSize" es una prop para definir el tamaño del icono.
 ```
 * Como atributo de un objeto:
 ```

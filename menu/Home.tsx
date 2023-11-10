@@ -10,8 +10,9 @@ export const Home: React.FC<HomeProps> = ({navigation}) => {
     return(
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Bienvenido</Text>
-            <Text style={styles.commonText} onPress={() => navigation.navigate('TestPage')}>Página de pruebas</Text>
-            <Text style={styles.commonText} onPress={() => navigation.navigate('TestTwo')}>Página de pruebas 2</Text>
+            <Text style={styles.commonText} onPress={() => navigation.navigate('PieChart')}>Radial chart</Text>
+            <Text style={styles.commonText} onPress={() => navigation.navigate('AriaChart')}>Aria chart</Text>
+            <Text style={styles.commonText} onPress={() => navigation.navigate('SwapButtons')}>Swap buttons</Text>
         </View>
     )
 }
