@@ -1,4 +1,5 @@
 # Documentación provisional para la app de Orión ![Orion logo](./android/app/src/main/res/mipmap-mdpi/ic_launcher.png)
+
 La aplicación de Orión no había recibido actualizaciones desde hace un tiempo (3 años aproximadamente), por esa razón se decidió hacer una "actualización" de la misma creandola desde cero con las tecnologías, librerías y metodologías actuales.
 
 ## Dependencias ⏬
@@ -41,6 +42,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - rn-fetch-blob ❌ 🔄Cambiar por react-native-blob-util ó react-native-fs
 
 ### DEPENDENCIAS NUEVAS (por completar)
+
 - react-native-alert-notification 🆕Nueva dependecia para mostrar alertas.
 - @react-native/material-top-tabs Y react-native-tab-view 🆕Nuevas dependecias para la navegación basada en pestañas.
 - lucide-react-native 🆕Nueva dependencia para el uso de iconos.
@@ -48,6 +50,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 ## ASPECTOS QUE SUFRIERON CAMBIOS 🔄
 
 ### Administrador del estado global de la app
+
 **V1.0.2**: Se usaba `Redux` y otro conjunto de dependencias por separado para manejar el estado global de la aplicación.
 
 **V2.0.0**: Se usará `Redux Toolkit`, esta solución hace que trabajar con Redux sea más facil, eficiente y se reduzca el código necesario.
@@ -56,6 +59,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 > Se consideró usar `Zustand`, pero según las comparativas, este es mejor para proyectos pequeños; siendo la app de Orión un proyecto mayor, se opta por `Redux Toolkit`.
 
 ### Routing 🔀
+
 **V1.0.2**: En versiones anteriores del proyecto, la navegación y las rutas se resolvían desde un solo archivo donde convergían todos los tipos de navegación (basada en botones dentro de cada vista, basada en pestañas y basada en botones desde una sidebar).
 
 **V2.0.0**: En esta versión se separarán los tipos de navegación por componente e importandolos en el componente `NavigationContainer` en el documento `routes.tsx`, esto con el objetivo de hacerlo más claro y segmentado.
@@ -71,17 +75,23 @@ src
         |   └── TabNavigation.tsx
         └── routes.tsx
 ```
+
 > [!NOTE]
 > La navegación básica se quedará en un solo archivo donde serán importadas las navegaciones especiales (por pestañas y sidebar).
 
+> [!IMPORTANT]
+> La navegación debe ser pasada como una prop a los componentes que llevan a otras vistas, esto por ahora se logra con `[prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-in-react/#:~:text=Prop%20drilling%20occurs%20when%20a,component%20that%20finally%20consumes%20it.)`.
+
 ### Iconos 🚸
+
 **V1.0.2**: Se utilizaba la librería `react-native-vector-icons`, la cual resulta tediosa de configurar y usar según lo visto en la documentación de la librería.
 
 **V2.0.0**: Se utilizará `lucide-react-native` que trabaja en conjunto con la nueva librería `gluestack-ui` que reemplazó a `react-base`, junto con otras de sus dependencias como `react-native-svg` que es la que permite el uso de iconos vectoriales.
 
 Adicional a lo anterior, se creó un archivo donde se importan todos los iconos de la librería en `assets/icons/Icons.tsx` y se agregan SOLO LOS QUE SE USARÁN en la app, esto con el objetivo de hacer más facil la busqueda del icono requerido y por efectos prácticos, su uso es el siguiente:
 
-* Como una prop:
+- Como una prop:
+
 ```
 import {iconMap} from '../../config/icons/Icons'
 
@@ -94,7 +104,9 @@ const Icon = iconMap[iconName] //"iconName" es el nombre de la prop.
 
 <Icon style={styles.icon} size={iconSize}/> //"styles" son estilos dados en donde se utilice y "iconSize" es una prop para definir el tamaño del icono.
 ```
-* Como atributo de un objeto:
+
+- Como atributo de un objeto:
+
 ```
 import { iconMap } from '../assets/icons/Icons'
 
@@ -104,38 +116,50 @@ import { iconMap } from '../assets/icons/Icons'
 ```
 
 > [!NOTE]
->Para usar iconos muy puntuales de un componente como un SELECTOR, se importa directamente desde la librería `@gluestack-ui/themed`.
-
+> Para usar iconos muy puntuales de un componente como un SELECTOR, se importa directamente desde la librería `@gluestack-ui/themed`.
 
 ### Diseño
+
 El diseño solo cambió en el "borderRadius" de los componentes, esto con el objetivo de darle uniformidad al diseño de la aplicación.
+
 - 0 - 3 en botones o componentes interactivos.
 - 0 en componentes fijos o generados mediante funciones.
 
 ## Esquema de colores 🌈
+
 ### Colores principales
+
 Colores que se usan a lo largo de toda la app:
+
 - Color principal: ![#fff](https://placehold.co/10x10/fff/fff.png)`#fff`
 - Color secundario (azul) : ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`
 - Color de enlaces: ![#5294ff](https://placehold.co/10x10/5294ff/5294ff.png)`#5294ff`
 
 ### Otros colores
+
 Colores que se usan en la app, pero en componentes más pequeños o con menos frecuencia:
+
 - ![#5eb85f](https://placehold.co/10x10/5eb85f/5eb85f.png)`#5eb85f`
 - ![#6fb9c3](https://placehold.co/10x10/6fb9c3/6fb9c3.png)`#6fb9c3`
 
 ### Botones
+
 Observando el esquema de colores que usan los botones a lo largo de la aplicación podemos inferir 3 tipos y el color que usan:
+
 1. Configuración: ![#5eb85f](https://placehold.co/10x10/5eb85f/5eb85f.png)`#5eb85f`
 2. Visualización: ![#5fb2f9](https://placehold.co/10x10/5fb2f9/5fb2f9.png)`#5fb2f9`
-3. Acciones: 
-* ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`(principal y swap buttons)
-* ![#5fb85f](https://placehold.co/10x10/5fb85f/5fb85f.png)`#5fb85f`(add y confirm buttons)
-* ![#d85350](https://placehold.co/10x10/d85350/d85350.png)`#d85350`(cancel buttons).
+3. Acciones:
+
+- ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`(principal y swap buttons)
+- ![#5fb85f](https://placehold.co/10x10/5fb85f/5fb85f.png)`#5fb85f`(add y confirm buttons)
+- ![#d85350](https://placehold.co/10x10/d85350/d85350.png)`#d85350`(cancel buttons).
 
 ## Prácticas seguidas o recomendaciones 👍
+
 A continuación algunas prácticas que se pueden tener en cuenta a la hora de escribir código y componentes en la aplicación:
+
 ### **Al crear un componente**
+
 **Definiendo las props:** Cuando se crea un componente en TSX deben definirse los tipos de datos de cada prop, teniendo esto en cuenta se define un nombre para la interface que va a contenerlas de la siguiente forma:
 
 ```
@@ -145,12 +169,15 @@ interface <ComponentName>Props{
 ```
 
 **Creando el componente y sus métodos:** Para diferenciar el componente de los métodos, se propone diferenciarlos por sintaxis así:
+
 - Para el componente:
+
 ```
 const ComponentName : React.FC<ComponentProps> = ({props}) => {}
 ```
 
 - Para los métodos dentro del componente:
+
 ```
 const ComponentName : React.FC<ComponentProps> = ({props}) => {
     function functionName(){}

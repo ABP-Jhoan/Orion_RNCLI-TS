@@ -30,7 +30,7 @@ const SwipeButton : React.FC = () => {
                 <Text style={{ fontSize: 24 }}>
                     Hola chato
                 </Text>
-                <ChevronLeft style={{color: '#000'}}/>
+                <ChevronLeft color='#215877' size={50}/>
             </View>
         </Swipeable>
     )
@@ -39,7 +39,6 @@ const SwipeButton : React.FC = () => {
 export const SwapView : React.FC = () => {
     return(
         <View style={Styles.container}>
-            <Text>Swap Buttons</Text>
             <SwipeButton/>
         </View>
     )
@@ -53,7 +52,7 @@ const Styles = StyleSheet.create({
         backgroundColor: 'white',
         width: '100%',
         height: 100,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 30,
         paddingVertical: 20,
