@@ -80,7 +80,7 @@ src
 > La navegación básica se quedará en un solo archivo donde serán importadas las navegaciones especiales (por pestañas y sidebar).
 
 > [!IMPORTANT]
-> La navegación debe ser pasada como una prop a los componentes que llevan a otras vistas, esto por ahora se logra con `[prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-in-react/#:~:text=Prop%20drilling%20occurs%20when%20a,component%20that%20finally%20consumes%20it.)`.
+> La navegación debe ser pasada como una prop a los componentes que llevan a otras vistas, esto por ahora se logra con [prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-in-react/#:~:text=Prop%20drilling%20occurs%20when%20a,component%20that%20finally%20consumes%20it.).
 
 ### Iconos 🚸
 
