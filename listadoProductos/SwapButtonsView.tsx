@@ -1,35 +1,35 @@
-import React, {useRef, useState} from 'react'
-import { View, StyleSheet, Text, TouchableOpacity, PanResponder, Animated } from 'react-native'
+import React from 'react'
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { Swipeable } from 'react-native-gesture-handler'
 import { iconMap } from '../assets/icons/Icons'
 import { ChevronLeft } from 'lucide-react-native'
 
-interface ActionButtonProps{
+interface SwipeActionButtonProps{
     icon: keyof typeof iconMap
     btnText: string
     btnFunc?: (text:string) => void
 }
 
-const ActionButton : React.FC<ActionButtonProps> = ({icon = 'Config', btnText = 'BTN'}) => {
+interface SwipeButtonProps{
+    btnText : string
+    actionButtons : React.ReactElement<SwipeActionButtonProps>[]
+}
+
+export const SwipeActionButton : React.FC<SwipeActionButtonProps> = ({icon = 'Config', btnText = 'BTN'}) => {
     const Icon = iconMap[icon]
     return(
         <TouchableOpacity style={Styles.actionBtn}>
-            <Icon style={Styles.icon} size={50}/>
-            <Text style={{color: '#fff'}}>{btnText}</Text>
+            <Icon style={{marginLeft: 11}} color='#fff' size={50}/>
+            <Text style={{color: '#fff', textAlign: 'center'}}>{btnText}</Text>
         </TouchableOpacity>
     )
 }
 
-const SwipeButton : React.FC = () => {
+const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
     return(
-        <Swipeable renderRightActions={() => [
-            <ActionButton icon='Reports2' btnText='DETALLE'/>,
-            <ActionButton icon='Home' btnText='DELETE'/>
-        ]}>
+        <Swipeable renderRightActions={() => [actionButtons]}>
             <View style={Styles.swipeButton}>
-                <Text style={{ fontSize: 24 }}>
-                    Hola chato
-                </Text>
+                <Text style={{ fontSize: 24 }}>{btnText}</Text>
                 <ChevronLeft color='#215877' size={50}/>
             </View>
         </Swipeable>
@@ -37,9 +37,19 @@ const SwipeButton : React.FC = () => {
 }
 
 export const SwapView : React.FC = () => {
+    //? Arrays para definir los botones que se usarán dentro del componente SwipeButton.
+    const array = [
+        <SwipeActionButton icon='Reports2' btnText='DETALLE'/>,
+        <SwipeActionButton icon='Home' btnText='DELETE'/>
+    ]
+    const array2 = [
+        <SwipeActionButton icon='Log' btnText='OTHER'/>,
+        <SwipeActionButton icon='Search' btnText='NO SE'/>
+    ]
     return(
         <View style={Styles.container}>
-            <SwipeButton/>
+            <SwipeButton btnText='Hola chato' actionButtons={array}/>
+            <SwipeButton btnText='Otro botón' actionButtons={array2}/>
         </View>
     )
 }
@@ -60,13 +70,10 @@ const Styles = StyleSheet.create({
         alignContent: 'center'
     },
     actionBtn:{
+        width: 80,
         backgroundColor: '#215877',
         justifyContent: 'center',
         alignContent: 'center',
         padding: 5
-    },
-    icon:{
-        marginLeft: 6,
-        color: '#fff'
     }
 })

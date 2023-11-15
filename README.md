@@ -158,7 +158,17 @@ Observando el esquema de colores que usan los botones a lo largo de la aplicaci�
 
 A continuación algunas prácticas que se pueden tener en cuenta a la hora de escribir código y componentes en la aplicación:
 
-### **Al crear un componente**
+### **Crear un componente**
+
+**Nombres descriptivos entre padres e hijos:** Entre componentes que tienen relacion de "padre" e "hijos", por ejemplo:
+
+```
+Componente del archivo SwipeButtons
+Padre:
+    SwipeButton
+Hijo:
+    SwipeActionButton
+```
 
 **Definiendo las props:** Cuando se crea un componente en TSX deben definirse los tipos de datos de cada prop, teniendo esto en cuenta se define un nombre para la interface que va a contenerlas de la siguiente forma:
 
