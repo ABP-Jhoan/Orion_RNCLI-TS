@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // Componentes para crear las rutas (Solo las vistas, no los componentes dentro de ellas).
-import {LoginForm} from '../login/Login';
+import { LoginForm } from '../login/Login';
 import { DrawNavigation } from "./DrawerNavigation";
 import { TestPage } from "../listadoProductos/VistaProducto";
 import { TestPageTwo } from "../listadoProductos/TestTwo";

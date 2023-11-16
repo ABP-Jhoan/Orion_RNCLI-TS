@@ -1,6 +1,6 @@
 # Documentación provisional para la app de Orión ![Orion logo](./android/app/src/main/res/mipmap-mdpi/ic_launcher.png)
 
-La aplicación de Orión no había recibido actualizaciones desde hace un tiempo (3 años aproximadamente), por esa razón se decidió hacer una "actualización" de la misma creandola desde cero con las tecnologías, librerías y metodologías actuales.
+La aplicación de Orión no había recibido actualizaciones desde hace aproximadamente 3 años, razón por la cual se decidió "actualizar" la misma haciendola desde cero con las tecnologías, librerías y metodologías actuales.
 
 ## Dependencias ⏬
 
@@ -77,10 +77,7 @@ src
 ```
 
 > [!NOTE]
-> La navegación básica se quedará en un solo archivo donde serán importadas las navegaciones especiales (por pestañas y sidebar).
-
-> [!IMPORTANT]
-> La navegación debe ser pasada como una prop a los componentes que llevan a otras vistas, esto por ahora se logra con [prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-in-react/#:~:text=Prop%20drilling%20occurs%20when%20a,component%20that%20finally%20consumes%20it.).
+> La navegación básica se quedará en un solo archivo donde serán importadas las navegaciones especiales (por pestañas y sidebar) porque son vistas.
 
 ### Iconos 🚸
 
@@ -120,7 +117,7 @@ import { iconMap } from '../assets/icons/Icons'
 
 ### Diseño
 
-El diseño solo cambió en el "borderRadius" de los componentes, esto con el objetivo de darle uniformidad al diseño de la aplicación.
+El diseño solo cambió en el "borderRadius" de los componentes, para darle uniformidad al diseño de la aplicación.
 
 - 0 - 3 en botones o componentes interactivos.
 - 0 en componentes fijos o generados mediante funciones.
@@ -144,15 +141,33 @@ Colores que se usan en la app, pero en componentes más pequeños o con menos fr
 
 ### Botones
 
-Observando el esquema de colores que usan los botones a lo largo de la aplicación podemos inferir 3 tipos y el color que usan:
+Observando el esquema de colores que usan los botones a lo largo de la aplicación podemos inferir varios tipos y el color que los distinguen:
 
-1. Configuración: ![#5eb85f](https://placehold.co/10x10/5eb85f/5eb85f.png)`#5eb85f`
-2. Visualización: ![#5fb2f9](https://placehold.co/10x10/5fb2f9/5fb2f9.png)`#5fb2f9`
-3. Acciones:
+**Botones de funcionamiento:**
 
-- ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`(principal y swap buttons)
-- ![#5fb85f](https://placehold.co/10x10/5fb85f/5fb85f.png)`#5fb85f`(add y confirm buttons)
-- ![#d85350](https://placehold.co/10x10/d85350/d85350.png)`#d85350`(cancel buttons).
+Son botones que ejecutan una función o invocan otros componentes, estos se usan en las vistas donde se necesitan ya que no cuentan con navegación, estos botones son los siguientes:
+
+1. **Configuración:** se refiere a botones que realizan algún cambio en la aplicación, ya sea a nivel de comportamiento, visual o en el estado global. Estos se distinguen con el color ![#5eb85f](https://placehold.co/10x10/5eb85f/5eb85f.png)`#5eb85f` y se encuentran en la vista donde se hace la configuración.
+
+![Ejemplo de un botón de configuración](./docImages/ConfButton.png)
+
+2. **Visualización:** se refiere a botones que muestran información a traves de un modal, toast o alerta; **NO PARA NAVEGAR ENTRE VISTAS**, esto para mantener la responsabilidad unica de los componentes. Estos se distinguen con el color ![#5fb2f9](https://placehold.co/10x10/5fb2f9/5fb2f9.png)`#5fb2f9`.
+
+![Ejemplo de un botón de visualización](./docImages/ViewButton.png)
+
+3. **Acciones:** se refiere a botones secundarios y pequeños como los que se encuentran en los swipeButtons, botones de 'Aceptar'/'Cancelar' o en el botón de inicio de sesión.
+
+- ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`(principal y swap buttons).
+- ![#5fb85f](https://placehold.co/10x10/5fb85f/5fb85f.png)`#5fb85f`(add y confirm buttons).
+- ![#d85350](https://placehold.co/10x10/d85350/d85350.png)`#d85350`(delete y cancel buttons).
+
+![Ejemplo de botones de acciones](./docImages/ActionButton.png)
+
+**Botones de navegación:**
+
+Son botones que sirven para navegar entre vistas, estos carecen de color de fondo, pueden tener o no un icono y van generalmente en los menús.
+
+![Ejemplo de botones en menú](./docImages/MenuButton.png)
 
 ## Prácticas seguidas o recomendaciones 👍
 
@@ -183,13 +198,13 @@ interface <ComponentName>Props{
 - Para el componente:
 
 ```
-const ComponentName : React.FC<ComponentProps> = ({props}) => {}
+const ComponentName : React.FC<ComponentNameProps> = ({props}) => {}
 ```
 
 - Para los métodos dentro del componente:
 
 ```
-const ComponentName : React.FC<ComponentProps> = ({props}) => {
+const ComponentName : React.FC<ComponentNameProps> = ({props}) => {
     function functionName(){}
 }
 ```

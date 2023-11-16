@@ -21,7 +21,7 @@ export const InputIcon : React.FC<InputProps> = ({iconName = 'User', iconSize = 
     //? Constante para cambiar el icono en el campo de la contraseña (importo solo los iconos necesarios).
     const EyeIcon = text ? Eye : EyeOff
 
-    function showPss() {
+    function showPass() {
         if (iconEye) {
             setText(true)
             iconEye = false
@@ -40,7 +40,7 @@ export const InputIcon : React.FC<InputProps> = ({iconName = 'User', iconSize = 
                 onChangeText={changeFunc}
             />
             {iconEye ? 
-                <TouchableOpacity onPress={showPss}>
+                <TouchableOpacity onPress={showPass}>
                     <EyeIcon style={styles.icon} size={iconSize}/>
                 </TouchableOpacity>
                 : null}

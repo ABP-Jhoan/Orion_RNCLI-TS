@@ -1,18 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import { NavIconButton } from "../components/buttons/NavButtons";
 
-interface HomeProps{
-    navigation : NavigationProp<ParamListBase>
-}
-
-export const Home: React.FC<HomeProps> = ({navigation}) => {
+export const Home: React.FC = () => {
+    const navigation = useNavigation()
     return(
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Bienvenido</Text>
-            <Text style={styles.commonText} onPress={() => navigation.navigate('PieChart')}>Radial chart</Text>
-            <Text style={styles.commonText} onPress={() => navigation.navigate('AriaChart')}>Aria chart</Text>
-            <Text style={styles.commonText} onPress={() => navigation.navigate('SwapButtons')}>Swap buttons</Text>
+            <NavIconButton iconName='Config' btnText='Pie chart' backGroundColor='#851800' route='PieChart'/>
+            <NavIconButton iconName='Reports' btnText='Aria chart' backGroundColor='#215877' route='AriaChart'/>
+            <NavIconButton iconName='Search' btnText='Swipe buttons' backGroundColor='#00853c' route='SwapButtons'/>
         </View>
     )
 }
@@ -20,7 +18,6 @@ export const Home: React.FC<HomeProps> = ({navigation}) => {
 const styles = StyleSheet.create({
     container:{
         height: 865,
-        padding: 20
     },
     miniContainer:{
         marginTop: 15,
@@ -30,7 +27,7 @@ const styles = StyleSheet.create({
     pageTitle:{
         fontSize: 40,
         textAlign: 'center',
-        marginBottom: 50
+        marginBottom: 10
     },
     commonText:{
         color: 'white',
