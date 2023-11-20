@@ -28,7 +28,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - react-native-reanimated ✔️
 - react-native-safe-area-view ❌Deprecado 🔄Cambiar por react-native-safe-area-context
 - react-native-slider ❌ 🔄Cambiar por @react-native-community/slider
-- react-native-swipeout ❌ ⚠️No hay alternativas a esta librería
+- react-native-swipeout ✔️ 🔄Cambiar por react-native-gesture-handler
 - react-native-vector-icons ❌ 🔄Cambiar. GlueStack provee una api de iconos
 - react-native-walkthrough-tooltip ✔️
 - react-native-webview ✔️

@@ -4,13 +4,15 @@ import { PieChart } from "react-native-gifted-charts"
 
 export const RadialChart : React.FC = () => {
     const pieData = [
-        {value: 50, color: '#177AD5', text: '50%'},
-        {value: 30, color: '#79D2DE', text: '30%'},
-        {value: 20, color: '#ED6665', text: '20%'},
+        {value: 50, color: '#177AD5', text: '50%', shiftTextX: -15},
+        {value: 15, color: '#5f009e', text: '15%'},
+        {value: 20, color: '#009e54', text: '20%', shiftTextY: 15},
+        {value: 15, color: '#00619e', text: '15%'}
     ];
     return(
         <View>
             <PieChart
+                textColor='#fff'
                 strokeColor="white"
                 strokeWidth={4}
                 donut

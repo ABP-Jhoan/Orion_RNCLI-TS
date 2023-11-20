@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { Swipeable } from 'react-native-gesture-handler'
 import { iconMap } from '../assets/icons/Icons'
 import { ChevronLeft } from 'lucide-react-native'
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 //! PROP interfaces de los componentes
 //? Botón que desencadena una acción dentro de la app.
@@ -45,11 +45,19 @@ export const SwipeViewButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config
 }
 
 const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
+    const swipeActionTrigger = useRef(null)
+    function openActions() {
+        if (swipeActionTrigger.current) {
+            swipeActionTrigger.current.openRight()
+        }
+    }
     return(
-        <Swipeable renderRightActions={() => [actionButtons]}>
+        <Swipeable renderRightActions={() => [actionButtons]} ref={swipeActionTrigger}>
             <View style={Styles.swipeButton}>
                 <Text style={{ fontSize: 24 }}>{btnText}</Text>
-                <ChevronLeft color='#215877' size={50}/>
+                <TouchableOpacity onPress={openActions}>
+                    <ChevronLeft color='#215877' size={50}/>
+                </TouchableOpacity>
             </View>
         </Swipeable>
     )
