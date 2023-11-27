@@ -20,7 +20,7 @@ A continuación se relacionan las librerías que continúan y que NO continúan 
 - react-native-floating-action ❌ 🔄Cambiar por react-native-reanimated
 - react-native-gesture-handler ✔️
 - react-native-image-picker ✔️
-- react-native-indicators ❌ 🔄Cambiar por react-native-loader-kit
+- react-native-indicators ❌ ⚠️No hay alternativas para esta dependecia
 - react-native-modal-datetime-picker ✔️
 - react-native-modalbox ❌ 🔄Cambiar por @whitespectre/rn-modal-presenter
 - react-native-orientation-locker ❓

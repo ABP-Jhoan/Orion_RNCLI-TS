@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { Swipeable } from 'react-native-gesture-handler'
 import { iconMap } from '../assets/icons/Icons'
-import { ChevronLeft } from 'lucide-react-native'
+import { ChevronRight } from 'lucide-react-native'
 import { useNavigation } from '@react-navigation/native';
 
 //! PROP interfaces de los componentes
@@ -56,7 +56,7 @@ const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
             <View style={Styles.swipeButton}>
                 <Text style={{ fontSize: 24 }}>{btnText}</Text>
                 <TouchableOpacity onPress={openActions}>
-                    <ChevronLeft color='#215877' size={50}/>
+                    <ChevronRight color='#215877' size={50}/>               
                 </TouchableOpacity>
             </View>
         </Swipeable>

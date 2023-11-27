@@ -35,7 +35,7 @@ export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
             style={styles.container}
         >
-            <Image style={styles.formImage} source={require('../assets/OrionLogo.png')}/>
+            <Image style={styles.formImage} source={require('../assets/images/OrionLogo.png')}/>
             <Text style={{ color: '#000' }}>Usuario: admin</Text>
             <Text style={{ color: '#000' }}>Contraseña: 12345</Text>
             <InputIcon iconName="User" iconEye={false} secureTextEntry={false} textValue={usuario.InputIcon} changeFunc={handleUsuarioChange}/>
