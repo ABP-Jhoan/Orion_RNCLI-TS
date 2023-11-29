@@ -18,6 +18,8 @@
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
     "@react-navigation/stack": "^6.3.18",
+    "axios": "^1.6.2",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react-native": "^0.289.0",
     "react": "18.2.0",
     "react-native": "0.72.6",

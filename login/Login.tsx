@@ -1,5 +1,6 @@
 import { Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView, ToastAndroid, Linking, Platform } from 'react-native';
 import React, { useState } from 'react';
+import axios from 'axios';
 import { InputIcon } from "../components/inputs/InputIcon";
 import { ConfButton } from "../components/buttons/configButton";
 
@@ -21,14 +22,28 @@ export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
     const showToast = (message : string) => {
         ToastAndroid.show(message, ToastAndroid.SHORT)
     }
-    const login = () => {
-        if (usuario.InputIcon == 'admin' && contrasena.InputIcon == '12345') {
-            showToast('Login exitoso')
-            setIsLoggedIn(true);
+    const login = async () => {
+        let email = usuario.InputIcon
+        let password = contrasena.InputIcon
+        if (email == '' || password == '') {
+            showToast("Por favor ingrese sus credenciales de acceso.")
         }
         else{
-            showToast('Credenciales incorrectas')
+            try {
+                const response = await axios.post('https://api.escuelajs.co/api/v1/auth/login', {
+                    email,
+                    password
+                })
+                console.log(response.data.access_token);
+                showToast('Inicio de sesión exitoso')
+                setIsLoggedIn(true);
+            } catch (error) {
+                console.log("Error en la autenticación: " + error + ", credenciales ingresadas: " + email + " " + password)
+                showToast('Credenciales incorrectas')
+            }
         }
+        
+        
     }
     return(
         <KeyboardAvoidingView
@@ -36,10 +51,19 @@ export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
             style={styles.container}
         >
             <Image style={styles.formImage} source={require('../assets/images/OrionLogo.png')}/>
-            <Text style={{ color: '#000' }}>Usuario: admin</Text>
-            <Text style={{ color: '#000' }}>Contraseña: 12345</Text>
-            <InputIcon iconName="User" iconEye={false} secureTextEntry={false} textValue={usuario.InputIcon} changeFunc={handleUsuarioChange}/>
-            <InputIcon iconName="Password" iconEye={true} secureTextEntry={true} textValue={contrasena.InputIcon} changeFunc={handleContrasenaChange}/>
+            <Text style={styles.testingLabel}>App Orion for testing purposes</Text>
+            <Text>User: john@mail.com</Text>
+            <Text>Pass: changeme</Text>
+            <InputIcon iconName="User" 
+                iconEye={false}
+                secureTextEntry={false}
+                textValue={usuario.InputIcon}
+                changeFunc={handleUsuarioChange}/>
+            <InputIcon iconName="Password" 
+                iconEye={true} 
+                secureTextEntry={true} 
+                textValue={contrasena.InputIcon}
+                changeFunc={handleContrasenaChange}/>
             
             <ConfButton btnText='Iniciar sesión' btnClass='Pricipal' btnFunc={login}/>
             <View style={styles.legend}>
@@ -63,6 +87,13 @@ const styles = StyleSheet.create({
     },
     formImage: {
         alignSelf: 'center'
+    },
+    testingLabel:{
+        width: '100%',
+        textAlign: 'center',
+        color: '#215877',
+        marginBottom: 10,
+        fontSize: 15
     },
     textInpu: {
         marginBottom: 20,

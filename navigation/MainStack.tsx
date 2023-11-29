@@ -5,9 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 // Componentes para crear las rutas (Solo las vistas, no los componentes dentro de ellas).
 import { LoginForm } from '../login/Login';
 import { DrawNavigation } from "./DrawerNavigation";
-import { TestPage } from "../listadoProductos/VistaProducto";
-import { TestPageTwo } from "../listadoProductos/TestTwo";
-import { SwapView } from "../listadoProductos/SwapButtonsView";
+import { TestPage } from "../screens/VistaProducto";
+import { TestPageTwo } from "../screens/TestTwo";
+import { SwapView } from "../screens/SwapButtonsView";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();

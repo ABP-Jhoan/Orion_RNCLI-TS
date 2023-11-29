@@ -5,7 +5,7 @@ import { DrawerContentScrollView, DrawerItem, createDrawerNavigator } from '@rea
 import { NavigationProp, ParamListBase } from '@react-navigation/native'
 import { LogOut, UserCircle2 } from 'lucide-react-native';
 //? Componentes propios
-import { DataList } from '../listadoProductos/ProductsView'
+import { DataList } from '../screens/ProductsView'
 import { Home as Inicio } from '../menu/Home'
 import { TabContainer } from './TabContainer'
 import { iconMap } from '../assets/icons/Icons'

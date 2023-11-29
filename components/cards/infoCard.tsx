@@ -16,9 +16,9 @@ export const InfoCard : React.FC<InfoCardProps> = ({id, nombreVendedor, fecha, f
     let monthYear = fecha.substring(3)
     return(
         <View style={Styles.container}>
-            <View style={{justifyContent: 'center', alignContent: 'center', padding: 5}}>
+            <View style={Styles.dateContainer}>
                 <Text style={{textAlign: 'center'}}>{day}</Text>
-                <Text style={Styles.commonText}>{monthYear}</Text>
+                <Text style={Styles.dateText}>{monthYear}</Text>
             </View>
             <View>
                 <Text style={Styles.importantText}>{nombreVendedor}</Text>
@@ -40,8 +40,19 @@ const Styles = StyleSheet.create({
         paddingBottom: 10,
         paddingTop: 10
     },
+    dateContainer:{
+        width: '25%',
+        justifyContent: 'center',
+        alignContent: 'center',
+        padding: 5
+    },
     importantText: {
         color: '#215877'
+    },
+    dateText:{
+        width: '100%',
+        textAlign: 'center',
+        color: '#8f8f8f8f'        
     },
     commonText: {
         color: '#8f8f8f8f'

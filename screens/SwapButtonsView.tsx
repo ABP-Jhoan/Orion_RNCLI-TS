@@ -5,6 +5,8 @@ import { iconMap } from '../assets/icons/Icons'
 import { ChevronRight } from 'lucide-react-native'
 import { useNavigation } from '@react-navigation/native';
 
+import { RecordCard } from '../components/cards/RecordCard'
+
 //! PROP interfaces de los componentes
 //? Botón que desencadena una acción dentro de la app.
 interface SwipeActionButtonProps{
@@ -80,6 +82,12 @@ export const SwapView : React.FC = () => {
         <View style={Styles.container}>
             <SwipeButton btnText='Hola chato' actionButtons={array}/>
             <SwipeButton btnText='Otro botón' actionButtons={array2}/>
+            <View style={{padding: 10,flexDirection: 'row', flexWrap: 'wrap'}}>
+                <Text style={{fontSize: 15}}>Botones de recordatorios</Text>
+                <RecordCard titulo='Recordatorios' iconName='Def' colorTitle='#960000'/>
+                <RecordCard titulo='Inventario' iconName='Def' colorTitle='#004e96'/>
+                <RecordCard titulo='Materiales' iconName='Def' colorTitle='#e6c929'/>
+            </View>
         </View>
     )
 }
