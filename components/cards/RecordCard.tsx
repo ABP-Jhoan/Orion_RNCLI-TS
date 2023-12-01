@@ -6,14 +6,16 @@ import { iconMap } from '../../assets/icons/Icons'
 
 interface RecordCardProps{
     iconName: keyof typeof iconMap
+    route: string
     titulo: string
     colorTitle: string
 }
 
-export const RecordCard : React.FC<RecordCardProps> = ({iconName = 'Def', titulo, colorTitle}) => {
+export const RecordCard : React.FC<RecordCardProps> = ({iconName = 'Def',route, titulo, colorTitle}) => {
     const Icon = iconMap[iconName]
+    const navigation = useNavigation()
     return(
-        <TouchableOpacity style={[Styles.cardContainer]}>
+        <TouchableOpacity style={[Styles.cardContainer]} onPress={() => navigation.navigate(route)}>
             <Text style={[Styles.cardTitle, {backgroundColor: colorTitle}]}>{titulo}</Text>
             <View style={Styles.info}>
                 <Icon color='#8f8f8f' size={60}/>
@@ -29,6 +31,8 @@ const Styles = StyleSheet.create({
         height: 120,
         borderWidth: 1,
         borderColor: '#8f8f8f8f',
+        flex: 1,
+        margin: 3
     },
     cardTitle:{
         width: '100%',

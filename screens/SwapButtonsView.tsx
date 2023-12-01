@@ -14,13 +14,13 @@ interface SwipeActionButtonProps{
     btnText: string
     btnFunc?: (text:string) => void
 }
-//? Botón que lleva aa otra vista dentro de la app.
+//? Botón que lleva a otra vista dentro de la app.
 interface SwipeViewButtonProps{
     icon: keyof typeof iconMap
     btnText : string
     route: string
 }
-
+//? Interfaz del botón
 interface SwipeButtonProps{
     btnText : string
     actionButtons : React.ReactElement<SwipeActionButtonProps>[]
@@ -35,7 +35,7 @@ export const SwipeActionButton : React.FC<SwipeActionButtonProps> = ({icon = 'Co
         </TouchableOpacity>
     )
 }
-export const SwipeViewButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config', btnText = 'BTN', route}) => {
+export const SwipeNavButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config', btnText = 'BTN', route}) => {
     const navigation = useNavigation()
     const Icon = iconMap[icon]
     return(
@@ -64,6 +64,9 @@ const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
         </Swipeable>
     )
 }
+
+
+
 export const SwapView : React.FC = () => {
     function something() {
         alert('Doing something')
@@ -72,7 +75,7 @@ export const SwapView : React.FC = () => {
     const array = [
         <SwipeActionButton icon='Reports2' btnText='DETALLE' btnFunc={something}/>,
         <SwipeActionButton icon='Home' btnText='DELETE'/>,
-        <SwipeViewButton icon='Config' btnText='WHERE' route='Home'/>
+        <SwipeNavButton icon='Config' btnText='WHERE' route='Home'/>
     ]
     const array2 = [
         <SwipeActionButton icon='Log' btnText='OTHER'/>,
@@ -82,12 +85,7 @@ export const SwapView : React.FC = () => {
         <View style={Styles.container}>
             <SwipeButton btnText='Hola chato' actionButtons={array}/>
             <SwipeButton btnText='Otro botón' actionButtons={array2}/>
-            <View style={{padding: 10,flexDirection: 'row', flexWrap: 'wrap'}}>
-                <Text style={{fontSize: 15}}>Botones de recordatorios</Text>
-                <RecordCard titulo='Recordatorios' iconName='Def' colorTitle='#960000'/>
-                <RecordCard titulo='Inventario' iconName='Def' colorTitle='#004e96'/>
-                <RecordCard titulo='Materiales' iconName='Def' colorTitle='#e6c929'/>
-            </View>
+
         </View>
     )
 }

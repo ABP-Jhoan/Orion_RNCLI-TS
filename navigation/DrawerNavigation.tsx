@@ -88,7 +88,9 @@ export const DrawNavigation : React.FC<StackProps> = ({navigation, setIsLoggedIn
         <Drawer.Navigator
             initialRouteName='Home'
             screenOptions={() => ({
-                overlayColor:'#21587777'
+                overlayColor:'#21587777',
+                headerStyle: {backgroundColor: '#215877'},
+                headerTintColor: '#fff'
             })}
             drawerContent={(headerContainer) => <HeaderContainer navigation={navigation} setIsLoggedIn={setIsLoggedIn}/>}
             

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { InputIcon } from "../components/inputs/InputIcon";
 import { ConfButton } from "../components/buttons/configButton";
+import DotLoader from '../components/loaders/Loaders';
+import { loading } from '../config/loading';
 
 interface LoginProps{
     setIsLoggedIn : (logged : boolean) => void
@@ -34,7 +36,7 @@ export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
                     email,
                     password
                 })
-                console.log(response.data.access_token);
+                console.log(response.data.access_token)
                 showToast('Inicio de sesión exitoso')
                 setIsLoggedIn(true);
             } catch (error) {
@@ -42,8 +44,6 @@ export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
                 showToast('Credenciales incorrectas')
             }
         }
-        
-        
     }
     return(
         <KeyboardAvoidingView
