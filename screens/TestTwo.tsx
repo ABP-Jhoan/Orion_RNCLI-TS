@@ -1,17 +1,18 @@
-import React, {Suspense} from 'react'
+import React, {lazy, Suspense} from 'react'
 import { View, StyleSheet } from 'react-native'
-import { InfoCard } from '../components/cards/infoCard'
-import { AreaChartComp } from '../components/graphs/AreaChart'
 import { ScrollView } from 'react-native-gesture-handler'
 import data from '../data/chartData.json'
 import DotLoader from '../components/loaders/Loaders'
+import { InfoCard } from '../components/cards/infoCard'
+//import AreaChartComp from '../components/graphs/AreaChart'
+
+const HeavyComponent = lazy(() => import('../components/graphs/AreaChart'))
 
 export const TestPageTwo = () => {
     return(
         <View style={Styles.container}>
             <Suspense fallback={<DotLoader/>}>
-            <AreaChartComp/>
-            </Suspense>
+                <HeavyComponent/>
                 <ScrollView style={{width:'100%'}}>
                     {data.map((item) => 
                         <InfoCard
@@ -24,7 +25,8 @@ export const TestPageTwo = () => {
                             usuario={item.USUARIO}
                         />)
                     }
-            </ScrollView>
+                </ScrollView>
+            </Suspense>
         </View>
     )
 }

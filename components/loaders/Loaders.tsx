@@ -55,6 +55,7 @@ const DotLoader = () => {
 
 const styles = StyleSheet.create({
   container: {
+    height: 250,
     position: 'relative',
     top: '50%',
     alignItems: 'center',

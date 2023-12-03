@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import { LineChart } from 'react-native-gifted-charts'
 import { screenWidth } from 'react-native-gifted-charts/src/utils/constants'
 
-export const AreaChartComp : React.FC = () => {
+const AreaChartComp : React.FC = () => {
     const latestData = [
         {value: 100,},
         {value: 120,},
@@ -93,3 +93,5 @@ const Styles = StyleSheet.create({
         color: '#000',
     },
 })
+
+export default AreaChartComp

@@ -8,6 +8,7 @@ import { DrawNavigation } from "./DrawerNavigation";
 import { TestPage } from "../screens/VistaProducto";
 import { TestPageTwo } from "../screens/TestTwo";
 import { SwapView } from "../screens/SwapButtonsView";
+import { InventoryView } from "../screens/InventoryView";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -45,6 +46,7 @@ export function MainStack(){
                 <Stack.Screen name="PieChart" component={TestPage}/>
                 <Stack.Screen name="AriaChart" component={TestPageTwo}/>
                 <Stack.Screen name="SwapButtons" component={SwapView}/>
+                <Stack.Screen name="Inventory" component={InventoryView}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

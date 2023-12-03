@@ -11,6 +11,7 @@ export const Home: React.FC = () => {
             <NavIconButton iconName='Config' btnText='Pie chart' backGroundColor='#851800' route='PieChart'/>
             <NavIconButton iconName='Reports' btnText='Aria chart' backGroundColor='#215877' route='AriaChart'/>
             <NavIconButton iconName='Search' btnText='Swipe buttons' backGroundColor='#00853c' route='SwapButtons'/>
+            <NavIconButton iconName='List' btnText='Inventory' backGroundColor='#00553d' route='Inventory'/>
         </View>
     )
 }
