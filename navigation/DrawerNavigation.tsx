@@ -9,7 +9,7 @@ import { DataList } from '../screens/ProductsView'
 import { Home as Inicio } from '../menu/Home'
 import { TabContainer } from './TabContainer'
 import { iconMap } from '../assets/icons/Icons'
-
+import { UsersView } from '../screens/Users'
 //? Array de vistas que irán en el sidebar, con la siguiente estructura:
 /**
  * ? name: El nombre con el que aparecerá en el sideBar.
@@ -31,6 +31,11 @@ const routeItemsList = [
         name: 'Configurar licencia',
         component: TabContainer,
         icon: iconMap.Config
+    },
+    {
+        name: 'Usuarios',
+        component: UsersView,
+        icon: iconMap.Users
     }
 ]
 
@@ -98,6 +103,7 @@ export const DrawNavigation : React.FC<StackProps> = ({navigation, setIsLoggedIn
             <Drawer.Screen name={'Home'} component={Inicio}/>
             <Drawer.Screen name={'Products'} component={DataList}/>
             <Drawer.Screen name={'Configurar licencia'} component={TabContainer}/>
+            <Drawer.Screen name={'Usuarios'} component={UsersView}/>
         </Drawer.Navigator>
     )
 }

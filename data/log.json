@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "fecha":"03/12/2023",
+        "evento":"INICIA EL LOG DE EVENTOS",
+        "tipo":"Creación",
+        "usuario":"Administrador"
+    },
+    {
+        "id":2,
+        "fecha":"03/12/2023",
+        "evento":"CREAMOS LOS COMPONENTES",
+        "tipo":"Creación",
+        "usuario":"Administrador"
+    },
+    {
+        "id":3,
+        "fecha":"04/12/2023",
+        "evento":"CREACIÓN DE LA VISTA",
+        "tipo":"Creación",
+        "usuario":"Administrador"
+    },
+    {
+        "id":4,
+        "fecha":"04/12/2023",
+        "evento":"CONSUMO DE DATOS",
+        "tipo":"Creación",
+        "usuario":"Administrador"
+    }
+]
