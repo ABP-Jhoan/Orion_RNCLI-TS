@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { DrawerContentScrollView, DrawerItem, createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationProp, ParamListBase } from '@react-navigation/native'
-import { LogOut, UserCircle2 } from 'lucide-react-native';
+import { LogOut, Option, UserCircle2 } from 'lucide-react-native';
 //? Componentes propios
 import { DataList } from '../screens/ProductsView'
 import { Home as Inicio } from '../menu/Home'
@@ -77,6 +77,7 @@ const HeaderContainer : React.FC<StackProps> = ({navigation, setIsLoggedIn}) => 
                     icon={(icono) => <screen.icon {...icono}/>}
                     focused={isActive == screen.name}
                     activeBackgroundColor='#215877'
+                    //inactiveTintColor={themeStyles.drawerItemFontColor}
                     activeTintColor='#fff'
                     style={styles.routeItem}
                 />
@@ -95,10 +96,10 @@ export const DrawNavigation : React.FC<StackProps> = ({navigation, setIsLoggedIn
             screenOptions={() => ({
                 overlayColor:'#21587777',
                 headerStyle: {backgroundColor: '#215877'},
-                headerTintColor: '#fff'
+                headerTintColor: '#fff',
+                drawerStyle: {backgroundColor: '#fff'}
             })}
             drawerContent={(headerContainer) => <HeaderContainer navigation={navigation} setIsLoggedIn={setIsLoggedIn}/>}
-            
     >
             <Drawer.Screen name={'Home'} component={Inicio}/>
             <Drawer.Screen name={'Products'} component={DataList}/>
@@ -112,16 +113,15 @@ const styles = StyleSheet.create({
     areaView:{
       padding: 20
     },
-    texto:{color:'#000'},
     badge:{
         width: '100%',
         height: 200,
-        backgroundColor: '#1b5378',
         alignItems: 'center',
         justifyContent: 'center',
         margin: 0,
         position: 'relative',
-        top: -10
+        top: -10,
+        backgroundColor: '#215877'
     },
     routeItem:{
         borderRadius: 0,

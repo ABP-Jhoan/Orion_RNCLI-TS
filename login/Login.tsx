@@ -1,16 +1,18 @@
 import { Text, TouchableOpacity, Image, StyleSheet, View, KeyboardAvoidingView, ToastAndroid, Linking, Platform } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { InputIcon } from "../components/inputs/InputIcon";
 import { ConfButton } from "../components/buttons/configButton";
-import DotLoader from '../components/loaders/Loaders';
-import { loading } from '../config/loading';
+import { useAppSelector, useAppDispatch } from '../config/Redux/hooks'
+import { lightStyles, darkStyles } from '../config/GlobalStyles';
 
 interface LoginProps{
     setIsLoggedIn : (logged : boolean) => void
 }
 
 export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
+    const theme = useAppSelector((state) => state.theme.theme)
+
     // Constantes con estado por defecto vacío, aquí se guardarán los datos ingresados.
     const [usuario, setUsuario] = useState({InputIcon:''});
     const [contrasena, setContrasena] = useState({InputIcon:''});
@@ -48,13 +50,13 @@ export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
     return(
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
-            style={styles.container}
+            style={[styles.container, {backgroundColor: theme ? lightStyles.backgroundColor : darkStyles.backgroundColor}]}
         >
             <Image style={styles.formImage} source={require('../assets/images/OrionLogo.png')}/>
-            <Text style={styles.testingLabel}>App Orion for testing purposes</Text>
-            <Text>User: john@mail.com</Text>
-            <Text>Pass: changeme</Text>
-            <InputIcon iconName="User" 
+            <Text style={[styles.testingLabel, {color: theme ? lightStyles.fontColor : darkStyles.fontColor}]}>App Orion for testing purposes</Text>
+            <Text style={{color: theme ? lightStyles.fontColor : darkStyles.fontColor}}>User: john@mail.com</Text>
+            <Text style={{color: theme ? lightStyles.fontColor : darkStyles.fontColor}}>Pass: changeme</Text>
+            <InputIcon iconName="User"
                 iconEye={false}
                 secureTextEntry={false}
                 textValue={usuario.InputIcon}

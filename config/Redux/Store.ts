@@ -1,18 +1,12 @@
-//? Imports de librerías.
-import { configureStore } from "@reduxjs/toolkit"
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
-//? Imports propios
-//import licenseSlice from "./slices/licenceSlice"
+import { configureStore } from '@reduxjs/toolkit'
+import themeSlice from './Slices/ThemeSlice'
 
 export const store = configureStore({
-    reducer: {
-        //licence : licenseSlice
-    }
+  reducer: {
+    theme: themeSlice
+  },
 })
 
-// Definición de tipos para RootState y AppDispatch
+// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-// Ganchos personalizados para usar dispatch y selector con tipos específicos
-export const useAppDispatch = () => useDispatch<AppDispatch>()
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

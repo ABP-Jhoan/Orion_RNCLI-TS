@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         borderColor: '#000',
         flexDirection: 'row',
         alignItems: 'center',
-        borderRadius: 10
+        borderRadius: 5
     },
     icon:{
         color: '#fff',

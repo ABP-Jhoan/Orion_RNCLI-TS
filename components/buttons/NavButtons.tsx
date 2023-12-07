@@ -21,7 +21,7 @@ export const NavIconButton : React.FC<NavIconButtonProps> = ({iconName = "Def", 
             </View>
             <View style={styles.textContainer}>        
                 <Text style={styles.btnText}>{btnText}</Text>
-                <ArrowRight color='#000'/>
+                <ArrowRight color={'#000'}/>
             </View>
         </TouchableOpacity>
     )
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     },
     btnText:{
         fontSize: 20,
-        color: '#000'
     },
     iconContainer:{
         borderRadius: 50,

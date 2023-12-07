@@ -49,7 +49,6 @@ export const SwipeActionButton : React.FC<SwipeActionButtonProps> = ({icon = 'Co
 
 export const DefaultUserActionButton : React.FC<DefaultUserActionButtonProps> = ({btnText = 'BTN', btnFunc}) => {
     const [isEnabled, setIsEnabled] = useState(true);
-
     useEffect(() => {
         // Actualizar el estado del Switch cuando cambie la prop btnText
         setIsEnabled(btnText === 'ACTIVO');
