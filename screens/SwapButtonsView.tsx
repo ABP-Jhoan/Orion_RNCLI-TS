@@ -4,6 +4,8 @@ import { Swipeable } from 'react-native-gesture-handler'
 import { iconMap } from '../assets/icons/Icons'
 import { ChevronLeft, ChevronRight } from 'lucide-react-native'
 import { useNavigation } from '@react-navigation/native';
+import { useStyles } from '../config/GlobalStyles'
+import { useAppSelector } from '../config/Redux/hooks'
 
 //! PROP interfaces de los componentes
 //? Botón que desencadena una acción dentro de la app.
@@ -38,9 +40,10 @@ interface DefaultUserActionButtonProps{
 
 //? Botón que ejecuta una función.
 export const SwipeActionButton : React.FC<SwipeActionButtonProps> = ({icon = 'Config', btnText = 'BTN', btnFunc}) => {
+    const themeStyles = useStyles()
     const Icon = iconMap[icon]
     return(
-        <TouchableOpacity style={Styles.actionBtn} onPress={() => btnFunc}>
+        <TouchableOpacity style={[Styles.actionBtn, {backgroundColor: themeStyles.secondaryColor}]} onPress={() => btnFunc}>
             <Icon style={{marginLeft: 11}} color='#fff' size={50}/>
             <Text style={{color: '#fff', textAlign: 'center'}}>{btnText}</Text>
         </TouchableOpacity>
@@ -48,6 +51,7 @@ export const SwipeActionButton : React.FC<SwipeActionButtonProps> = ({icon = 'Co
 }
 
 export const DefaultUserActionButton : React.FC<DefaultUserActionButtonProps> = ({btnText = 'BTN', btnFunc}) => {
+    const themeStyles = useStyles()
     const [isEnabled, setIsEnabled] = useState(true);
     useEffect(() => {
         // Actualizar el estado del Switch cuando cambie la prop btnText
@@ -59,7 +63,7 @@ export const DefaultUserActionButton : React.FC<DefaultUserActionButtonProps> = 
     };
 
     return(
-        <View style={Styles.userActionDefault}>
+        <View style={[Styles.userActionDefault, {backgroundColor: themeStyles.secondaryColor}]}>
             <Switch
                 trackColor={{true:'#00d443' , false:'#d40000'}}
                 thumbColor={'#8f8f8f'}
@@ -75,10 +79,11 @@ export const DefaultUserActionButton : React.FC<DefaultUserActionButtonProps> = 
 
 //? Botón que me lleva a otra vista.
 export const SwipeNavButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config', btnText = 'BTN', route}) => {
+    const themeStyles = useStyles()
     const navigation = useNavigation()
     const Icon = iconMap[icon]
     return(
-        <TouchableOpacity style={Styles.actionBtn} onPress={() => navigation.navigate(route)}>
+        <TouchableOpacity style={[Styles.actionBtn, {backgroundColor: themeStyles.secondaryColor}]} onPress={() => navigation.navigate(route)}>
             <Icon style={{marginLeft: 11}} color='#fff' size={50}/>
             <Text style={{color: '#fff', textAlign: 'center'}}>{btnText}</Text>
         </TouchableOpacity>
@@ -86,6 +91,8 @@ export const SwipeNavButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config'
 }
 
 const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
+    const theme = useAppSelector((state) => state.theme.theme)
+    const themeStyles = useStyles()
     const swipeActionTrigger = useRef(null)
     function openActions() {
         if (swipeActionTrigger.current) {
@@ -94,10 +101,10 @@ const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
     }
     return(
         <Swipeable renderRightActions={() => [actionButtons]} ref={swipeActionTrigger}>
-            <View style={Styles.swipeButton}>
-                <Text style={{ fontSize: 24 }}>{btnText}</Text>
+            <View style={[Styles.swipeButton,{ backgroundColor: themeStyles.backgroundColor}]}>
+                <Text style={{fontSize: 24, color: theme ? '#215877' : '#fff'}}>{btnText}</Text>
                 <TouchableOpacity onPress={openActions}>
-                    <ChevronRight color='#215877' size={50}/>
+                    <ChevronRight color={theme ? '#215877' : '#fff'} size={50}/>
                 </TouchableOpacity>
             </View>
         </Swipeable>
@@ -105,6 +112,8 @@ const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
 }
 
 export const UserSwipeButton : React.FC<UserSwipeButtonProps> = ({iconName, user, role, status, actionButtons}) => {
+    const theme = useAppSelector((state) => state.theme.theme)
+    const themeStyles = useStyles()
     const swipeActionTrigger = useRef(null)
     const Icon = iconMap[iconName]
     function openActions() {
@@ -114,19 +123,19 @@ export const UserSwipeButton : React.FC<UserSwipeButtonProps> = ({iconName, user
     }
     return(
         <Swipeable renderRightActions={() => [<DefaultUserActionButton btnText={status}/>, actionButtons]} ref={swipeActionTrigger}>
-            <View style={Styles.swipeButton}>
+            <View style={[Styles.swipeButton, {backgroundColor: themeStyles.backgroundColor}]}>
                 <View style={{flexDirection: 'row'}}>
                     <View style={Styles.userSwipeIcon}>
-                        <Icon color='#215877' size={50} style={Styles.userSwipeIcon}/>
+                        <Icon color={theme ? '#215877' : '#fff'} size={50} style={Styles.userSwipeIcon}/>
                     </View>
                     <View>
-                        <Text style={{fontSize: 20, color:'#215877'}}>{user}</Text>
-                        <Text>{role}</Text>
-                        <Text>Estado: <Text style={{color:'#5294ff'}}>{status}</Text></Text>
+                        <Text style={{fontSize: 20, color:themeStyles.resaltadoPrincipal}}>{user}</Text>
+                        <Text style={{color: themeStyles.fontCardColor}}>{role}</Text>
+                        <Text style={{color: themeStyles.fontCardColor}}>Estado: <Text style={{color: themeStyles.resaltadoSecundario}}>{status}</Text></Text>
                     </View>
                 </View>
                 <TouchableOpacity onPress={openActions}>
-                    <ChevronLeft color='#215877' size={50}/>
+                    <ChevronLeft color={theme ? '#215877' : '#fff'} size={50}/>
                 </TouchableOpacity>
             </View>
         </Swipeable>
@@ -135,6 +144,7 @@ export const UserSwipeButton : React.FC<UserSwipeButtonProps> = ({iconName, user
 
 
 export const SwapView : React.FC = () => {
+    const themeStyles = useStyles()
     function something() {
         alert('Doing something')
     }
@@ -149,7 +159,7 @@ export const SwapView : React.FC = () => {
         <SwipeActionButton key={1} icon='Search' btnText='SEARCH' btnFunc={something}/>
     ]
     return(
-        <View style={Styles.container}>
+        <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
             <SwipeButton btnText='Hola chato' actionButtons={array}/>
             <UserSwipeButton user='ORION' iconName='User' role='Super administrador' status='ACTIVO' actionButtons={array2}/>
         </View>
@@ -159,9 +169,9 @@ export const SwapView : React.FC = () => {
 const Styles = StyleSheet.create({
     container:{
         padding: 0,
+        flex: 1
     },
     swipeButton:{
-        backgroundColor: 'white',
         width: '100%',
         height: 100,
         justifyContent: 'space-between',
@@ -173,7 +183,6 @@ const Styles = StyleSheet.create({
     },
     actionBtn:{
         width: 80,
-        backgroundColor: '#215877',
         justifyContent: 'center',
         alignContent: 'center',
         padding: 5
@@ -184,7 +193,6 @@ const Styles = StyleSheet.create({
     },
     userActionDefault:{
         width: 110,
-        backgroundColor: '#215877',
         justifyContent: 'center',
         alignContent: 'center',
         padding: 5

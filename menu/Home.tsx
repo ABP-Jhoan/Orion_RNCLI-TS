@@ -1,11 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { NavIconButton } from "../components/buttons/NavButtons";
+import { useStyles } from "../config/GlobalStyles";
 
 export const Home: React.FC = () => {
+    const themeStyles = useStyles()
     return(
-        <View style={styles.container}>
-            <Text style={styles.pageTitle}>Bienvenido</Text>
+        <View style={[styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
             <NavIconButton iconName='Config' btnText='Pie chart' backGroundColor='#851800' route='PieChart'/>
             <NavIconButton iconName='Reports' btnText='Aria chart' backGroundColor='#215877' route='AriaChart'/>
             <NavIconButton iconName='Search' btnText='Swipe buttons' backGroundColor='#00853c' route='SwapButtons'/>
@@ -18,10 +19,5 @@ export const Home: React.FC = () => {
 const styles = StyleSheet.create({
     container:{
         height: 865,
-    },
-    pageTitle:{
-        fontSize: 40,
-        textAlign: 'center',
-        marginBottom: 10
-    },
+    }
 })

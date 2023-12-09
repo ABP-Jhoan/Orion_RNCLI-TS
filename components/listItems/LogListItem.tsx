@@ -57,9 +57,9 @@ const Styles = StyleSheet.create({
     dateText:{
         width: '100%',
         textAlign: 'center',
-        color: '#8f8f8f8f'        
+        color: '#8f8f8f'
     },
     commonText: {
-        color: '#8f8f8f8f'
+        color: '#8f8f8f'
     }
 })

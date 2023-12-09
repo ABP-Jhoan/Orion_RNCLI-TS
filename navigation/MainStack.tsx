@@ -10,11 +10,13 @@ import { TestPageTwo } from "../screens/TestTwo";
 import { SwapView } from "../screens/SwapButtonsView";
 import { ListView } from "../screens/InventoryView";
 import { LogView } from "../screens/LogView";
+import { useStyles } from "../config/GlobalStyles";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
 
 export function MainStack(){
+    const themeStyles = useStyles()
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return(
         <NavigationContainer>
@@ -23,7 +25,7 @@ export function MainStack(){
                 screenOptions = {({route}) => ({
                     headerShown: route.name == 'Login' || route.name == 'Something' ? false : true,
                     headerTintColor: '#fff',
-                    headerStyle: {backgroundColor: '#215877', height: 70}
+                    headerStyle: {backgroundColor: themeStyles.secondaryColor, height: 70}
                 })}
             >
                 {/*

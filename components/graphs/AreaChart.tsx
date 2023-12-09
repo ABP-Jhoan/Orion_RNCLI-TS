@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import { View, StyleSheet } from 'react-native'
 import { LineChart } from 'react-native-gifted-charts'
 import { screenWidth } from 'react-native-gifted-charts/src/utils/constants'
+import { useStyles } from '../../config/GlobalStyles'
 
 const AreaChartComp : React.FC = () => {
+    const themeStyles = useStyles()
     const latestData = [
         {value: 100,},
         {value: 120,},
@@ -35,7 +37,7 @@ const AreaChartComp : React.FC = () => {
     //TODO: Hacer que el gráfico cargue más despacio para que se pueda ver la animación.
     return(
         <View style={{padding: 0}}>
-            <View style={Styles.chartContainer}>
+            <View style={[Styles.chartContainer, {backgroundColor: themeStyles.secondaryColor}]}>
                 <LineChart
                     isAnimated
                     thickness={2}
@@ -54,7 +56,7 @@ const AreaChartComp : React.FC = () => {
                     startOpacity={0.5}
                     endOpacity={0}
                     spacing={22}
-                    backgroundColor="#215877"
+                    backgroundColor={themeStyles.secondaryColor}
                     rulesColor="trznsparent"
                     //rulesType="solid"
                     initialSpacing={0}
@@ -84,7 +86,6 @@ const Styles = StyleSheet.create({
     chartContainer: {
         width: '100%',
         height: 176,
-        backgroundColor: '#215877',
         alignItems: 'center',
         padding: 0,
         paddingBottom: 0,

@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, StyleSheet, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { iconMap } from '../../assets/icons/Icons'
 import { ArrowRight } from 'lucide-react-native';
+import { useStyles } from '../../config/GlobalStyles';
 
 interface NavIconButtonProps{
     iconName: keyof typeof iconMap
@@ -12,6 +13,7 @@ interface NavIconButtonProps{
 }
 
 export const NavIconButton : React.FC<NavIconButtonProps> = ({iconName = "Def", btnText = "New Button", backGroundColor, route}) => {
+    const themeStyles = useStyles()
     const navigate = useNavigation()
     const Icon = iconMap[iconName]
     return(
@@ -19,9 +21,9 @@ export const NavIconButton : React.FC<NavIconButtonProps> = ({iconName = "Def", 
             <View style={[styles.iconContainer, {backgroundColor: backGroundColor}]}>
                 <Icon style={styles.icon} size={40}/>
             </View>
-            <View style={styles.textContainer}>        
-                <Text style={styles.btnText}>{btnText}</Text>
-                <ArrowRight color={'#000'}/>
+            <View style={styles.textContainer}>
+                <Text style={[styles.btnText, {color: themeStyles.fontColor}]}>{btnText}</Text>
+                <ArrowRight color={themeStyles.fontColor}/>
             </View>
         </TouchableOpacity>
     )

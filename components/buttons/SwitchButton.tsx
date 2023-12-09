@@ -1,21 +1,21 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ToastAndroid } from 'react-native';
-import { Sun, Moon } from 'lucide-react-native';
-import { useAppSelector, useAppDispatch } from '../../config/Redux/hooks';
-import { changeState } from '../../config/Redux/Slices/ThemeSlice';
+import { Text, TouchableOpacity, StyleSheet, ToastAndroid } from 'react-native'
+import { Sun, Moon } from 'lucide-react-native'
+import { useAppSelector, useAppDispatch } from '../../config/Redux/hooks'
+import { changeState } from '../../config/Redux/Slices/ThemeSlice'
 
 export const SwitchButton = () => {
-  const theme = useAppSelector((state) => state.theme.theme);
-  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.theme.theme)
+  const dispatch = useAppDispatch()
 
   const showToast = (message: string) => {
-    ToastAndroid.show(message, ToastAndroid.SHORT);
-  };
+    ToastAndroid.show(message, ToastAndroid.SHORT)
+  }
 
   const toggleSwitch = () => {
-    showToast("Cambiando de theme.");
-    dispatch(changeState(!theme));
-  };
+    showToast("Cambiando de theme.")
+    dispatch(changeState(!theme))
+  }
 
   return (
     <TouchableOpacity
@@ -26,8 +26,8 @@ export const SwitchButton = () => {
       {theme ? <Sun color='#fcba03' size={20}/> : <Moon color='#fff' size={20}/>}
       <Text style={styles.text}>{theme ? 'Modo claro' : 'Modo oscuro'}</Text>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   switchContainer: {
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     color: 'white',
   },
-});
+})

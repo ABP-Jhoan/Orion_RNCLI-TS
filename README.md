@@ -130,7 +130,6 @@ Colores que se usan a lo largo de toda la app:
 
 - Color principal: ![#fff](https://placehold.co/10x10/fff/fff.png)`#fff`
 - Color secundario (azul) : ![#215877](https://placehold.co/10x10/215877/215877.png)`#215877`
-- Color de enlaces: ![#5294ff](https://placehold.co/10x10/5294ff/5294ff.png)`#5294ff`
 
 ### Otros colores
 
@@ -138,6 +137,7 @@ Colores que se usan en la app, pero en componentes más pequeños o con menos fr
 
 - ![#5eb85f](https://placehold.co/10x10/5eb85f/5eb85f.png)`#5eb85f`
 - ![#6fb9c3](https://placehold.co/10x10/6fb9c3/6fb9c3.png)`#6fb9c3`
+- Color de enlaces: ![#5294ff](https://placehold.co/10x10/5294ff/5294ff.png)`#5294ff`
 
 ### Botones
 

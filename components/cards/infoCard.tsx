@@ -1,5 +1,6 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
+import { useStyles } from "../../config/GlobalStyles"
 
 interface InfoCardProps{
     id?: number
@@ -12,20 +13,21 @@ interface InfoCardProps{
 }
 
 export const InfoCard : React.FC<InfoCardProps> = ({id, nombreVendedor, fecha, fp, saldo, usuario, valor}) => {
+    const themeStyles = useStyles()
     let day = fecha.split("/", 1)
     let monthYear = fecha.substring(3)
     return(
-        <View style={Styles.container}>
+        <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
             <View style={Styles.dateContainer}>
-                <Text style={{textAlign: 'center'}}>{day}</Text>
-                <Text style={Styles.dateText}>{monthYear}</Text>
+                <Text style={{textAlign: 'center',  color: themeStyles.resaltadoPrincipal}}>{day}</Text>
+                <Text style={[Styles.dateText, {color: themeStyles.fontCardColor}]}>{monthYear}</Text>
             </View>
             <View>
-                <Text style={Styles.importantText}>{nombreVendedor}</Text>
-                <Text style={Styles.commonText}>VLR/NETO: <Text style={{color: '#5fb2f9'}}>{valor}</Text></Text>
-                <Text style={Styles.commonText}>SALDO: <Text>{saldo}</Text></Text>
-                <Text style={Styles.commonText}>FP: {fp}</Text>
-                <Text style={Styles.commonText}>USUARIO: {usuario}</Text>
+                <Text style={{color: themeStyles.resaltadoPrincipal}}>{nombreVendedor}</Text>
+                <Text style={{color: themeStyles.fontCardColor}}>VLR/NETO: <Text style={{color: themeStyles.resaltadoSecundario}}>{valor}</Text></Text>
+                <Text style={{color: themeStyles.fontCardColor}}>SALDO: <Text>{saldo}</Text></Text>
+                <Text style={{color: themeStyles.fontCardColor}}>FP: {fp}</Text>
+                <Text style={{color: themeStyles.fontCardColor}}>USUARIO: {usuario}</Text>
             </View>
         </View>
     )
@@ -46,15 +48,8 @@ const Styles = StyleSheet.create({
         alignContent: 'center',
         padding: 5
     },
-    importantText: {
-        color: '#215877'
-    },
     dateText:{
         width: '100%',
         textAlign: 'center',
-        color: '#8f8f8f8f'        
-    },
-    commonText: {
-        color: '#8f8f8f8f'
     }
 })
