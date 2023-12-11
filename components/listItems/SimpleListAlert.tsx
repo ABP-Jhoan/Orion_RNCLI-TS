@@ -31,7 +31,8 @@ const SimpleListItem : React.FC<SimpleListItemProps> = ({PName,Codigo,Grupo,UE,B
 const Style = StyleSheet.create({
     container:{
         width: '100%',
-        marginBottom: 20
+        marginBottom: 20,
+        paddingLeft: 5
     },
     title:{
         fontSize: 17,

@@ -5,7 +5,9 @@ import { iconMap } from '../assets/icons/Icons'
 import { ChevronLeft, ChevronRight } from 'lucide-react-native'
 import { useNavigation } from '@react-navigation/native';
 import { useStyles } from '../config/GlobalStyles'
-import { useAppSelector } from '../config/Redux/hooks'
+import { useAppSelector, useAppDispatch } from '../config/Redux/hooks'
+import { showModal } from '../config/Redux/Slices/ShowModelSlice'
+import { ModalView } from '../components/modals/Modal'
 
 //! PROP interfaces de los componentes
 //? Botón que desencadena una acción dentro de la app.
@@ -43,7 +45,7 @@ export const SwipeActionButton : React.FC<SwipeActionButtonProps> = ({icon = 'Co
     const themeStyles = useStyles()
     const Icon = iconMap[icon]
     return(
-        <TouchableOpacity style={[Styles.actionBtn, {backgroundColor: themeStyles.secondaryColor}]} onPress={() => btnFunc}>
+        <TouchableOpacity style={[Styles.actionBtn, {backgroundColor: themeStyles.secondaryColor}]} onPress={btnFunc}>
             <Icon style={{marginLeft: 11}} color='#fff' size={50}/>
             <Text style={{color: '#fff', textAlign: 'center'}}>{btnText}</Text>
         </TouchableOpacity>
@@ -145,8 +147,9 @@ export const UserSwipeButton : React.FC<UserSwipeButtonProps> = ({iconName, user
 
 export const SwapView : React.FC = () => {
     const themeStyles = useStyles()
+    const dispatch = useAppDispatch()
     function something() {
-        alert('Doing something')
+        dispatch(showModal(true))
     }
     //? Arrays para definir los botones que se usarán dentro del componente SwipeButton.
     const array = [
@@ -162,6 +165,7 @@ export const SwapView : React.FC = () => {
         <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
             <SwipeButton btnText='Hola chato' actionButtons={array}/>
             <UserSwipeButton user='ORION' iconName='User' role='Super administrador' status='ACTIVO' actionButtons={array2}/>
+            <ModalView/>
         </View>
     )
 }

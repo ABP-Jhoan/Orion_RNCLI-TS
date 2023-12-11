@@ -12,5 +12,6 @@ export const iconMap={
     Log: LucideIcons.FileClock,
     Config: LucideIcons.Settings,
     LogOut: LucideIcons.LogOut,
-    List: LucideIcons.ClipboardList
+    List: LucideIcons.ClipboardList,
+    Reload: LucideIcons.RefreshCw
 }

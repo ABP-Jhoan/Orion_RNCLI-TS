@@ -1,48 +1,35 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
-import data from '../../data/inventario.json';
 import DotLoader from '../loaders/Loaders';
 import { ListFooter } from '../Footers/ListFooter';
-import { usePagination } from './logic';
 
-//? Componente que será importado de manera diferida.
-const SimpleListItem = lazy(() => import('../listItems/SimpleListAlert'));
+interface SimpleListViewProps{
+  listados : any
+  total : any
+  children : any
+  scroll : (text:string) => void
+}
 
-export const InventoryView: React.FC = () => {
-  //? Custom Hook para paginación (evitar boilerPlate).
-  const [visibleItems, handleScroll] = usePagination()
-  const currentlyVisibleComponents = data.slice(0, visibleItems).map((item) => (
-    <SimpleListItem
-      key={item.id}
-      PName={item.nombre}
-      Codigo={item.codigo}
-      Grupo={item.grupo}
-      UE={item.UE}
-      Bodega={item.bodega}
-      Stock={item.stock}
-      Alerta={item.alerta}
-    />
-  ));
-
+export const InventoryView: React.FC<SimpleListViewProps> = ({children, listados, total, scroll}) => {
   return (
     <>
         <ScrollView
             style={styles.view}
-            onScroll={handleScroll}
+            onScroll={scroll}
             scrollEventThrottle={16}
         >
           <Suspense fallback={<DotLoader />}>
-              {currentlyVisibleComponents}
+              {children}
           </Suspense>
         </ScrollView>
-        <ListFooter mostrados={currentlyVisibleComponents.length} total={data.length}/>
+        <ListFooter mostrados={listados} total={total}/>
     </>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
-    padding: 10,
+    padding: 0,
     marginBottom: 50
   },
   infoContainer: {

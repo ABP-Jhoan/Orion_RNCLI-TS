@@ -12,11 +12,11 @@ import {
     HStack,
     Heading
   } from '@gluestack-ui/themed';
-import { Check } from 'lucide-react-native';
 import { useAppSelector, useAppDispatch } from '../../config/Redux/hooks'
 import { showModal } from '../../config/Redux/Slices/ShowModelSlice';
+import { View } from 'react-native';
 
-export const ModalView : React.FC = () => {
+export const ClientModalForm : React.FC = () => {
     const show = useAppSelector((state) => state.showModal.show)
     const dispatch = useAppDispatch()
     return(
@@ -29,15 +29,12 @@ export const ModalView : React.FC = () => {
         <AlertDialogBackdrop />
         <AlertDialogContent style={{borderRadius: 5}}>
           <AlertDialogHeader borderBottomWidth="$0">
-            <HStack space="sm" alignItems="center">
-              <Check color='#5eb85f' size={20}/>
-              <Heading size="md">Order placed</Heading>
-            </HStack>
+            <Heading size="md" style={{flex: 1, textAlign: 'center'}}>Filtros</Heading>
           </AlertDialogHeader>
           <AlertDialogBody>
-            <Text size="sm">
+            <View>
               Genial,haz configurado un modal que puede llamarse desde cualquier parte de la app.
-            </Text>
+            </View>
           </AlertDialogBody>
           <AlertDialogFooter borderTopWidth="$0">
             <Button
@@ -48,7 +45,7 @@ export const ModalView : React.FC = () => {
                 dispatch(showModal(false))
               }}
             >
-              <ButtonText>Okay</ButtonText>
+              <ButtonText>Aplicar filtros</ButtonText>
             </Button>
           </AlertDialogFooter>
         </AlertDialogContent>

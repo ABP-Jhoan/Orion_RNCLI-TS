@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
-} from 'react-native-reanimated';
-import { TapGestureHandler } from 'react-native-gesture-handler';
-import { Plus, UserPlus } from 'lucide-react-native';
-import { iconMap } from '../../assets/icons/Icons';
+} from 'react-native-reanimated'
+import { TapGestureHandler } from 'react-native-gesture-handler'
+import { Plus, RefreshCw } from 'lucide-react-native'
+import { iconMap } from '../../assets/icons/Icons'
+import { useNavigation } from '@react-navigation/native'
 
 interface FloatActionButtonProps{
   iconName: keyof typeof iconMap
@@ -18,6 +19,10 @@ interface FloatActionButtonProps{
 
 interface FloatButtonProps{
   actionButtons: React.ReactElement<FloatActionButtonProps>[]
+}
+
+interface ReloadFloatButtonProps{
+  ruta: string
 }
 
 export const FloatActionButton : React.FC<FloatActionButtonProps> = ({btnText, iconName, btnFunc, color = '#215877'}) => {
@@ -34,18 +39,18 @@ export const FloatActionButton : React.FC<FloatActionButtonProps> = ({btnText, i
 }
 
 export const FloatButton : React.FC<FloatButtonProps> = ({actionButtons}) => {
-  const [isRotated, setRotated] = useState(false);
-  const rotationValue = useSharedValue(0);
+  const [isRotated, setRotated] = useState(false)
+  const rotationValue = useSharedValue(0)
 
   //? Rotación del botón, acción de "activo"/"inactivo".
   function rotateComponent(){
-    rotationValue.value = withSpring(isRotated ? 0 : 45);
-    setRotated(!isRotated);
-  };
+    rotationValue.value = withSpring(isRotated ? 0 : 45)
+    setRotated(!isRotated)
+  }
   //? Función para cerrar dando tap en la pantalla fuera del botón.
   function backClose(){
     if (isRotated) {
-        rotationValue.value = withSpring(isRotated ? 0 : 45);
+        rotationValue.value = withSpring(isRotated ? 0 : 45)
         setRotated(false)
     }
   }
@@ -53,8 +58,8 @@ export const FloatButton : React.FC<FloatButtonProps> = ({actionButtons}) => {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [{ rotate: `${rotationValue.value}deg` }],
-    };
-  });
+    }
+  })
 
   return (
     <TapGestureHandler onActivated={backClose}>
@@ -69,10 +74,21 @@ export const FloatButton : React.FC<FloatButtonProps> = ({actionButtons}) => {
             </View>
         </View>
     </TapGestureHandler>
-  );
-};
+  )
+}
+
+//! RELOAD BUTTON
+export const ReloadFloatButton : React.FC<ReloadFloatButtonProps> = ({ruta}) => {
+  const navigation = useNavigation()
+  return(
+    <TouchableOpacity style={styles.reloadButton} onPress={() => navigation.navigate(ruta)}>
+      <RefreshCw color='#fff' size={30}/>
+    </TouchableOpacity>
+  )
+}
 
 const styles = StyleSheet.create({
+  //? Botón flotante con botones de acción.
   container: {
     width: '100%',
     height: '100%',
@@ -83,7 +99,7 @@ const styles = StyleSheet.create({
   },
   optionsContainer:{
     position: 'absolute',
-    bottom: 20,
+    bottom: 60,
     right: 20,
     alignItems: 'flex-end'
   },
@@ -99,7 +115,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
-
+  //? Botones de acciónes
   actionText: {
     padding: 10, color: '#fff',
     marginRight: 10,
@@ -110,5 +126,19 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     textAlign: 'center',
     textAlignVertical: 'center',
+  },
+  //? Botón flotante de recarga de página.
+  reloadButton: {
+    backgroundColor: '#5eb85f',
+    width: 60, 
+    height: 60, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    marginBottom: 60,
+    marginRight: 10
   }
-});
+})
