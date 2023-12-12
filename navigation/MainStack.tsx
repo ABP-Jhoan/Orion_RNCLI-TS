@@ -11,6 +11,8 @@ import { SwapView } from "../screens/SwapButtonsView";
 import { ListView } from "../screens/InventoryView";
 import { LogView } from "../screens/LogView";
 import { useStyles } from "../config/GlobalStyles";
+import { InstructionsView } from "../screens/Instructions";
+import { BusquedaView } from "../screens/ClienteBustqueda";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -34,9 +36,6 @@ export function MainStack(){
                     //? Caso 2. La sesión está cerrada y mostrará el formulario de login.
                 */}
                 {isLoggedIn ? (
-                    // <Stack.Screen name="Home">
-                    //     {props => <Home {...props} setIsLoggedIn={setIsLoggedIn} />}
-                    // </Stack.Screen>
                     <Stack.Screen name="Something">
                         {props => <DrawNavigation {...props} setIsLoggedIn={setIsLoggedIn}/>}
                     </Stack.Screen>
@@ -51,6 +50,8 @@ export function MainStack(){
                 <Stack.Screen name="SwapButtons" component={SwapView}/>
                 <Stack.Screen name="Inventory" component={ListView}/>
                 <Stack.Screen name="Loader" component={LogView}/>
+                <Stack.Screen name="Instructions" component={InstructionsView}/>
+                <Stack.Screen name="Busqueda de Clientes" component={BusquedaView}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

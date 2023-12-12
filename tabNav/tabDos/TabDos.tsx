@@ -1,34 +1,34 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { Text, View, StyleSheet, Alert } from 'react-native';
 import {Box} from '@gluestack-ui/themed'
-import { CommonInput } from '../../components/inputs/commonInput';
+import { LabeledInput } from '../../components/inputs/LabeledInput';
 import { ConfButton } from '../../components/buttons/configButton';
 import { OrionCheckBox } from '../../components/selectors/ChechBox_RadioButton';
-import { useState } from 'react';
 
 export const TabDos : React.FC = () => {
     //const [error, setError] = useState(false) //? Estado de error para pintar los inputs que presenten errores o estén vacíos.
-    const [textoUno, setTextoUno] = useState({CommonInput:''}) //? Estado de cada input para poder escribir y guardar sus valores.
-    const [textoDos, setTextoDos] = useState({CommonInput:''})
+    const [textoUno, setTextoUno] = useState({LabeledInput:''}) //? Estado de cada input para poder escribir y guardar sus valores.
+    const [textoDos, setTextoDos] = useState({LabeledInput:''})
 
     const handleValorUno = (text : string) => {
-        setTextoUno({...CommonInput, CommonInput:text})
+        setTextoUno({...LabeledInput, LabeledInput:text})
     }
     const handleValorDos = (text : string) => {
-        setTextoDos({...CommonInput, CommonInput:text})
+        setTextoDos({...LabeledInput, LabeledInput:text})
     }
     const prueba = () => {
         //? Validaciones de condiciones que debe cumplir cada campo del formulario.
-        if (textoUno.CommonInput === '') {
-            alert('Campo textoUno vacío')
+        if (textoUno.LabeledInput === '') {
+            Alert.alert('Campo textoUno vacío')
             //setError(true)
         }
         else{
-            alert('Todo bien')
+            Alert.alert('Todo bien')
             //setError(false)
         }
     }
     function checkeado() {
-        alert('Checked')
+        Alert.alert('Checked')
     }
     return(
         <View style={styles.container}>
@@ -37,8 +37,8 @@ export const TabDos : React.FC = () => {
                 <Box style={styles.cardTitle}>
                     <Text style={styles.titleText}>Ingrese datos de la licencia</Text>
                 </Box>
-                <CommonInput labelTitle='Código' placeholder='Código' textValue={textoUno.CommonInput} changeFunc={handleValorUno}/>
-                <CommonInput labelTitle='Token' placeholder='Token' textValue={textoDos.CommonInput} changeFunc={handleValorDos}/>
+                <LabeledInput labelTitle='Código' placeholder='Código' textValue={textoUno.LabeledInput} changeFunc={handleValorUno}/>
+                <LabeledInput labelTitle='Token' placeholder='Token' textValue={textoDos.LabeledInput} changeFunc={handleValorDos}/>
                 <OrionCheckBox label='Desea iniciar sesión con esta Licencia' onCheck={checkeado}/>
             </Box>
             <ConfButton btnText='Probar' btnClass='Config' btnFunc={prueba}/>

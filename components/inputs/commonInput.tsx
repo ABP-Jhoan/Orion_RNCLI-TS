@@ -1,51 +1,32 @@
-import React, {useState} from "react"
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import React from 'react'
+import {TextInput, StyleSheet} from 'react-native'
+import { useStyles } from '../../config/GlobalStyles'
+import { useAppSelector } from '../../config/Redux/hooks'
 
-interface inputProps{
-    labelTitle: string
-    placeholder?: string
-    textValue: string
-    //TODO: Seguir investigando sobre los campos requeridos y cómo validarlos individualmente.
-    //error: boolean
-    changeFunc?:(text: string) => void
+interface CommonInputProps{
+    textValue?: string
+    placeholder? : string
+    changeFunc? : (text: string) => void
 }
 
-export const CommonInput : React.FC<inputProps> = ({labelTitle, placeholder, textValue, changeFunc}) => {
-    // let defInputStyles = styles.def
-    // if (error) {
-    //     defInputStyles = styles.InputError
-    // }
+export const CommonInput : React.FC<CommonInputProps> = ({textValue, placeholder, changeFunc}) => {
+    const theme = useAppSelector((state) => state.theme.theme)
     return(
-        <View style={styles.inputContainer}>
-            <Text style={styles.label}>{labelTitle}</Text>
-            <TextInput style={[styles.input]}
-                placeholder={placeholder}
-                value={textValue}
-                onChangeText={changeFunc}
-            />
-        </View>
+        <TextInput
+            style={[Styles.input, {color: theme ? '#000' : '#8f8f8f'}]}
+            placeholder={placeholder}
+            placeholderTextColor={theme ? '#000' : '#8f8f8f'}
+            value={textValue}
+            onChange={changeFunc}
+        />
     )
 }
 
-const styles = StyleSheet.create({
-    // def:{
-    //     borderBottomColor: '#000',
-    // },
-    // InputError:{
-    //     backgroundColor: '#D8535055'
-    // },
-    inputContainer:{
-        marginTop: 15,
-        padding: 15
-    },
-    label:{
-        width: '100%',
-        marginBottom: 15,
-    },
+const Styles = StyleSheet.create({
     input:{
-        height: 40,
         borderWidth: 0,
         borderBottomWidth: 1,
-        paddingLeft: 5
+        borderColor: '#8f8f8f8f',
+        marginTop: 20
     }
 })

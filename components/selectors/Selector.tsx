@@ -22,7 +22,7 @@ export const Selector : React.FC<selectorProps> = ({data, onSelect}) => {
                 <SelectDragIndicator />
                 </SelectDragIndicatorWrapper>
                 {data.map((licencia, index) => (
-                    <SelectItem key={index} label={licencia} value={licencia} />
+                    <SelectItem key={index} label={licencia} value={licencia}/>
                 ))}
             </SelectContent>
             </SelectPortal>
@@ -32,9 +32,9 @@ export const Selector : React.FC<selectorProps> = ({data, onSelect}) => {
 
 const styles = StyleSheet.create({
     selector:{
-      borderTopColor: '#fff',
-      borderLeftColor: '#fff',
-      borderRightColor: '#fff',
+      borderTopColor: 'transparent',
+      borderLeftColor: 'transparent',
+      borderRightColor: 'transparent',
       borderBottomColor: '#8f8f8f8f',
       borderWidth: 1,
       marginBottom: 15,

@@ -6,10 +6,11 @@ import { loading } from '../config/loading'
 import { FloatButton, FloatActionButton} from '../components/buttons/FloatingButton'
 import { SwitchButton } from '../components/buttons/SwitchButton'
 import { useStyles } from '../config/GlobalStyles'
-import { ModalView } from '../components/modals/Modal'
 import { useAppDispatch } from '../config/Redux/hooks'
 import { showModal } from '../config/Redux/Slices/ShowModelSlice'
-import { ClientModalForm } from '../components/modals/ClientModalForm'
+import { ModalForm } from '../components/modals/ClientModalForm'
+import { CommonInput } from '../components/inputs/Commoninput'
+import { LabeledSelector } from '../components/selectors/LabeledSelector'
 
 export const TestPage = () => {
     const themeStyles = useStyles()
@@ -23,8 +24,6 @@ export const TestPage = () => {
             <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
                 {loading() ? <DotLoader/> : <RadialChart/>}
                 <SwitchButton/>
-                <Button title='Mostrar modal' onPress={() => dispatch(showModal(true))}/>
-                <ClientModalForm/>
             </View>
             <FloatButton  actionButtons={actionButtons}/>
         </>

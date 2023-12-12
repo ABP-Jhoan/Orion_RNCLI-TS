@@ -13,5 +13,6 @@ export const iconMap={
     Config: LucideIcons.Settings,
     LogOut: LucideIcons.LogOut,
     List: LucideIcons.ClipboardList,
-    Reload: LucideIcons.RefreshCw
+    Reload: LucideIcons.RefreshCw,
+    Filter: LucideIcons.Filter
 }

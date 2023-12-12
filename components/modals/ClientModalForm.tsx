@@ -8,15 +8,19 @@ import {
     AlertDialogBody,
     Button,
     ButtonText,
-    Text,
-    HStack,
     Heading
   } from '@gluestack-ui/themed';
 import { useAppSelector, useAppDispatch } from '../../config/Redux/hooks'
-import { showModal } from '../../config/Redux/Slices/ShowModelSlice';
-import { View } from 'react-native';
+import { showModal } from '../../config/Redux/Slices/ShowModelSlice'
+import { View } from 'react-native'
 
-export const ClientModalForm : React.FC = () => {
+interface ClientModalFormProps{
+  modalTitle : string
+  childrens : React.ReactElement[]
+  btnFunc? : (text : string) => void
+}
+
+export const ModalForm : React.FC<ClientModalFormProps> = ({modalTitle, childrens, btnFunc}) => {
     const show = useAppSelector((state) => state.showModal.show)
     const dispatch = useAppDispatch()
     return(
@@ -29,11 +33,11 @@ export const ClientModalForm : React.FC = () => {
         <AlertDialogBackdrop />
         <AlertDialogContent style={{borderRadius: 5}}>
           <AlertDialogHeader borderBottomWidth="$0">
-            <Heading size="md" style={{flex: 1, textAlign: 'center'}}>Filtros</Heading>
+            <Heading size="md" style={{flex: 1, textAlign: 'center'}}>{modalTitle}</Heading>
           </AlertDialogHeader>
           <AlertDialogBody>
             <View>
-              Genial,haz configurado un modal que puede llamarse desde cualquier parte de la app.
+              {childrens}
             </View>
           </AlertDialogBody>
           <AlertDialogFooter borderTopWidth="$0">
@@ -43,6 +47,7 @@ export const ClientModalForm : React.FC = () => {
               mr="$3"
               onPress={() => {
                 dispatch(showModal(false))
+                btnFunc && btnFunc()
               }}
             >
               <ButtonText>Aplicar filtros</ButtonText>

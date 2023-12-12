@@ -1,9 +1,9 @@
 import React from 'react'
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
 import { iconMap } from '../../assets/icons/Icons'
-import { ArrowRight } from 'lucide-react-native';
-import { useStyles } from '../../config/GlobalStyles';
+import { ArrowRight } from 'lucide-react-native'
+import { useStyles } from '../../config/GlobalStyles'
 
 interface NavIconButtonProps{
     iconName: keyof typeof iconMap
