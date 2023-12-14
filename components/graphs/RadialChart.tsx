@@ -4,9 +4,9 @@ import { PieChart } from "react-native-gifted-charts"
 
 export const RadialChart : React.FC = () => {
     const pieData = [
-        {value: 50, color: '#177AD5', text: '50%', shiftTextX: -15},
+        {value: 50, color: '#177AD5', text: '50%'},
         {value: 15, color: '#5f009e', text: '15%'},
-        {value: 20, color: '#009e54', text: '20%', shiftTextY: 15},
+        {value: 20, color: '#009e54', text: '20%'},
         {value: 15, color: '#00619e', text: '15%'}
     ];
     return(
@@ -27,8 +27,8 @@ export const RadialChart : React.FC = () => {
                 centerLabelComponent={() => {
                   return (
                     <View>
-                      <Text style={{color: '#000', fontSize: 36}}>90</Text>
                       <Text style={{color: '#000', fontSize: 18}}>Total</Text>
+                      <Text style={{color: '#000', fontSize: 36}}>90</Text>
                     </View>
                   );
                 }}

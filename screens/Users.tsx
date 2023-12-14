@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Alert, View } from 'react-native'
 import { SwipeActionButton, UserSwipeButton } from './SwapButtonsView'
 import data from '../data/usuarios.json'
 import { useRoute, useNavigation } from '@react-navigation/native'
@@ -14,7 +14,7 @@ export const UsersView : React.FC = () => {
     const route = useRoute()
     const routeName = route.name
     function something() {
-        alert('Nada')
+        Alert.alert('Nada')
     }
 
     const [visibleItems, handleScroll] = usePagination()
@@ -24,7 +24,7 @@ export const UsersView : React.FC = () => {
     ]
     const floatActions = [
         <FloatActionButton key={0} btnText='Nuevo usuario' iconName='User' color='#5eb85f' />,
-        <FloatActionButton key={1} btnText='Refrescar' iconName='Reload' btnFunc={() => navigation.navigate(routeName)}/>
+        <FloatActionButton key={1} btnText='Refrescar' iconName='Reload' color='#0380fc' btnFunc={() => navigation.navigate(routeName)}/>
     ]
     const currentlyVisibleComponents = data.slice(0, visibleItems).map((item) => (
         <UserSwipeButton

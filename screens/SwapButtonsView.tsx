@@ -5,9 +5,7 @@ import { iconMap } from '../assets/icons/Icons'
 import { ChevronLeft, ChevronRight } from 'lucide-react-native'
 import { useNavigation } from '@react-navigation/native';
 import { useStyles } from '../config/GlobalStyles'
-import { useAppSelector, useAppDispatch } from '../config/Redux/hooks'
-import { showModal } from '../config/Redux/Slices/ShowModelSlice'
-import { ModalView } from '../components/modals/Modal'
+import { useAppSelector } from '../config/Redux/hooks'
 
 //! PROP interfaces de los componentes
 //? Botón que desencadena una acción dentro de la app.
@@ -147,9 +145,8 @@ export const UserSwipeButton : React.FC<UserSwipeButtonProps> = ({iconName, user
 
 export const SwapView : React.FC = () => {
     const themeStyles = useStyles()
-    const dispatch = useAppDispatch()
     function something() {
-        dispatch(showModal(true))
+        
     }
     //? Arrays para definir los botones que se usarán dentro del componente SwipeButton.
     const array = [
@@ -165,7 +162,6 @@ export const SwapView : React.FC = () => {
         <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
             <SwipeButton btnText='Hola chato' actionButtons={array}/>
             <UserSwipeButton user='ORION' iconName='User' role='Super administrador' status='ACTIVO' actionButtons={array2}/>
-            <ModalView/>
         </View>
     )
 }

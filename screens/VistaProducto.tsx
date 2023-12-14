@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { View, StyleSheet, Button } from 'react-native'
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
 import { RadialChart } from '../components/graphs/RadialChart'
 import DotLoader from '../components/loaders/Loaders'
 import { loading } from '../config/loading'
@@ -7,10 +7,6 @@ import { FloatButton, FloatActionButton} from '../components/buttons/FloatingBut
 import { SwitchButton } from '../components/buttons/SwitchButton'
 import { useStyles } from '../config/GlobalStyles'
 import { useAppDispatch } from '../config/Redux/hooks'
-import { showModal } from '../config/Redux/Slices/ShowModelSlice'
-import { ModalForm } from '../components/modals/ClientModalForm'
-import { CommonInput } from '../components/inputs/Commoninput'
-import { LabeledSelector } from '../components/selectors/LabeledSelector'
 
 export const TestPage = () => {
     const themeStyles = useStyles()

@@ -9,25 +9,23 @@ import {
     Button,
     ButtonText,
     Heading
-  } from '@gluestack-ui/themed';
-import { useAppSelector, useAppDispatch } from '../../config/Redux/hooks'
-import { showModal } from '../../config/Redux/Slices/ShowModelSlice'
+  } from '@gluestack-ui/themed'
 import { View } from 'react-native'
 
 interface ClientModalFormProps{
   modalTitle : string
   childrens : React.ReactElement[]
-  btnFunc? : (text : string) => void
+  btnFunc? : () => void
+  show : boolean
+  hide : () => void
 }
 
-export const ModalForm : React.FC<ClientModalFormProps> = ({modalTitle, childrens, btnFunc}) => {
-    const show = useAppSelector((state) => state.showModal.show)
-    const dispatch = useAppDispatch()
+export const ModalForm : React.FC<ClientModalFormProps> = ({show, hide, modalTitle, childrens, btnFunc}) => {
     return(
         <AlertDialog
             isOpen={show}
             onClose={() => {
-                dispatch(showModal(false))
+                hide()
             }}
         >
         <AlertDialogBackdrop />
@@ -46,7 +44,7 @@ export const ModalForm : React.FC<ClientModalFormProps> = ({modalTitle, children
               size="md"
               mr="$3"
               onPress={() => {
-                dispatch(showModal(false))
+                hide()
                 btnFunc && btnFunc()
               }}
             >

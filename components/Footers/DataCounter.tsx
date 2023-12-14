@@ -2,16 +2,15 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { useStyles } from '../../config/GlobalStyles';
 
-interface ListFooterProps{
-    mostrados: number
+interface CounterFooterProps{
     total: number
 }
 
-export const ListFooter : React.FC<ListFooterProps> = ({mostrados, total}) => {
+export const CounterFooter : React.FC<CounterFooterProps> = ({total}) => {
     const themeStyles = useStyles()
     return(
         <View style={[styles.infoContainer, {backgroundColor: themeStyles.secondaryColor}]}>
-            <Text style={styles.infoText}>Total registros: {mostrados}/{total}</Text>
+            <Text style={styles.infoText}>Total registros: {total}</Text>
         </View>
     )
 }

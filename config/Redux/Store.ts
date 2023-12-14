@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import themeSlice from './Slices/ThemeSlice'
-import ShowModelSlice from './Slices/ShowModelSlice'
 
 export const store = configureStore({
   reducer: {
-    theme: themeSlice,
-    showModal : ShowModelSlice
+    theme: themeSlice
   },
 })
 

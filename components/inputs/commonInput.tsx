@@ -1,6 +1,5 @@
 import React from 'react'
 import {TextInput, StyleSheet} from 'react-native'
-import { useStyles } from '../../config/GlobalStyles'
 import { useAppSelector } from '../../config/Redux/hooks'
 
 interface CommonInputProps{
@@ -17,7 +16,7 @@ export const CommonInput : React.FC<CommonInputProps> = ({textValue, placeholder
             placeholder={placeholder}
             placeholderTextColor={theme ? '#000' : '#8f8f8f'}
             value={textValue}
-            onChange={changeFunc}
+            onChangeText={changeFunc}
         />
     )
 }

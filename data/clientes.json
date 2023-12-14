@@ -1,0 +1,22 @@
+[
+    {
+        "id":0,
+        "nombre":"Jhoan Arango",
+        "telf":123456
+    },
+    {
+        "id":1,
+        "nombre":"Angela Hernandez",
+        "telf":789012
+    },
+    {
+        "id":2,
+        "nombre":"Luz Monsalve",
+        "telf":345678
+    },
+    {
+        "id":3,
+        "nombre":"Jhoan Monsalve",
+        "telf":901234
+    }
+]

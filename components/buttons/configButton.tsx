@@ -4,9 +4,7 @@ import { TouchableOpacity, Text, StyleSheet } from "react-native";
 const btnTypes = {
     Config: 'Config',
     Visual: 'Visual',
-    Pricipal: 'Pricipal',
-    Add: 'Add',
-    Cancel: 'none'
+    Pricipal: 'Pricipal'
 }
 
 interface buttonProps{

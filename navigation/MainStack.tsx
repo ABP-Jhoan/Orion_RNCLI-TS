@@ -13,6 +13,7 @@ import { LogView } from "../screens/LogView";
 import { useStyles } from "../config/GlobalStyles";
 import { InstructionsView } from "../screens/Instructions";
 import { BusquedaView } from "../screens/ClienteBustqueda";
+import { ClientView } from "../screens/ClientScreen";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -52,6 +53,7 @@ export function MainStack(){
                 <Stack.Screen name="Loader" component={LogView}/>
                 <Stack.Screen name="Instructions" component={InstructionsView}/>
                 <Stack.Screen name="Busqueda de Clientes" component={BusquedaView}/>
+                <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:0}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

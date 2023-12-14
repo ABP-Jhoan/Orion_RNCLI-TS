@@ -9,10 +9,15 @@ export const iconMap={
     Reports: LucideIcons.Sheet,
     Reports2: LucideIcons.FileLineChart,
     Search: LucideIcons.FileSearch,
+    Search2: LucideIcons.Search,
     Log: LucideIcons.FileClock,
     Config: LucideIcons.Settings,
     LogOut: LucideIcons.LogOut,
     List: LucideIcons.ClipboardList,
     Reload: LucideIcons.RefreshCw,
-    Filter: LucideIcons.Filter
+    Filter: LucideIcons.Filter,
+    Success: LucideIcons.Check, 
+    Warning: LucideIcons.AlertTriangle,
+    Danger: LucideIcons.AlertCircle,
+    Info: LucideIcons.Info
 }

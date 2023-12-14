@@ -1,29 +1,28 @@
 import React from 'react'
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { iconMap } from '../../assets/icons/Icons'
-import { ArrowRight } from 'lucide-react-native'
 import { useStyles } from '../../config/GlobalStyles'
 
-interface NavIconButtonProps{
-    iconName: keyof typeof iconMap
-    btnText: string
+interface ClientItemProps{
+    id: number
+    clientName: string
+    telf: number
     route: string
     backGroundColor: string
 }
 
-export const NavIconButton : React.FC<NavIconButtonProps> = ({iconName = "Def", btnText = "New Button", backGroundColor, route}) => {
+export const ClientItem : React.FC<ClientItemProps> = ({id, clientName = "Default", telf, backGroundColor, route}) => {
     const themeStyles = useStyles()
     const navigate = useNavigation()
-    const Icon = iconMap[iconName]
     return(
-        <TouchableOpacity style={styles.container} onPress={() => navigate.navigate(route)}>
+        <TouchableOpacity style={styles.container} onPress={() => navigate.navigate(route, {id: id})}>
             <View style={[styles.iconContainer, {backgroundColor: backGroundColor}]}>
-                <Icon style={styles.icon} size={40}/>
+                <Text style={{color: themeStyles.resaltadoPrincipal}}>{id}</Text>
             </View>
             <View style={styles.textContainer}>
-                <Text style={[styles.btnText, {color: themeStyles.fontColor}]}>{btnText}</Text>
-                <ArrowRight color={themeStyles.fontColor}/>
+                <Text style={[styles.btnText, {color: themeStyles.resaltadoPrincipal}]}>{clientName}</Text>
+                <Text style={{fontSize: 15, color: themeStyles.fontColor}}>Identificación: {id}</Text>
+                <Text style={{fontSize: 15, color: themeStyles.fontColor}}>Telfs: {telf}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -38,25 +37,21 @@ const styles = StyleSheet.create({
     },
     textContainer:{
         width: '75%',
-        height: '70%',
         borderWidth: 0,
         borderBottomWidth: 1,
         borderColor: '#8f8f8f8f',
         justifyContent: 'space-between',
         padding: 10,
-        flexDirection: 'row',
-        alignItems: 'center'
     },
     btnText:{
         fontSize: 20,
     },
     iconContainer:{
-        borderRadius: 50,
-        margin: 10
-    },
-    icon:{
         width: 50,
-        color: '#fff',
-        margin: 10
-    },
+        height: 50,
+        borderRadius: 50,
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 })
