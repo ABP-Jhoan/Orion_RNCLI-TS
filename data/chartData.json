@@ -6,7 +6,9 @@
         "VLR/NETO":"10,000",
         "SALDO":"10,000",
         "FP":"CONTADO",
-        "USUARIO":1
+        "USUARIO":1,
+        "Consecutivo": 1441,
+        "vend": "0020"
     },
     {
         "id":2,
@@ -15,7 +17,9 @@
         "VLR/NETO":"10,000",
         "SALDO":"10,000",
         "FP":"CONTADO",
-        "USUARIO":1
+        "USUARIO":1,
+        "Consecutivo": 1441,
+        "vend": "0020"
     },
     {
         "id":3,
@@ -24,7 +28,9 @@
         "VLR/NETO":"200,000",
         "SALDO":"10,000",
         "FP":"CONTADO",
-        "USUARIO":1
+        "USUARIO":1,
+        "Consecutivo": 1441,
+        "vend": "0020"
     },
     {
         "id":4,
@@ -33,7 +39,9 @@
         "VLR/NETO":"200,000",
         "SALDO":"10,000",
         "FP":"",
-        "USUARIO":1
+        "USUARIO":1,
+        "Consecutivo": 1441,
+        "vend": "0020"
     },
     {
         "id":5,
@@ -42,7 +50,9 @@
         "VLR/NETO":"200,000",
         "SALDO":"10,000",
         "FP":"CONTADO",
-        "USUARIO":1
+        "USUARIO":1,
+        "Consecutivo": 1441,
+        "vend": "0020"
     },
     {
         "id":6,
@@ -51,7 +61,9 @@
         "VLR/NETO":"40,000",
         "SALDO":"10,000",
         "FP":"CONTADO",
-        "USUARIO":1
+        "USUARIO":1,
+        "Consecutivo": 1441,
+        "vend": "0020"
     },
     {
         "id":7,
@@ -60,6 +72,8 @@
         "VLR/NETO":"10,000",
         "SALDO":"0",
         "FP":"CONTADO",
-        "USUARIO":1
+        "USUARIO":1,
+        "Consecutivo": 1441,
+        "vend": "0020"
     }
 ]

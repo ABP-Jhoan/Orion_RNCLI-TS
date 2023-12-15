@@ -52,8 +52,8 @@ export function MainStack(){
                 <Stack.Screen name="Inventory" component={ListView}/>
                 <Stack.Screen name="Loader" component={LogView}/>
                 <Stack.Screen name="Instructions" component={InstructionsView}/>
-                <Stack.Screen name="Busqueda de Clientes" component={BusquedaView}/>
-                <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:0}}/>
+                <Stack.Screen name="Busqueda de Clientes" component={BusquedaView} initialParams={{codigo:null}}/>
+                <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:null}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

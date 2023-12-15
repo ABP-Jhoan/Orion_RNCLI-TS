@@ -8,7 +8,7 @@ interface ButtonInstructionItemProps{
     iconName : keyof typeof iconMap
     buttonColor: string
     text : string
-    btnFunc : (text : string) => void
+    btnFunc : () => void
 }
 
 export const ButtonInstructionItem : React.FC<ButtonInstructionItemProps> = ({iconName, buttonColor, text, btnFunc}) => {

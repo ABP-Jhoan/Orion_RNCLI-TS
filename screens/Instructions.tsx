@@ -33,7 +33,7 @@ export const InstructionsView : React.FC = () => {
         setModal(false)
     }
     function saludar(){
-        navigation.navigate("Busqueda de Clientes")
+        navigation.navigate("Busqueda de Clientes", {codigo})
     }
     const modalElements = [
         <CommonInput key={0} textValue={codigo.CommonInput} placeholder='Código' changeFunc={changeCodigo}/>,

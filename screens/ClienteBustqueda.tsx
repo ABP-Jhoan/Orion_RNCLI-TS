@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import { View, ScrollView, Text, StyleSheet, KeyboardAvoidingView} from "react-native";
+import React,{useEffect, useState} from "react";
+import { View, ScrollView, Text, StyleSheet, KeyboardAvoidingView, Alert} from "react-native";
 import { MoveUp } from "lucide-react-native";
 import { useStyles } from "../config/GlobalStyles";
 import { CommonInput } from "../components/inputs/Commoninput";
@@ -8,6 +8,7 @@ import { ClientItem } from "../components/listItems/ClientItem";
 import data from '../data/clientes.json'
 import { ModalAlert } from "../components/modals/ModalAlert";
 import { CounterFooter } from "../components/Footers/DataCounter";
+import { useRoute } from "@react-navigation/native";
 
 interface HeaderProp {
     dataState?: [] | null;
@@ -37,9 +38,11 @@ const Header: React.FC<HeaderProp> = ({ dataState }) => {
   
 export const BusquedaView: React.FC = () => {
     const themeStyles = useStyles();
+    const route : any = useRoute()
+    let clientCode = route.params?.codigo
 
     const [modal, setModal] = useState(false);
-    const [filteredClients, setFilteredClients] = useState(null);
+    const [filteredClients, setFilteredClients] = useState(null || Object);
     const [renderList, setRenderList] = useState(false);
   
     const [socialApellido, setSocialApellido] = useState({ CommonInput: '' });
@@ -48,14 +51,25 @@ export const BusquedaView: React.FC = () => {
     function handlesocialApellido(text: string) {
       setSocialApellido({ CommonInput: text });
     }
-  
     function handleContacto(text: string) {
       setContacto({ CommonInput: text });
     }
-  
     function handleIdentificacion(text: string) {
       setIdentificacion({ CommonInput: text });
     }
+
+    //? Si se ingresó un código al pulsar el botón del modal, se hará la búsqueda y mostrará el resultado.
+    useEffect(() => {        
+        if (clientCode.CommonInput !== "") {
+            const filteredData = data.filter((item) => {
+                return item.id === parseInt(clientCode.CommonInput);
+            });
+    
+            setFilteredClients(filteredData);
+            setRenderList(true);
+        }
+    }, [clientCode]);
+    
   
     function buscarCliente() {
         let social = socialApellido.CommonInput.toLowerCase();
@@ -92,7 +106,7 @@ export const BusquedaView: React.FC = () => {
         return (
           <View style={{flex: 1}}>
             <ScrollView>
-                {filteredClients.map((item) => (
+                {filteredClients.map((item : any) => (
                 <ClientItem
                     key={item.id}
                     id={item.id}
@@ -133,11 +147,11 @@ export const BusquedaView: React.FC = () => {
             {resultados()}
             {modal && (
                 <ModalAlert
-                show={modal}
-                hide={cerrarModal}
-                type="Warning"
-                message="Por favor digite un valor válido en alguno de los campos de búsqueda."
-                title="Error de búsqueda"
+                    show={modal}
+                    hide={cerrarModal}
+                    type="Warning"
+                    message="Por favor digite un valor válido en alguno de los campos de búsqueda."
+                    title="Error de búsqueda"
                 />
             )}
             <FloatFunctionButton iconName="Search2" buttonColor="#5fb2f9" btnFunc={buscarCliente}/>

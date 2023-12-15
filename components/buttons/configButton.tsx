@@ -51,12 +51,6 @@ const styles = StyleSheet.create({
     Pricipal:{
         backgroundColor: '#215877',
     },
-    Add:{
-        backgroundColor: '#5fb85f',
-    },
-    Cancel:{
-        backgroundColor: '#d85350',
-    },
     btnText:{
         textAlign: 'center',
         fontSize: 20,
