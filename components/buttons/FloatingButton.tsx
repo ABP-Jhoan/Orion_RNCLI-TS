@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native'
 interface FloatActionButtonProps{
   iconName: keyof typeof iconMap
   btnText: string
-  btnFunc?: (text:string) => void
+  btnFunc?: () => void
   color?: string
 }
 

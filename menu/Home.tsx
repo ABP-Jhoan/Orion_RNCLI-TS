@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, StyleSheet } from "react-native"
 import { NavIconButton } from "../components/buttons/NavButtons"
 import { useStyles } from "../config/GlobalStyles"
 
@@ -19,6 +19,6 @@ export const Home: React.FC = () => {
 
 const styles = StyleSheet.create({
     container:{
-        height: 865,
+        flex: 1
     }
 })

@@ -20,6 +20,7 @@ export const InstructionsView : React.FC = () => {
     const [codigo, setCodigo] = useState({CommonInput:''})
     const [cliente, setCliente] = useState({CommonInput:'CLIENTE'})
     const [mostrar, setMostrar] = useState(filtros[1])
+    const [days, setDays] = useState(false)
     function changeCodigo(text:string) {
         setCodigo({...codigo, CommonInput:text})
     }
@@ -35,16 +36,24 @@ export const InstructionsView : React.FC = () => {
     function saludar(){
         navigation.navigate("Busqueda de Clientes", {codigo})
     }
+
+    function rangoALV(text : string){
+        if (text === "TODO") {
+            setDays(!days)
+            cerrarModal()
+        }
+    }
     const modalElements = [
         <CommonInput key={0} textValue={codigo.CommonInput} placeholder='Código' changeFunc={changeCodigo}/>,
         <CommonInput key={1} textValue={cliente.CommonInput} placeholder='Cliente' changeFunc={changeClient}/>,
-        <LabeledSelector key={2} label='Mostrar' data={filtros} defaultVal={mostrar}/>
+        <LabeledSelector key={2} label='Mostrar' data={filtros} defaultVal={mostrar} onSelect={rangoALV}/>
     ]
     return(
         <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
             <Text style={[Styles.viewTitle, {color: themeStyles.resaltadoSecundario}]}>Instrucciones</Text>
             <ButtonInstructionItem text="Instrucción con botón" iconName="Filter" buttonColor="#005494" btnFunc={verModal}/>
             <CommonInstructionItem text="Instrucción 1"/>
+            {days ? <Text>Hola</Text> : null}
             <ModalForm show={modal} hide={cerrarModal} childrens={modalElements} modalTitle="Filtros" btnFunc={saludar}/>
         </View>
     )

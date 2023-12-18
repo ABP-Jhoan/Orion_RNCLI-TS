@@ -1,7 +1,7 @@
 // Importaciones propias de React Native y librerías.
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { TransitionSpecs, createStackNavigator } from '@react-navigation/stack';
 // Componentes para crear las rutas (Solo las vistas, no los componentes dentro de ellas).
 import { LoginForm } from '../login/Login';
 import { DrawNavigation } from "./DrawerNavigation";
@@ -14,6 +14,7 @@ import { useStyles } from "../config/GlobalStyles";
 import { InstructionsView } from "../screens/Instructions";
 import { BusquedaView } from "../screens/ClienteBustqueda";
 import { ClientView } from "../screens/ClientScreen";
+import { opacity } from "react-native-reanimated/lib/typescript/reanimated2/Colors";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -28,7 +29,8 @@ export function MainStack(){
                 screenOptions = {({route}) => ({
                     headerShown: route.name == 'Login' || route.name == 'Something' ? false : true,
                     headerTintColor: '#fff',
-                    headerStyle: {backgroundColor: themeStyles.secondaryColor, height: 70}
+                    headerStyle: {backgroundColor: themeStyles.secondaryColor, height: 70},
+                    cardStyleInterpolator: ({current}) => ({cardStyle: {opacity: current.progress}})
                 })}
             >
                 {/*
@@ -46,14 +48,16 @@ export function MainStack(){
                     </Stack.Screen>
                 )}
                 {/*//? Rutas de la navegación principal.*/}
-                <Stack.Screen name="PieChart" component={TestPage}/>
+                <Stack.Screen name="PieChart" component={TestPage} options={{transitionSpec:{open: TransitionSpecs.RevealFromBottomAndroidSpec, close:TransitionSpecs.FadeOutToBottomAndroidSpec}}}/>
                 <Stack.Screen name="AriaChart" component={TestPageTwo}/>
                 <Stack.Screen name="SwapButtons" component={SwapView}/>
                 <Stack.Screen name="Inventory" component={ListView}/>
                 <Stack.Screen name="Loader" component={LogView}/>
-                <Stack.Screen name="Instructions" component={InstructionsView}/>
-                <Stack.Screen name="Busqueda de Clientes" component={BusquedaView} initialParams={{codigo:null}}/>
-                <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:null}}/>
+                <Stack.Group>
+                    <Stack.Screen name="Instructions" component={InstructionsView}/>
+                    <Stack.Screen name="Busqueda de Clientes" component={BusquedaView} initialParams={{codigo:null}}/>
+                    <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:null}}/>
+                </Stack.Group>
             </Stack.Navigator>
         </NavigationContainer>
     )
