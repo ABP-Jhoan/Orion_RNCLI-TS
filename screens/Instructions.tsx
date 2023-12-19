@@ -39,8 +39,11 @@ export const InstructionsView : React.FC = () => {
 
     function rangoALV(text : string){
         if (text === "TODO") {
-            setDays(!days)
+            setDays(true)
             cerrarModal()
+        }
+        else{
+            setDays(false)
         }
     }
     const modalElements = [
