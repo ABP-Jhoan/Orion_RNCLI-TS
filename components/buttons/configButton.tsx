@@ -10,7 +10,7 @@ const btnTypes = {
 interface buttonProps{
     btnText: string
     btnClass: keyof typeof btnTypes
-    btnFunc: (text:string) => void
+    btnFunc: () => void
 }
 
 export const ConfButton : React.FC<buttonProps> = ({btnText, btnClass, btnFunc}) => {

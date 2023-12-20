@@ -1,20 +1,23 @@
 import {StyleSheet, View, Text} from 'react-native'
 import { Select, SelectTrigger, SelectInput, SelectPortal, SelectBackdrop, SelectContent, SelectDragIndicatorWrapper, SelectDragIndicator, SelectItem, SelectIcon, Icon, ChevronDownIcon } from '@gluestack-ui/themed';
+import { useAppSelector } from '../../config/Redux/hooks';
 
 interface LabeledSelectorProps{
     label : string
+    placeholder?: string
     defaultVal? : string
     data : string[]
-    onSelect? : (text: string) => void
+    onSelect? : (text : string) => void
 }
 
-export const LabeledSelector : React.FC<LabeledSelectorProps> = ({label, defaultVal = '', data, onSelect}) => {
+export const LabeledSelector : React.FC<LabeledSelectorProps> = ({label, placeholder = 'Elija una opción', defaultVal = '', data, onSelect}) => {
+    const theme = useAppSelector((state) => state.theme.theme)
     return(
         <View style={{marginTop: 15}}>
-            <Text>{label}</Text>
+            <Text style={{color: theme ? '#000' : '#fff'}}>{label}</Text>
             <Select style={styles.selector} onValueChange={onSelect} defaultValue={defaultVal}>
                 <SelectTrigger style={styles.trigger}>
-                <SelectInput placeholder="Seleccione una opción" />
+                <SelectInput placeholder={placeholder} style={{color: '#8f8f8f'}}/>
                     <SelectIcon mr="$3">
                         <Icon as={ChevronDownIcon} />
                     </SelectIcon>
