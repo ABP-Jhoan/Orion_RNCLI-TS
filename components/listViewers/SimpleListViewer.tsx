@@ -7,7 +7,7 @@ interface SimpleListViewProps{
   listados : any
   total : any
   children : any
-  scroll : (text:string) => void
+  scroll : () => void
 }
 
 export const InventoryView: React.FC<SimpleListViewProps> = ({children, listados, total, scroll}) => {

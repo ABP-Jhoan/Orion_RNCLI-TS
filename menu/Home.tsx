@@ -13,6 +13,7 @@ export const Home: React.FC = () => {
             <NavIconButton iconName='Search' btnText='Swipe buttons' backGroundColor='#00853c' route='SwapButtons'/>
             <NavIconButton iconName='List' btnText='Inventory' backGroundColor='#00553d' route='Inventory'/>
             <NavIconButton iconName='Log' btnText='Log Eventos' backGroundColor='#00153d' route='Loader'/>
+            <NavIconButton iconName='Danger' btnText='Filters' backGroundColor='#00153d' route='Filtros'/>            
         </View>
     )
 }

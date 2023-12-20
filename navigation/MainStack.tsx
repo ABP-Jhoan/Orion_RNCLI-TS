@@ -14,7 +14,7 @@ import { useStyles } from "../config/GlobalStyles";
 import { InstructionsView } from "../screens/Instructions";
 import { BusquedaView } from "../screens/ClienteBustqueda";
 import { ClientView } from "../screens/ClientScreen";
-import { opacity } from "react-native-reanimated/lib/typescript/reanimated2/Colors";
+import { FilterView } from "../screens/Filter";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -58,6 +58,7 @@ export function MainStack(){
                     <Stack.Screen name="Busqueda de Clientes" component={BusquedaView} initialParams={{codigo:null}}/>
                     <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:null}}/>
                 </Stack.Group>
+                <Stack.Screen name="Filtros" component={FilterView}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
