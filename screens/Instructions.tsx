@@ -57,7 +57,7 @@ export const InstructionsView : React.FC = () => {
             <ButtonInstructionItem text="Instrucción con botón" iconName="Filter" buttonColor="#005494" btnFunc={verModal}/>
             <CommonInstructionItem text="Instrucción 1"/>
             {days ? <Text>Hola</Text> : null}
-            <ModalForm show={modal} hide={cerrarModal} childrens={modalElements} modalTitle="Filtros" btnFunc={saludar}/>
+            <ModalForm show={modal} hide={cerrarModal} childrens={modalElements} modalTitle="Filtros" btnFunc={saludar} filterButton={true}/>
         </View>
     )
 }

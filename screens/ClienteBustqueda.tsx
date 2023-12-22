@@ -8,7 +8,8 @@ import { ClientItem } from "../components/listItems/ClientItem";
 import data from '../data/clientes.json'
 import { ModalAlert } from "../components/modals/ModalAlert";
 import { CounterFooter } from "../components/Footers/DataCounter";
-import { useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native"
+import DotLoader from "../components/loaders/Loaders";
 
 interface HeaderProp {
     dataState?: [] | null;
@@ -37,6 +38,8 @@ const Header: React.FC<HeaderProp> = ({ dataState }) => {
 };
   
 export const BusquedaView: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(true)
+
     const themeStyles = useStyles();
     const route : any = useRoute()
     let clientCode = route.params?.codigo
@@ -59,7 +62,8 @@ export const BusquedaView: React.FC = () => {
     }
 
     //? Si se ingresó un código al pulsar el botón del modal, se hará la búsqueda y mostrará el resultado.
-    useEffect(() => {        
+    useEffect(() => {
+        setIsLoading(false)
         if (clientCode.CommonInput !== "") {
             const filteredData = data.filter((item) => {
                 return item.id === parseInt(clientCode.CommonInput);
@@ -141,6 +145,7 @@ export const BusquedaView: React.FC = () => {
     }
   
     return (
+        isLoading ? <DotLoader/> :(
         <KeyboardAvoidingView style={[Styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
             {renderFilters()}
             <Header dataState={filteredClients}/>
@@ -155,7 +160,7 @@ export const BusquedaView: React.FC = () => {
                 />
             )}
             <FloatFunctionButton iconName="Search2" buttonColor="#5fb2f9" btnFunc={buscarCliente}/>
-        </KeyboardAvoidingView>
+        </KeyboardAvoidingView>)
     );
 };
   

@@ -37,7 +37,6 @@ export const LoginForm: React.FC<LoginProps> = ({setIsLoggedIn}) => {
                     email,
                     password
                 })
-                console.log(response.data.access_token)
                 showToast('Inicio de sesión exitoso')
                 setIsLoggedIn(true);
             } catch (error) {

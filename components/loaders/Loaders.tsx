@@ -55,11 +55,9 @@ const DotLoader = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
-    width: '100%',
-    alignItems: 'center',
-    position: 'relative',
-    top: '50%',
+    flex: 1.,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   dots: {
     flexDirection: 'row',

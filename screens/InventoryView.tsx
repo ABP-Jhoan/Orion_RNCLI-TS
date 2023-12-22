@@ -1,5 +1,5 @@
-import React, { lazy, useCallback } from 'react'
-import { View } from 'react-native'
+import React, { lazy } from 'react'
+import { View, Text } from 'react-native'
 import data from '../data/inventario.json'
 import { InventoryView } from '../components/listViewers/SimpleListViewer'
 import { usePagination } from '../components/listViewers/logic'
@@ -9,6 +9,19 @@ import ReloadButton from '../components/buttons/Reload'
 
 //? Componente que será importado de manera diferida.
 const SimpleListItem = lazy(() => import('../components/listItems/SimpleListAlert'))
+
+interface SomeElementProps{
+  Name : string
+  Group : string
+}
+const SomeElement : React.FC<SomeElementProps> = ({Name, Group}) => {
+  return(
+    <View>
+      <Text>{Name}</Text>
+      <Text>{Group}</Text>
+    </View>
+  )
+}
 
 export const ListView: React.FC = () => {
   const route = useRoute()

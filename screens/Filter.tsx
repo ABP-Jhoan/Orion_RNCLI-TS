@@ -35,22 +35,35 @@ const FilterButton : React.FC<FilterButtonProps> = ({btnType, children, isEnable
 }
 
 export const FilterView: React.FC = () => {
+    //TODO: 1. Seleccionar un filtro y se agregue al array de filtros en uso.
+    //TODO: 2. En otro selector, se deberá recorrer el array de filtros en uso:
+    //      SI el filtro está en uso, lanzar una alerta e impedir el cambio de filtro.
+    //TODO: 3. Si el valor cambia, deberá compararse con el último valor seleccionado:
+    //      SI es DIFERENTE, deberá quitar el valor anterior de los filtros en uso.
+
     const themeStyles = useStyles();
     const [filtros, setFiltros] = useState(1)
     const [enable, setEnable] = useState(true)
-
-    //TODO: Agregar las opciones por un objeto y cambiar su disponibilidad dinámicamente para evitar repeticiones.
-
+    const [usingFilters, setUsingFilters] = useState<string[]>([])
+    const enableFilters : string[] = ["TODOS", "ARTÍCULO", "CÓDIGO", "REFERENCIA"]
+    
     function selectedFilter(selection : string) {
         if (selection == "TODOS") {
             setEnable(false)
             setFiltros(1)
         }
         else{setEnable(true)}
+        
     }
 
     const filtrosComponents = Array.from({ length: filtros }, (_, index) => (
-        <LabeledSelector key={index} label={`CONDICIÓN ${index + 1}`} data={["TODOS", "OTROS"]} placeholder="ELIJA FILTRO" onSelect={selectedFilter}/>
+        <LabeledSelector
+            key={index}
+            label={`CONDICIÓN ${index + 1}`}
+            data={enableFilters}
+            placeholder="ELIJA FILTRO"
+            onSelect={selectedFilter}
+        />
     ));
 
 

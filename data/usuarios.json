@@ -1,20 +1,122 @@
 [
     {
-        "id":1,
-        "name":"ORION",
-        "role":"Super Administrador",
-        "status":"ACTIVO"
+      "id": 1,
+      "name": "ORION",
+      "role": "Engineer",
+      "status": "ACTIVO"
     },
     {
-        "id":2,
-        "name":"Jhoan",
-        "role":"Administrador",
-        "status":"ACTIVO"
+      "id": 2,
+      "name": "Sarah",
+      "role": "Scientist",
+      "status": "ACTIVO"
     },
     {
-        "id":3,
-        "name":"Carlos",
-        "role":"Vendedor Movil",
-        "status":"INACTIVO"
+      "id": 3,
+      "name": "Michael",
+      "role": "Researcher",
+      "status": "INACTIVO"
+    },
+    {
+      "id": 4,
+      "name": "Emily",
+      "role": "Designer",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 5,
+      "name": "David",
+      "role": "Programmer",
+      "status": "INACTIVO"
+    },
+    {
+      "id": 6,
+      "name": "Jessica",
+      "role": "Analyst",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 7,
+      "name": "Andrew",
+      "role": "Manager",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 8,
+      "name": "Olivia",
+      "role": "Developer",
+      "status": "INACTIVO"
+    },
+    {
+      "id": 9,
+      "name": "Daniel",
+      "role": "Engineer",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 10,
+      "name": "Sophia",
+      "role": "Scientist",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 11,
+      "name": "Matthew",
+      "role": "Researcher",
+      "status": "INACTIVO"
+    },
+    {
+      "id": 12,
+      "name": "Ava",
+      "role": "Designer",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 13,
+      "name": "Jacob",
+      "role": "Programmer",
+      "status": "INACTIVO"
+    },
+    {
+      "id": 14,
+      "name": "Emma",
+      "role": "Analyst",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 15,
+      "name": "Benjamin",
+      "role": "Manager",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 16,
+      "name": "Mia",
+      "role": "Developer",
+      "status": "INACTIVO"
+    },
+    {
+      "id": 17,
+      "name": "William",
+      "role": "Engineer",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 18,
+      "name": "Charlotte",
+      "role": "Scientist",
+      "status": "ACTIVO"
+    },
+    {
+      "id": 19,
+      "name": "James",
+      "role": "Researcher",
+      "status": "INACTIVO"
+    },
+    {
+      "id": 20,
+      "name": "Amelia",
+      "role": "Designer",
+      "status": "ACTIVO"
     }
-]
+  ]

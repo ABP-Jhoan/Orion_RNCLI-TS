@@ -3,9 +3,9 @@ import {TextInput, StyleSheet} from 'react-native'
 import { useAppSelector } from '../../config/Redux/hooks'
 
 interface CommonInputProps{
-    textValue?: string
+    textValue: string
     placeholder? : string
-    changeFunc? : (text: string) => void
+    changeFunc : (text: string) => void
 }
 
 export const CommonInput : React.FC<CommonInputProps> = ({textValue, placeholder, changeFunc}) => {

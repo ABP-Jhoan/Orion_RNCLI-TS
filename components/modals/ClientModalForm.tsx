@@ -18,9 +18,10 @@ interface ClientModalFormProps{
   btnFunc? : () => void
   show : boolean
   hide : () => void
+  filterButton? : boolean
 }
 
-export const ModalForm : React.FC<ClientModalFormProps> = ({show, hide, modalTitle, childrens, btnFunc}) => {
+export const ModalForm : React.FC<ClientModalFormProps> = ({show, hide, modalTitle, childrens, btnFunc, filterButton}) => {
     return(
         <AlertDialog
             isOpen={show}
@@ -39,6 +40,7 @@ export const ModalForm : React.FC<ClientModalFormProps> = ({show, hide, modalTit
             </View>
           </AlertDialogBody>
           <AlertDialogFooter borderTopWidth="$0">
+            {filterButton ? 
             <Button
               style={{borderRadius: 5, backgroundColor: '#215877'}}
               size="md"
@@ -49,7 +51,8 @@ export const ModalForm : React.FC<ClientModalFormProps> = ({show, hide, modalTit
               }}
             >
               <ButtonText>Aplicar filtros</ButtonText>
-            </Button>
+            </Button> : null
+            }
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
