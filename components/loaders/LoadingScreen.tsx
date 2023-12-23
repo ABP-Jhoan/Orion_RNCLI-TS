@@ -14,7 +14,7 @@ export const LoaderView : React.FC = () => {
             .then((response) => {setData(response.data)})
             .catch((error) => console.log(error))
             .finally(() => setIsLoading(false))
-    })
+    },[])
     const currentlyVisibleComponents = data.slice(0, visibleItems).map((item) => (
         <View style={Styles.cont} key={item.id}>
             <Text>{item.title}</Text>

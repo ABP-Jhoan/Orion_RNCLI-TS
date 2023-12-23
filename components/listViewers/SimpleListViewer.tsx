@@ -19,9 +19,7 @@ export const InventoryView: React.FC<SimpleListViewProps> = ({children, listados
             onScroll={scroll}
             scrollEventThrottle={16}
         >
-          <Suspense fallback={<LoaderView />}>
-              {children}
-          </Suspense>
+        {children}
         </ScrollView>
         <View style={[styles.footerContainer, {backgroundColor: themeStyles.secondaryColor}]}>
             <Text style={styles.infoText}>Total registros: {listados}/{total}</Text>

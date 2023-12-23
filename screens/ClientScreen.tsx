@@ -40,9 +40,9 @@ export const ClientView : React.FC = () => {
     return(
         <View style={[Styles.viewContainer,{backgroundColor: themeStyles.backgroundColor}]}>
             <View style={Styles.graphContainer}>
-                <Text>Cliente: {datos?.nombre}</Text>
-                <Text>Número: {datos?.telf}</Text>
-                <NavIconButton btnText="Ver resumen detallado" iconName="Search2" btnType="Visual" route=""/>
+                <Text style={{color: themeStyles.fontColor}}>Cliente: {datos?.nombre}</Text>
+                <Text style={{color: themeStyles.fontColor}}>Número: {datos?.telf}</Text>
+                <NavIconButton btnText="Ver resumen detallado" iconName="Search2" btnType="Visual" route={"Resumen Detalle Cliente"}/>
             </View>
             <ScrollView>
                 <SliderDefault color="#009e1a"/>

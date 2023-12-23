@@ -16,6 +16,7 @@ import { BusquedaView } from "../screens/ClienteBustqueda";
 import { ClientView } from "../screens/ClientScreen";
 import { FilterView } from "../screens/Filter";
 import { Vista } from "../screens/LoadView";
+import { DetalleClient } from "../screens/Detalles/DetalleResumenCliente";
 
 //? Creando la pila de direcciones.
 const Stack = createStackNavigator();
@@ -58,6 +59,7 @@ export function MainStack(){
                     <Stack.Screen name="Instructions" component={InstructionsView}/>
                     <Stack.Screen name="Busqueda de Clientes" component={BusquedaView} initialParams={{codigo:null}}/>
                     <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:null}}/>
+                    <Stack.Screen name="Resumen Detalle Cliente" component={DetalleClient} initialParams={{id:null}}/>
                 </Stack.Group>
                 <Stack.Screen name="Filtros" component={FilterView}/>
                 <Stack.Screen name="Loader" component={Vista}/>
