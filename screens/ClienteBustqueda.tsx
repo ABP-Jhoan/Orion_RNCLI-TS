@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { View, ScrollView, Text, StyleSheet, KeyboardAvoidingView, Alert} from "react-native";
+import { View, ScrollView, Text, StyleSheet, KeyboardAvoidingView} from "react-native";
 import { MoveUp } from "lucide-react-native";
 import { useStyles } from "../config/GlobalStyles";
 import { CommonInput } from "../components/inputs/Commoninput";
@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProp> = ({ dataState }) => {
     } else if (dataState?.length === 0) {
         return (
         <View style={{ padding: 20, justifyContent: "center", alignItems: "center" }}>
-            <Text style={{ color: themeStyles.fontColor }}>NO existe datos con los FILTROS APLICADOS.</Text>
+            <Text style={{ color: themeStyles.fontColor }}>NO existen datos con los FILTROS APLICADOS.</Text>
         </View>
         );
     } else {
@@ -38,16 +38,19 @@ const Header: React.FC<HeaderProp> = ({ dataState }) => {
 };
   
 export const BusquedaView: React.FC = () => {
+    //? Manejo del estado de carga
     const [isLoading, setIsLoading] = useState(true)
 
+    //? Constantes de estilos globales, rutas y parámetro de ruta si se ingresó un código.
     const themeStyles = useStyles();
     const route : any = useRoute()
     let clientCode = route.params?.codigo
 
+    //? Estado del modal y filtros.
     const [modal, setModal] = useState(false);
     const [filteredClients, setFilteredClients] = useState(null || Object);
-    const [renderList, setRenderList] = useState(false);
-  
+
+    //? Estados para elmanejo de inputs.
     const [socialApellido, setSocialApellido] = useState({ CommonInput: '' });
     const [contacto, setContacto] = useState({ CommonInput: '' });
     const [identificacion, setIdentificacion] = useState({ CommonInput: '' });
@@ -70,17 +73,17 @@ export const BusquedaView: React.FC = () => {
             });
     
             setFilteredClients(filteredData);
-            setRenderList(true);
         }
     }, [clientCode]);
     
-  
+    //? Función para buscar los clientes a través de un filtrado del array que los contiene.
     function buscarCliente() {
         let social = socialApellido.CommonInput.toLowerCase();
         let contact = contacto.CommonInput.toLowerCase();
         let identi = identificacion.CommonInput.toLowerCase();
 
-        if (social === '' && contact === '' && identi === '') {
+        //? Manejo de los campos vacíons.
+        if (filteredClients == null && social === '' && contact === '' && identi === '') {
             setModal(true);
             return;
         }
@@ -96,9 +99,11 @@ export const BusquedaView: React.FC = () => {
                 (identi !== '' && (identification.includes(identi)))
             );
         });
+        setFilteredClients(filteredData)
 
-        setFilteredClients(filteredData);
-        setRenderList(true);
+        if (filteredClients?.length > 0) {
+            setFilteredClients(null)
+        }
     }
   
     function cerrarModal() {
@@ -117,7 +122,7 @@ export const BusquedaView: React.FC = () => {
                     clientName={item.nombre}
                     telf={item.telf}
                     backGroundColor="#fff"
-                    route="Resumen Cliente"
+                    route={"Resumen Cliente"}
                 />
                 ))}
             </ScrollView>
@@ -130,7 +135,7 @@ export const BusquedaView: React.FC = () => {
     }
     
     function renderFilters() {
-        if (filteredClients?.length == null) {
+        if (!filteredClients?.length) {
             return(
                 <View style={{padding: 15}}>
                     <CommonInput textValue={socialApellido.CommonInput} placeholder="Razón Social/Apellido" changeFunc={handlesocialApellido} />

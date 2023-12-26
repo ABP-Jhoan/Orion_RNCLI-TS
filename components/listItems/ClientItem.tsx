@@ -15,7 +15,7 @@ export const ClientItem : React.FC<ClientItemProps> = ({id, clientName = "Defaul
     const themeStyles = useStyles()
     const navigate = useNavigation()
     return(
-        <TouchableOpacity style={styles.container} onPress={() => navigate.navigate(route, {id: id})}>
+        <TouchableOpacity style={styles.container} onPress={() => navigate.navigate(route, {clientId: id})}>
             <View style={[styles.iconContainer, {backgroundColor: backGroundColor}]}>
                 <Text style={{color: themeStyles.resaltadoPrincipal}}>{id}</Text>
             </View>

@@ -35,6 +35,7 @@ export const InstructionsView : React.FC = () => {
     }
     function saludar(){
         navigation.navigate("Busqueda de Clientes", {codigo})
+        setCodigo({CommonInput:''})
     }
 
     function rangoALV(text : string){

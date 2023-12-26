@@ -15,6 +15,7 @@ interface FunctionalIconButtonProps{
     btnFunc? : () => void
 }
 interface NavIconButtonProps{
+    id? : number
     btnText : string
     iconName : keyof typeof iconMap
     btnType? : keyof typeof btnTypes
@@ -38,7 +39,7 @@ export const FunctionalIconButton : React.FC<FunctionalIconButtonProps> = ({btnT
     )
 }
 
-export const NavIconButton : React.FC<NavIconButtonProps> = ({btnText = 'Default', btnType, iconName = 'def', route}) => {
+export const NavIconButton : React.FC<NavIconButtonProps> = ({id, btnText = 'Default', btnType, iconName = 'def', route}) => {
     const navigation = useNavigation()
     const Icon = iconMap[iconName]
     let backType = "#fff"
@@ -49,7 +50,7 @@ export const NavIconButton : React.FC<NavIconButtonProps> = ({btnText = 'Default
         backType = "#5fb2f9"
     }
     return(
-        <TouchableOpacity style={[Styles.container, {backgroundColor: backType}]} onPress={() => navigation.navigate(route)}>
+        <TouchableOpacity style={[Styles.container, {backgroundColor: backType}]} onPress={() => navigation.navigate(route, {clientId: id})}>
             <Icon color="#fff" size={30}/>
             <Text style={Styles.buttonText}>{btnText}</Text>
         </TouchableOpacity>

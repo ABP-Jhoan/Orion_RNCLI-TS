@@ -57,9 +57,9 @@ export function MainStack(){
                 <Stack.Screen name="Log de eventos" component={LogView}/>
                 <Stack.Group>
                     <Stack.Screen name="Instructions" component={InstructionsView}/>
-                    <Stack.Screen name="Busqueda de Clientes" component={BusquedaView} initialParams={{codigo:null}}/>
-                    <Stack.Screen name="Resumen Cliente" component={ClientView} initialParams={{id:null}}/>
-                    <Stack.Screen name="Resumen Detalle Cliente" component={DetalleClient} initialParams={{id:null}}/>
+                    <Stack.Screen name="Busqueda de Clientes" component={BusquedaView}/>
+                    <Stack.Screen name="Resumen Cliente" component={ClientView}/>
+                    <Stack.Screen name="Resumen Detalle Cliente" component={DetalleClient}/>
                 </Stack.Group>
                 <Stack.Screen name="Filtros" component={FilterView}/>
                 <Stack.Screen name="Loader" component={Vista}/>
