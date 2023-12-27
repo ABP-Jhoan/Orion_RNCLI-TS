@@ -16,9 +16,8 @@ interface SliderDefaultProps{
 }
 
 const SliderDefault : React.FC<SliderDefaultProps> = ({title, color, value, max}) => {
-    //TODO: MEJORAR EL DECIMAL DEL PROMEDIO PARA MAYOR EXACTITUD.
     const themeStyles : any = useStyles()
-    let promedio : number = (value * 100) / max
+    let promedio : number = (value / max) * 100
     const formatNumber : string = new Intl.NumberFormat().format(value)
     return(
         <View style={Styles.sliderContainer}>
@@ -28,7 +27,7 @@ const SliderDefault : React.FC<SliderDefaultProps> = ({title, color, value, max}
             <View style={Styles.contentContainer}>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <Text style={{color: themeStyles.fontColor}}>{title}</Text>
-                    <Text style={{color: color}}>{promedio.toFixed(1)} %</Text>
+                    <Text style={{color: color}}>{promedio.toFixed(2)} %</Text>
                 </View>
                 <Text style={{color: themeStyles.fontColor}}>{formatNumber}</Text>
                 <Progress value={promedio} style={{marginTop: 20}}>
@@ -45,9 +44,9 @@ export const ClientView : React.FC = () => {
     const {clientId} = route.params
     const datos : {id: number, nombre: string, telf: number, total: number, ventas: number, desc: number, iva: number} = data.find((item) => item.id === clientId)
     
-    const ventas : number = (datos?.ventas * 100) / datos?.total
-    const desc : number = (datos?.desc * 100) / datos?.total
-    const iva : number = (datos?.iva * 100) / datos?.total
+    const ventas : number = (datos?.ventas / datos?.total) * 100
+    const desc : number = (datos?.desc / datos?.total) * 100
+    const iva : number = (datos?.iva / datos?.total) * 100
 
     const chartData = [
         {value: ventas, color: '#5fb85f', text: `${ventas.toFixed(1)}%`},

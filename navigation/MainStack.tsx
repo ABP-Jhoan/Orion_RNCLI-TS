@@ -52,7 +52,9 @@ export function MainStack(){
                 {/*//? Rutas de la navegación principal.*/}
                 <Stack.Screen name="PieChart" component={TestPage} options={{transitionSpec:{open: TransitionSpecs.RevealFromBottomAndroidSpec, close:TransitionSpecs.FadeOutToBottomAndroidSpec}}}/>
                 <Stack.Screen name="AriaChart" component={TestPageTwo}/>
-                <Stack.Screen name="SwapButtons" component={SwapView}/>
+                <Stack.Group>
+                    <Stack.Screen name="SwapButtons" component={SwapView}/>
+                </Stack.Group>
                 <Stack.Screen name="Inventory" component={ListView}/>
                 <Stack.Screen name="Log de eventos" component={LogView}/>
                 <Stack.Group>

@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity, Switch } from 'react-native'
 import { Swipeable } from 'react-native-gesture-handler'
 import { iconMap } from '../assets/icons/Icons'
 import { ChevronLeft, ChevronRight } from 'lucide-react-native'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useStyles } from '../config/GlobalStyles'
 import { useAppSelector } from '../config/Redux/hooks'
 
@@ -22,7 +22,9 @@ interface SwipeViewButtonProps{
 }
 //? Interfaz del botón
 interface SwipeButtonProps{
-    btnText : string
+    title : string
+    secondTitle : string
+    secondaryText? : string
     actionButtons : React.ReactElement<SwipeActionButtonProps>[]
 }
 interface UserSwipeButtonProps{
@@ -78,7 +80,7 @@ export const DefaultUserActionButton : React.FC<DefaultUserActionButtonProps> = 
 }
 
 //? Botón que me lleva a otra vista.
-export const SwipeNavButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config', btnText = 'BTN', route}) => {
+export const SwipeNavButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config', btnText = 'Title', route}) => {
     const themeStyles = useStyles()
     const navigation = useNavigation()
     const Icon = iconMap[icon]
@@ -90,7 +92,7 @@ export const SwipeNavButton : React.FC<SwipeViewButtonProps> = ({icon = 'Config'
     )
 }
 
-const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
+const SwipeButton : React.FC<SwipeButtonProps> = ({title, secondTitle, secondaryText, actionButtons}) => {
     const theme = useAppSelector((state) => state.theme.theme)
     const themeStyles = useStyles()
     const swipeActionTrigger = useRef(null)
@@ -99,13 +101,22 @@ const SwipeButton : React.FC<SwipeButtonProps> = ({btnText, actionButtons}) => {
             swipeActionTrigger.current.openRight()
         }
     }
+    const iconLetter = title.split("", 1)
     return(
         <Swipeable renderRightActions={() => [actionButtons]} ref={swipeActionTrigger}>
-            <View style={[Styles.swipeButton,{ backgroundColor: themeStyles.backgroundColor}]}>
-                <Text style={{fontSize: 24, color: theme ? '#215877' : '#fff'}}>{btnText}</Text>
-                <TouchableOpacity onPress={openActions}>
-                    <ChevronRight color={theme ? '#215877' : '#fff'} size={50}/>
-                </TouchableOpacity>
+            <View style={[commonStyles.commonSwipeButton,{ backgroundColor: themeStyles.backgroundColor}]}>
+                <View style={commonStyles.iconLetterContainer}>
+                    <Text style={{color: '#215877', fontSize: 25}}>{iconLetter}</Text>
+                </View>
+                <View style={commonStyles.commonSwipeContent}>
+                    <View style={{}}>
+                        <Text style={{fontSize: 24, color: theme ? '#215877' : '#fff'}}>{title}</Text>
+                        <Text style={[{color: '#8f8f8f', fontSize: 17}]}>{secondTitle} {secondaryText}</Text>
+                    </View>
+                    <TouchableOpacity onPress={openActions}>
+                        <ChevronRight color={theme ? '#215877' : '#fff'} size={50}/>
+                    </TouchableOpacity>
+                </View>
             </View>
         </Swipeable>
     )
@@ -145,23 +156,14 @@ export const UserSwipeButton : React.FC<UserSwipeButtonProps> = ({iconName, user
 
 export const SwapView : React.FC = () => {
     const themeStyles = useStyles()
-    function something() {
-        
-    }
+    
     //? Arrays para definir los botones que se usarán dentro del componente SwipeButton.
     const array = [
-        <SwipeActionButton key={0} icon='Reports2' btnText='DETALLE' btnFunc={something}/>,
-        <SwipeActionButton key={1} icon='Home' btnText='DELETE'/>,
-        <SwipeNavButton key={2} icon='Config' btnText='WHERE' route='Home'/>
-    ]
-    const array2 = [
-        <SwipeActionButton key={0} icon='Config' btnText='CONFIG'/>,
-        <SwipeActionButton key={1} icon='Search' btnText='SEARCH' btnFunc={something}/>
+        <SwipeNavButton key={0} icon='Reports2' btnText='DETALLE' route=''/>
     ]
     return(
         <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
-            <SwipeButton btnText='Hola chato' actionButtons={array}/>
-            <UserSwipeButton user='ORION' iconName='User' role='Super administrador' status='ACTIVO' actionButtons={array2}/>
+            <SwipeButton title='ProductName' secondTitle='Código:' secondaryText='000' actionButtons={array}/>
         </View>
     )
 }
@@ -174,12 +176,11 @@ const Styles = StyleSheet.create({
     swipeButton:{
         width: '100%',
         height: 100,
-        justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 30,
         paddingVertical: 20,
         flexDirection: 'row',
-        alignContent: 'center'
+        alignContent: 'center',
     },
     actionBtn:{
         width: 80,
@@ -197,4 +198,34 @@ const Styles = StyleSheet.create({
         alignContent: 'center',
         padding: 5
     }
+})
+
+const commonStyles = StyleSheet.create({
+    commonSwipeButton:{
+        width: '100%',
+        height: 100,
+        alignItems: 'center',
+        paddingHorizontal: 10,
+        paddingVertical: 20,
+        flexDirection: 'row',
+        alignContent: 'center',
+    },
+    iconLetterContainer:{
+        backgroundColor: '#DDD',
+        height: 60,
+        width: 60,
+        borderRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    commonSwipeContent:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems:'center',
+        width: '85%',
+        marginLeft: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#8f8f8f8f',
+        paddingBottom: 10
+    },
 })

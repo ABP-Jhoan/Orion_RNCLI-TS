@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { PieChart } from "react-native-gifted-charts"
 
 interface RadialChartProps{
@@ -28,8 +28,8 @@ export const RadialChart : React.FC<RadialChartProps> = ({data = [], total = 0})
                 centerLabelComponent={() => {
                   return (
                     <View>
-                      <Text style={{color: '#000', fontSize: 18, width: '100%', textAlign: 'center'}}>Total</Text>
-                      <Text style={{color: '#000', fontSize: 16, width: '100%', textAlign: 'center'}}>{formatNumber}</Text>
+                      <Text style={[ Styles.centerLabel,{fontSize: 18}]}>Total</Text>
+                      <Text style={[ Styles.centerLabel,{fontSize: 16}]}>{formatNumber}</Text>
                     </View>
                   );
                 }}
@@ -37,3 +37,12 @@ export const RadialChart : React.FC<RadialChartProps> = ({data = [], total = 0})
         </View>
     )
 }
+
+const Styles = StyleSheet.create({
+  centerLabel: {
+    color: '#000',
+    fontSize: 18,
+    width: '100%',
+    textAlign: 'center'
+  }
+})

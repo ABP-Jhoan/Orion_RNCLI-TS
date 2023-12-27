@@ -2,37 +2,37 @@
     {
         "id":0,
         "nombre":"Jhoan Arango",
-        "telf":123456,
-        "total": 1000000,
-        "ventas": 650000,
-        "desc": 420000,
-        "iva": 16.30
+        "telf": 123456789,
+        "total": 150000,
+        "ventas": 100000,
+        "desc": 20000,
+        "iva": 30000
     },
     {
         "id":1,
         "nombre":"Angela Hernandez",
-        "telf":789012,
-        "total": 1200000,
-        "ventas": 420000,
-        "desc": 21342,
-        "iva": 16.30
+        "telf": 987654321,
+        "total": 200000,
+        "ventas": 120000,
+        "desc": 25000,
+        "iva": 55000
     },
     {
         "id":2,
         "nombre":"Luz Monsalve",
-        "telf":345678,
-        "total": 1234569,
-        "ventas": 123200,
-        "desc": 14456,
-        "iva": 16.30
+        "telf": 555555555,
+        "total": 180000,
+        "ventas": 90000,
+        "desc": 18000,
+        "iva": 72000
     },
     {
         "id":3,
         "nombre":"Jhoan Monsalve",
-        "telf":901234,
-        "total": 1929394,
-        "ventas": 123643,
-        "desc": 93822,
-        "iva": 16.30
+        "telf": 111122223,
+        "total": 250000,
+        "ventas": 150000,
+        "desc": 30000,
+        "iva": 70000
     }
 ]
