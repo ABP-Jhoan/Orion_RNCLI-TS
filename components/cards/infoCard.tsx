@@ -1,35 +1,29 @@
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native"
 import { useStyles } from "../../config/GlobalStyles"
 
 interface InfoCardProps{
     id?: number
-    nombreVendedor: string
+    titulo: string
     fecha: string
-    valor: string
-    saldo: string
-    fp: string
-    usuario: number
+    content: React.ReactElement[]
 }
 
-export const InfoCard : React.FC<InfoCardProps> = ({id, nombreVendedor, fecha, fp, saldo, usuario, valor}) => {
+export const InfoCard : React.FC<InfoCardProps> = ({id, titulo, fecha, content}) => {
     const themeStyles = useStyles()
     let day = fecha.split("/", 1)
     let monthYear = fecha.substring(3)
     return(
-        <View style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
+        <TouchableOpacity style={[Styles.container, {backgroundColor: themeStyles.backgroundColor}]}>
             <View style={Styles.dateContainer}>
                 <Text style={{textAlign: 'center',  color: themeStyles.resaltadoPrincipal}}>{day}</Text>
                 <Text style={[Styles.dateText, {color: themeStyles.fontCardColor}]}>{monthYear}</Text>
             </View>
             <View>
-                <Text style={{color: themeStyles.resaltadoPrincipal}}>{nombreVendedor}</Text>
-                <Text style={{color: themeStyles.fontCardColor}}>VLR/NETO: <Text style={{color: themeStyles.resaltadoSecundario}}>{valor}</Text></Text>
-                <Text style={{color: themeStyles.fontCardColor}}>SALDO: <Text>{saldo}</Text></Text>
-                <Text style={{color: themeStyles.fontCardColor}}>FP: {fp}</Text>
-                <Text style={{color: themeStyles.fontCardColor}}>USUARIO: {usuario}</Text>
+                <Text style={{color: themeStyles.resaltadoPrincipal}}>{titulo}</Text>
+                {content}
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

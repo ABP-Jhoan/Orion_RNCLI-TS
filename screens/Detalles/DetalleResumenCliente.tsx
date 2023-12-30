@@ -6,9 +6,9 @@ import { NavIconButton } from "../../components/buttons/IconButton"
 
 export const DetalleClient : React.FC = () => {
     const route : any = useRoute()
-    const {clientId} = route.params
+    const {clientId, details} = route.params
     const datos = data.find((item) => item.id === clientId)
-    console.log(datos)
+    console.log(JSON.stringify(details))
     
     return(
         <ScrollView>

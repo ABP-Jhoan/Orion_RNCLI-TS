@@ -59,7 +59,7 @@ export const ClientView : React.FC = () => {
             <View style={Styles.graphContainer}>
                 <RadialChart data={chartData}  total={datos?.total}/>
                 <View style={{width: 300, justifyContent:'center'}}>
-                    <NavIconButton id={datos?.id} btnText="Ver resumen detallado" iconName="Search2" btnType="Visual" route={"Resumen Detalle Cliente"}/>
+                    <NavIconButton id={datos?.id} detalles={chartData} btnText="Ver resumen detallado" iconName="Search2" btnType="Visual" route={"Resumen Detalle Cliente"}/>
                 </View>
             </View>
             <ScrollView>
