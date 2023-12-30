@@ -3,7 +3,6 @@ import { ScrollView, View, TouchableOpacity, Text, StyleSheet, Alert } from "rea
 import { Plus, Minus } from "lucide-react-native"
 import { LabeledSelector } from "../components/selectors/LabeledSelector"
 import { useStyles } from "../config/GlobalStyles"
-import { ConfButton } from "../components/buttons/configButton"
 
 const type = {add : "Add", delete : "del"} 
 interface FilterButtonProps{
@@ -40,6 +39,7 @@ export const FilterView: React.FC = () => {
     //      SI el filtro está en uso, lanzar una alerta e impedir el cambio de filtro.
     //TODO: 3. Si el valor cambia, deberá compararse con el último valor seleccionado:
     //      SI es DIFERENTE, deberá quitar el valor anterior de los filtros en uso.
+    //TODO: 4. Buscar la forma para que el componente pueda recibir cualquier array.
 
     const themeStyles = useStyles();
     const [filtros, setFiltros] = useState(1)
